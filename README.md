@@ -1,8 +1,7 @@
-# TrabPOO
-Trabalho da discplina Programação Orientada a Objetos feita pelos alunos Silvio Roberto e Tayná Cardoso Cugler.
-
 SOFTWARE PARA PRESCRIAÇÃO DE DIETAS
 Instruções do professor:
+Calculador de dieta:
+Alguns requisitos
 Cadastrar os principais alimentos
 Calcular IMC, taxa metabolica basal e composição corporal (%de massa magra e massa gorda)
 Uma dieta está sempre vinculada a uma avaliação física
@@ -14,8 +13,8 @@ Preferencias: a pessoa escolhe pelo menos 3 alimentos como fonte de carboidrato,
 Crie dietas e a refeições da dieta manualmente. (?
 Use um algoritmo para gerar os alimentos de cada refeição. Este plano alimentar deve considerar as preferências da pessoa prioritariamente.
 Gerar o plano alimentar manualmente ou através de um algoritmo
-Funcionalidade de Rede Social:
 
+Funcionalidade de Rede Social:
 Será possível postar informações (dieta, foto das refeições, resultados ou quaisquer coisas que a pessoa quiser).
 Deverá ser possível ver as pessoas que estão te seguindo
 Todos os posts são públicos e uma pessoa pode acessar os posts de outra pessoa.
