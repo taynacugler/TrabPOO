@@ -4,6 +4,8 @@
  */
 package com.mycompany.trabpoo;
 
+import java.text.DateFormat;
+
 /**
  *
  * @author Alunos
@@ -11,5 +13,12 @@ package com.mycompany.trabpoo;
 public class Pessoa {
     String nome;
     int id;
-    
+    String sexo;
+    String login;
+    String senha;
+    String tipoUsuario;
+    DateFormat dataCriacao;
+    DateFormat dataModificacao;
+
+   
 }
