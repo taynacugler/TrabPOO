@@ -36,7 +36,7 @@ public class Teste {
         p3.senha = "1256";
         System.out.println("nome:" + p3.nome); 
         
-        //Criando Alimentos
+        //CRIANDO ALIMENTOS
         //fontes de carboidratos:
         Alimento arroz = new Alimento();
         arroz.id = 1;
@@ -45,6 +45,7 @@ public class Teste {
         arroz.prot = 2.5;
         arroz.gord = 0.2;
         arroz.porcao = 100;
+        arroz.tipoUsuario = "1";
         arroz.cal = arroz.calcularCalorias(arroz.carb, arroz.prot, arroz.gord);
         System.out.println("Calorias de " + arroz.porcao + " gramas de " + arroz.nome +": " + arroz.cal);
         
@@ -55,6 +56,7 @@ public class Teste {
         macarrao.prot = 10;
         macarrao.gord = 1.3;
         macarrao.porcao = 100;
+        macarrao.tipoUsuario = "1";
         macarrao.cal = macarrao.calcularCalorias(macarrao.carb, macarrao.prot, macarrao.gord);
         System.out.println("Calorias de " + macarrao.porcao + " gramas de " + macarrao.nome +": " + macarrao.cal);
         
@@ -66,6 +68,7 @@ public class Teste {
         pao.prot = 8;
         pao.gord = 3;
         pao.porcao = 100;
+        pao.tipoUsuario ="1";
         pao.cal = pao.calcularCalorias(pao.carb, pao.prot, pao.gord);
         System.out.println("Calorias de " + pao.porcao + " gramas de " + pao.nome +": " + pao.cal);
        
@@ -76,18 +79,20 @@ public class Teste {
         batataDoce.prot = 0.6;
         batataDoce.gord = 0.1;
         batataDoce.porcao = 100;
+        batataDoce.tipoUsuario = "1";
         batataDoce.cal = batataDoce.calcularCalorias(batataDoce.carb, batataDoce.prot, batataDoce.gord);
         System.out.println("Calorias de " + batataDoce.porcao + " gramas de " + batataDoce.nome +": " + batataDoce.cal);
         
-        Alimento batatInglesa = new Alimento();
-        batatInglesa.id = 5;
-        batatInglesa.nome = "batata inglesa";
-        batatInglesa.carb = 11.9;
-        batatInglesa.prot = 1.2;
-        batatInglesa.gord = 0;
-        batatInglesa.porcao = 100;
-        batatInglesa.cal = batatInglesa.calcularCalorias(batatInglesa.carb, batatInglesa.prot, batatInglesa.gord);
-        System.out.println("Calorias de " + batatInglesa.porcao + " gramas de " + batatInglesa.nome +": " + batatInglesa.cal);
+        Alimento batataInglesa = new Alimento();
+        batataInglesa.id = 5;
+        batataInglesa.nome = "batata inglesa";
+        batataInglesa.carb = 11.9;
+        batataInglesa.prot = 1.2;
+        batataInglesa.gord = 0;
+        batataInglesa.porcao = 100;
+        batataInglesa.tipoUsuario = "1";
+        batataInglesa.cal = batataInglesa.calcularCalorias(batataInglesa.carb, batataInglesa.prot, batataInglesa.gord);
+        System.out.println("Calorias de " + batataInglesa.porcao + " gramas de " + batataInglesa.nome +": " + batataInglesa.cal);
         
         Alimento tapioca = new Alimento();
         tapioca.id = 6;
@@ -96,10 +101,11 @@ public class Teste {
         tapioca.prot = 2;
         tapioca.gord = 3.9;
         tapioca.porcao = 100;
+        tapioca.tipoUsuario = "1";
         tapioca.cal = arroz.calcularCalorias(tapioca.carb, tapioca.prot,tapioca.gord);
         System.out.println("Calorias de " + tapioca.porcao + " gramas de " + tapioca.nome +": " + tapioca.cal);
         
-        //Aliments fonte de proteina
+        //Alimentos fonte de proteina
         
         Alimento peitoFrango = new Alimento();
         peitoFrango.id = 7;
@@ -108,6 +114,7 @@ public class Teste {
         peitoFrango.prot = 32;
         peitoFrango.gord = 14;
         peitoFrango.porcao = 100;
+        peitoFrango.tipoUsuario = "2";
         peitoFrango.cal = peitoFrango.calcularCalorias(peitoFrango.carb, peitoFrango.prot,peitoFrango.gord);
         System.out.println("Calorias de " + peitoFrango.porcao + " gramas de " + peitoFrango.nome +": " + peitoFrango.cal);
         
@@ -118,6 +125,7 @@ public class Teste {
         patinho.prot = 35.9;
         patinho.gord = 7.3;
         patinho.porcao = 100;
+        patinho.tipoUsuario = "2";
         patinho.cal = patinho.calcularCalorias(patinho.carb, patinho.prot,patinho.gord);
         System.out.println("Calorias de " + patinho.porcao + " gramas de " + patinho.nome +": " + patinho.cal);
         
@@ -128,6 +136,7 @@ public class Teste {
         tilapia.prot = 23;
         tilapia.gord = 2;
         tilapia.porcao = 100;
+        tilapia.tipoUsuario ="2";
         tilapia.cal = tilapia.calcularCalorias(tilapia.carb, tilapia.prot,tilapia.gord);
         System.out.println("Calorias de " + tilapia.porcao + " gramas de " + tilapia.nome +": " + tilapia.cal);
         
@@ -138,6 +147,7 @@ public class Teste {
         soja.prot = 23;
         soja.gord = 1;
         soja.porcao = 100;
+        soja.tipoUsuario = "2";
         soja.cal = soja.calcularCalorias(soja.carb, soja.prot,soja.gord);
         System.out.println("Calorias de " + soja.porcao + " gramas de " + soja.nome +": " + soja.cal);
         
@@ -148,10 +158,11 @@ public class Teste {
         ovoCozido.prot = 13;
         ovoCozido.gord = 11;
         ovoCozido.porcao = 100;
+        ovoCozido.tipoUsuario = "2";
         ovoCozido.cal = ovoCozido.calcularCalorias(ovoCozido.carb, ovoCozido.prot,ovoCozido.gord);
         System.out.println("Calorias de " + ovoCozido.porcao + " gramas de " + ovoCozido.nome +": " + ovoCozido.cal);
         
-        //alimentos fonte de gordura
+        //Alimentos fonte de gordura
         Alimento abacate = new Alimento();
         abacate.id = 12;
         abacate.nome = "abacate";
@@ -159,6 +170,7 @@ public class Teste {
         abacate.prot = 1.2;
         abacate.gord = 8.4;
         abacate.porcao = 100;
+        abacate.tipoUsuario = "3";
         abacate.cal = abacate.calcularCalorias(abacate.carb,abacate.prot,abacate.gord);
         System.out.println("Calorias de " + abacate.porcao + " gramas de " + abacate.nome +": " + abacate.cal);
         
@@ -169,6 +181,7 @@ public class Teste {
         pastaAmendoim.prot = 25;
         pastaAmendoim.gord = 50;
         pastaAmendoim.porcao = 100;
+        pastaAmendoim.tipoUsuario = "3";
         pastaAmendoim.cal = pastaAmendoim.calcularCalorias(pastaAmendoim.carb, pastaAmendoim.prot,pastaAmendoim.gord);
         System.out.println("Calorias de " + pastaAmendoim.porcao + " gramas de " + pastaAmendoim.nome +": " + pastaAmendoim.cal);
         
@@ -179,6 +192,7 @@ public class Teste {
         azeite.prot = 0;
         azeite.gord = 100;
         azeite.porcao = 100;
+        azeite.tipoUsuario = "3";
         azeite.cal = azeite.calcularCalorias(azeite.carb, azeite.prot,azeite.gord);
         System.out.println("Calorias de " + azeite.porcao + " gramas de " + azeite.nome +": " + azeite.cal);
         
@@ -189,6 +203,7 @@ public class Teste {
         manteiga.prot = 0.4;
         manteiga.gord = 82.4;
         manteiga.porcao = 100;
+        manteiga.tipoUsuario = "3";
         manteiga.cal = manteiga.calcularCalorias(manteiga.carb, manteiga.prot,manteiga.gord);
         System.out.println("Calorias de " + manteiga.porcao + " gramas de " + manteiga.nome +": " + manteiga.cal);
         
@@ -199,6 +214,7 @@ public class Teste {
         nozes.prot = 14;
         nozes.gord = 59;
         nozes.porcao = 100;
+        nozes.tipoUsuario = "3";
         nozes.cal = nozes.calcularCalorias(nozes.carb, nozes.prot,nozes.gord);
         System.out.println("Calorias de " + nozes.porcao + " gramas de " + nozes.nome +": " + nozes.cal);
         
@@ -210,8 +226,38 @@ public class Teste {
         castanhas.prot = 18.5;
         castanhas.gord = 46.3;
         castanhas.porcao = 100;
+        castanhas.tipoUsuario = "3";
         castanhas.cal = castanhas.calcularCalorias(castanhas.carb, castanhas.prot,castanhas.gord);
         System.out.println("Calorias de " + castanhas.porcao + " gramas de " + castanhas.nome +": " + castanhas.cal);
+        
+        
+        //CRIAR TIPOS DE DIETA
+        TipoDieta equilibrada = new TipoDieta();
+        equilibrada.id = 1;
+        equilibrada.nome = "equilibrada";
+        equilibrada.carb = 40;
+        equilibrada.prot = 30;
+        equilibrada.gord = 30;        
+        TipoDieta lowcarb = new TipoDieta();
+        lowcarb.id = 2;
+        lowcarb.nome = "low carb";
+        lowcarb.carb = 30;
+        lowcarb.prot = 50;
+        lowcarb.gord = 20;
+        
+        TipoDieta cetogenica = new TipoDieta();
+        cetogenica.id = 3;
+        cetogenica.nome = "cetogênica";
+        cetogenica.carb = 15;
+        cetogenica.prot = 15;
+        cetogenica.gord = 70;
+        
+        
+        //calcular depois o carb, proteina e gordura baseado no peso do atleta.
+        TipoDieta atleta = new TipoDieta();
+        atleta.id = 4;
+        atleta.nome = "atleta";
+ 
         
         
         
