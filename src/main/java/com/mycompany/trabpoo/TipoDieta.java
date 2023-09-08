@@ -4,21 +4,19 @@
  */
 package com.mycompany.trabpoo;
 
-import java.text.DateFormat;
-
 /**
  *
- * @author Alunos
+ * @author taynacardoso
  */
-public class Pessoa {
-    String nome;
+public class TipoDieta {
     int id;
-    String sexo;
-    String login;
-    String senha;
+    String nome;
+    double carb;
+    double prot;
+    double gord;
+    double cal;
+    double porcao;
     String tipoUsuario;
-   // DateFormat dataCriacao;
-   // DateFormat dataModificacao;
-   
-   
+    //String dataCriacao;
+   // String dataModificacao;
 }
