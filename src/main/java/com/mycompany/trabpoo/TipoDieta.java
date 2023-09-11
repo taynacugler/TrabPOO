@@ -14,9 +14,8 @@ public class TipoDieta {
     double carb;
     double prot;
     double gord;
-    double cal;
-    double porcao;
-    String tipoUsuario;
     //String dataCriacao;
    // String dataModificacao;
+    
+    
 }
