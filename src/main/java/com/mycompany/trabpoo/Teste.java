@@ -162,9 +162,21 @@ public class Teste {
         ovoCozido.cal = ovoCozido.calcularCalorias(ovoCozido.carb, ovoCozido.prot,ovoCozido.gord);
         System.out.println("Calorias de " + ovoCozido.porcao + " gramas de " + ovoCozido.nome +": " + ovoCozido.cal);
         
+        
+        Alimento atum = new Alimento();
+        atum.id = 12;
+        atum.nome = "Atum";
+        atum.carb = 0;
+        atum.prot = 23;
+        atum.gord = 1;
+        atum.porcao = 100;
+        atum.tipoUsuario = "2";
+        atum.cal = atum.calcularCalorias(atum.carb, atum.prot,atum.gord);
+        System.out.println("Calorias de " + atum.porcao + " gramas de " + atum.nome +": " + atum.cal);
+        
         //Alimentos fonte de gordura
         Alimento abacate = new Alimento();
-        abacate.id = 12;
+        abacate.id = 13;
         abacate.nome = "abacate";
         abacate.carb = 6;
         abacate.prot = 1.2;
@@ -175,7 +187,7 @@ public class Teste {
         System.out.println("Calorias de " + abacate.porcao + " gramas de " + abacate.nome +": " + abacate.cal);
         
         Alimento pastaAmendoim = new Alimento();
-        pastaAmendoim.id = 13;
+        pastaAmendoim.id = 14;
         pastaAmendoim.nome = "pasta de amendoim";
         pastaAmendoim.carb = 20;
         pastaAmendoim.prot = 25;
@@ -186,7 +198,7 @@ public class Teste {
         System.out.println("Calorias de " + pastaAmendoim.porcao + " gramas de " + pastaAmendoim.nome +": " + pastaAmendoim.cal);
         
         Alimento azeite = new Alimento();
-        azeite.id = 14;
+        azeite.id = 15;
         azeite.nome = "azeite";
         azeite.carb = 0;
         azeite.prot = 0;
@@ -197,7 +209,7 @@ public class Teste {
         System.out.println("Calorias de " + azeite.porcao + " gramas de " + azeite.nome +": " + azeite.cal);
         
         Alimento manteiga = new Alimento();
-        manteiga.id = 15;
+        manteiga.id = 16;
         manteiga.nome = "manteiga";
         manteiga.carb = 0.1;
         manteiga.prot = 0.4;
@@ -208,7 +220,7 @@ public class Teste {
         System.out.println("Calorias de " + manteiga.porcao + " gramas de " + manteiga.nome +": " + manteiga.cal);
         
         Alimento nozes = new Alimento();
-        nozes.id = 16;
+        nozes.id = 17;
         nozes.nome = "nozes";
         nozes.carb = 18.4;
         nozes.prot = 14;
@@ -220,7 +232,7 @@ public class Teste {
         
         
         Alimento castanhas = new Alimento();
-        castanhas.id = 17;
+        castanhas.id = 18;
         castanhas.nome = "castanhas";
         castanhas.carb = 29.1;
         castanhas.prot = 18.5;
@@ -237,7 +249,8 @@ public class Teste {
         equilibrada.nome = "equilibrada";
         equilibrada.carb = 40;
         equilibrada.prot = 30;
-        equilibrada.gord = 30;        
+        equilibrada.gord = 30;
+        
         TipoDieta lowcarb = new TipoDieta();
         lowcarb.id = 2;
         lowcarb.nome = "low carb";
