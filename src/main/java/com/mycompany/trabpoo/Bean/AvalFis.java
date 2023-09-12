@@ -2,7 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package com.mycompany.trabpoo;
+package com.mycompany.trabpoo.Bean;
+
+import com.mycompany.trabpoo.Bean.Pessoa;
 
 /**
  *
@@ -17,12 +19,19 @@ public class AvalFis {
     double pescoco;
     double cintura;
     double quadril;
+    
+    
     double IMC;
     double TMB;
     double BF;
+    
     double massaGorda;
     double massaMagra;
     //dataCriacao, dataModificacao.
+void calculaIMC ()
+{
+    
+}
     
   
 }

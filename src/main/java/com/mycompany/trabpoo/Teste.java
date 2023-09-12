@@ -4,273 +4,299 @@
  */
 package com.mycompany.trabpoo;
 
+import com.mycompany.trabpoo.Bean.Pessoa;
+import com.mycompany.trabpoo.Bean.Alimento;
+import com.mycompany.trabpoo.Bean.TipoDieta;
+
 /**
  *
  * @author taynacardoso
  */
 public class Teste {
+   static Alimento alimentos [] = new Alimento [17];
+   static TipoDieta tipoDieta [] = new TipoDieta [3];
+  
 
     public static void main(String[] args) {
      //Criando Pessoas        
         Pessoa p1 = new Pessoa();
-        p1.nome = "Tayna";
-        p1.id = 1;
-        p1.sexo = "f";
-        p1.login = "tayna";
-        p1.senha = "1234";
-        System.out.println("nome:" + p1.nome);   
+        p1.setNome("Tayna");
+        p1.setId (1);
+        p1.setSexo("f");
+        p1.setLogin("tayna");
+        p1.setSenha("1234");
+        System.out.println("nome:" + p1.getNome());   
         
         Pessoa p2 = new Pessoa();
-        p2.nome = "Silvio";
-        p2.id = 2;
-        p2.sexo = "m";
-        p2.login = "silvio";
-        p2.senha = "5678";
-        System.out.println("nome:" + p2.nome); 
+        p2.setNome("Silvio");
+        p2.setId(2);
+        p2.setSexo("m");
+        p2.setLogin("silvio");
+        p2.setSenha("5678");
+        System.out.println("nome:" + p2.getNome()); 
         
         Pessoa p3 = new Pessoa();
-        p3.nome = "Malu";
-        p3.id = 3;
-        p3.sexo = "f";
-        p3.login = "tayna";
-        p3.senha = "1256";
-        System.out.println("nome:" + p3.nome); 
+        p3.setNome("Malu");
+        p3.setId(3);
+        p3.setSexo("f");
+        p3.setLogin("Malu");
+        p3.setSenha("1256");
+        System.out.println("nome:" + p3.getNome()); 
         
         //CRIANDO ALIMENTOS
         //fontes de carboidratos:
         Alimento arroz = new Alimento();
-        arroz.id = 1;
-        arroz.nome = "arroz";
-        arroz.carb = 28.1;
-        arroz.prot = 2.5;
-        arroz.gord = 0.2;
-        arroz.porcao = 100;
-        arroz.tipoUsuario = "1";
-        arroz.cal = arroz.calcularCalorias(arroz.carb, arroz.prot, arroz.gord);
-        System.out.println("Calorias de " + arroz.porcao + " gramas de " + arroz.nome +": " + arroz.cal);
+        arroz.setId(1);
+        arroz.setNome("arroz");
+        arroz.setCarb(28.1);
+        arroz.setProt(2.5);
+        arroz.setGord(0.2);
+        arroz.setPorcao(100);
+        arroz.setTipoUsuario("1");
+       // arroz.cal = arroz.calcularCalorias(arroz.carb, arroz.prot, arroz.gord);
+        System.out.println("Calorias de " + arroz.getPorcao() + " gramas de " + arroz.getNome() +": " + arroz.getCal());
+        alimentos [0] = arroz;
         
         Alimento macarrao = new Alimento();
-        macarrao.id = 2;
-        macarrao.nome = "macarrão";
-        macarrao.carb = 77.9;
-        macarrao.prot = 10;
-        macarrao.gord = 1.3;
-        macarrao.porcao = 100;
-        macarrao.tipoUsuario = "1";
-        macarrao.cal = macarrao.calcularCalorias(macarrao.carb, macarrao.prot, macarrao.gord);
-        System.out.println("Calorias de " + macarrao.porcao + " gramas de " + macarrao.nome +": " + macarrao.cal);
+        macarrao.setId(2);
+        macarrao.setNome("macarrão");
+        macarrao.setCarb(77.9);
+        macarrao.setProt(10);
+        macarrao.setGord(1.3);
+        macarrao.setPorcao(100);
+        macarrao.setTipoUsuario("1");
+       // macarrao.cal = macarrao.calcularCalorias(macarrao.carb, macarrao.prot, macarrao.gord);
+        System.out.println("Calorias de " + macarrao.getPorcao() + " gramas de " + macarrao.getNome() +": " + macarrao.getCal());
+        alimentos [1] = macarrao;
         
         
         Alimento pao = new Alimento();
-        pao.id = 3;
-        pao.nome = "pão francês";
-        pao.carb = 58.6;
-        pao.prot = 8;
-        pao.gord = 3;
-        pao.porcao = 100;
-        pao.tipoUsuario ="1";
-        pao.cal = pao.calcularCalorias(pao.carb, pao.prot, pao.gord);
-        System.out.println("Calorias de " + pao.porcao + " gramas de " + pao.nome +": " + pao.cal);
+        pao.setId(3);
+        pao.setNome("pão francês");
+        pao.setCarb(58.6);
+        pao.setProt(80);
+        pao.setGord(3);
+        pao.setPorcao(100);
+        pao.setTipoUsuario("1");
+        //pao.cal = pao.calcularCalorias(pao.carb, pao.prot, pao.gord);
+        System.out.println("Calorias de " + pao.getPorcao() + " gramas de " + pao.getNome() +": " + pao.getCal());
+        alimentos [2] = pao;
        
         Alimento batataDoce = new Alimento();
-        batataDoce.id = 4;
-        batataDoce.nome = "batata doce";
-        batataDoce.carb = 18.4;
-        batataDoce.prot = 0.6;
-        batataDoce.gord = 0.1;
-        batataDoce.porcao = 100;
-        batataDoce.tipoUsuario = "1";
-        batataDoce.cal = batataDoce.calcularCalorias(batataDoce.carb, batataDoce.prot, batataDoce.gord);
-        System.out.println("Calorias de " + batataDoce.porcao + " gramas de " + batataDoce.nome +": " + batataDoce.cal);
+        batataDoce.setId(4);
+        batataDoce.setNome("batata doce");
+        batataDoce.setCarb(18.4);
+        batataDoce.setProt(0.6);
+        batataDoce.setGord(0.1);
+        batataDoce.setPorcao(100);
+        batataDoce.setTipoUsuario("1");
+        //batataDoce.cal = batataDoce.calcularCalorias(batataDoce.carb, batataDoce.prot, batataDoce.gord);
+        System.out.println("Calorias de " + batataDoce.getPorcao() + " gramas de " + batataDoce.getNome() +": " + batataDoce.getCal());
+        alimentos [3] = batataDoce;
+
         
         Alimento batataInglesa = new Alimento();
-        batataInglesa.id = 5;
-        batataInglesa.nome = "batata inglesa";
-        batataInglesa.carb = 11.9;
-        batataInglesa.prot = 1.2;
-        batataInglesa.gord = 0;
-        batataInglesa.porcao = 100;
-        batataInglesa.tipoUsuario = "1";
-        batataInglesa.cal = batataInglesa.calcularCalorias(batataInglesa.carb, batataInglesa.prot, batataInglesa.gord);
-        System.out.println("Calorias de " + batataInglesa.porcao + " gramas de " + batataInglesa.nome +": " + batataInglesa.cal);
+        batataInglesa.setId(5);
+        batataInglesa.setNome("batata inglesa");
+        batataInglesa.setCarb(11.9);
+        batataInglesa.setProt(1.2);
+        batataInglesa.setGord(0);
+        batataInglesa.setPorcao(100);
+        batataInglesa.setTipoUsuario("1");
+        //batataInglesa.cal = batataInglesa.calcularCalorias(batataInglesa.carb, batataInglesa.prot, batataInglesa.gord);
+        System.out.println("Calorias de " + batataInglesa.getPorcao() + " gramas de " + batataInglesa.getNome() +": " + batataInglesa.getCal());
+        alimentos [4] = batataInglesa;
         
         Alimento tapioca = new Alimento();
-        tapioca.id = 6;
-        tapioca.nome = "tapioca";
-        tapioca.carb = 22;
-        tapioca.prot = 2;
-        tapioca.gord = 3.9;
-        tapioca.porcao = 100;
-        tapioca.tipoUsuario = "1";
-        tapioca.cal = arroz.calcularCalorias(tapioca.carb, tapioca.prot,tapioca.gord);
-        System.out.println("Calorias de " + tapioca.porcao + " gramas de " + tapioca.nome +": " + tapioca.cal);
+        tapioca.setId(6);
+        tapioca.setNome("tapioca");
+        tapioca.setCarb(22);
+        tapioca.setProt(2);
+        tapioca.setGord(3.9);
+        tapioca.setPorcao(100);
+        tapioca.setTipoUsuario("1");
+        //tapioca.cal = arroz.calcularCalorias(tapioca.carb, tapioca.prot,tapioca.gord);
+        System.out.println("Calorias de " + tapioca.getPorcao() + " gramas de " + tapioca.getNome() +": " + tapioca.getCal());
+        alimentos [5] = tapioca;
         
         //Alimentos fonte de proteina
         
         Alimento peitoFrango = new Alimento();
-        peitoFrango.id = 7;
-        peitoFrango.nome = "peito de frango";
-        peitoFrango.carb = 0;
-        peitoFrango.prot = 32;
-        peitoFrango.gord = 14;
-        peitoFrango.porcao = 100;
-        peitoFrango.tipoUsuario = "2";
-        peitoFrango.cal = peitoFrango.calcularCalorias(peitoFrango.carb, peitoFrango.prot,peitoFrango.gord);
-        System.out.println("Calorias de " + peitoFrango.porcao + " gramas de " + peitoFrango.nome +": " + peitoFrango.cal);
+        peitoFrango.setId(7);
+        peitoFrango.setNome("peito de frango");
+        peitoFrango.setCarb(0);
+        peitoFrango.setProt(32);
+        peitoFrango.setGord(14);
+        peitoFrango.setPorcao(100);
+        peitoFrango.setTipoUsuario("2");
+        //peitoFrango.cal = peitoFrango.calcularCalorias(peitoFrango.carb, peitoFrango.prot,peitoFrango.gord);
+        System.out.println("Calorias de " + peitoFrango.getPorcao() + " gramas de " + peitoFrango.getNome() +": " + peitoFrango.getCal());
+        alimentos [6] = peitoFrango;
         
         Alimento patinho = new Alimento();
-        patinho.id = 8;
-        patinho.nome = "patinho";
-        patinho.carb = 0;
-        patinho.prot = 35.9;
-        patinho.gord = 7.3;
-        patinho.porcao = 100;
-        patinho.tipoUsuario = "2";
-        patinho.cal = patinho.calcularCalorias(patinho.carb, patinho.prot,patinho.gord);
-        System.out.println("Calorias de " + patinho.porcao + " gramas de " + patinho.nome +": " + patinho.cal);
+        patinho.setId(8);
+        patinho.setNome("patinho");
+        patinho.setCarb(0);
+        patinho.setProt(35.9);
+        patinho.setGord(7.3);
+        patinho.setPorcao(100);
+        patinho.setTipoUsuario("2");
+        //patinho.cal = patinho.calcularCalorias(patinho.carb, patinho.prot,patinho.gord);
+        System.out.println("Calorias de " + patinho.getPorcao() + " gramas de " + patinho.getNome() +": " + patinho.getCal());
+        alimentos [7] = patinho ;
         
         Alimento tilapia = new Alimento();
-        tilapia.id = 9;
-        tilapia.nome = "tilápia";
-        tilapia.carb = 0;
-        tilapia.prot = 23;
-        tilapia.gord = 2;
-        tilapia.porcao = 100;
-        tilapia.tipoUsuario ="2";
-        tilapia.cal = tilapia.calcularCalorias(tilapia.carb, tilapia.prot,tilapia.gord);
-        System.out.println("Calorias de " + tilapia.porcao + " gramas de " + tilapia.nome +": " + tilapia.cal);
+        tilapia.setId(9);
+        tilapia.setNome("tilápia");
+        tilapia.setCarb(0);
+        tilapia.setProt(23);
+        tilapia.setGord(2);
+        tilapia.setPorcao(100);
+        tilapia.setTipoUsuario("2");
+        //tilapia.cal = tilapia.calcularCalorias(tilapia.carb, tilapia.prot,tilapia.gord);
+        System.out.println("Calorias de " + tilapia.getPorcao() + " gramas de " + tilapia.getNome() +": " + tilapia.getCal());
+        alimentos [8] = tilapia;
         
         Alimento soja = new Alimento();
-        soja.id = 10;
-        soja.nome = "proteína de soja";
-        soja.carb = 8;
-        soja.prot = 23;
-        soja.gord = 1;
-        soja.porcao = 100;
-        soja.tipoUsuario = "2";
-        soja.cal = soja.calcularCalorias(soja.carb, soja.prot,soja.gord);
-        System.out.println("Calorias de " + soja.porcao + " gramas de " + soja.nome +": " + soja.cal);
+        soja.setId(10);
+        soja.setNome("proteína de soja");
+        soja.setCarb(8);
+        soja.setProt(23);
+        soja.setGord(1);
+        soja.setPorcao(100);
+        soja.setTipoUsuario("2");
+        //soja.cal = soja.calcularCalorias(soja.carb, soja.prot,soja.gord);
+        System.out.println("Calorias de " + soja.getPorcao() + " gramas de " + soja.getNome() +": " + soja.getCal());
+        alimentos [9] = soja;
         
         Alimento ovoCozido = new Alimento();
-        ovoCozido.id = 11;
-        ovoCozido.nome = "ovo cozido";
-        ovoCozido.carb = 1.1;
-        ovoCozido.prot = 13;
-        ovoCozido.gord = 11;
-        ovoCozido.porcao = 100;
-        ovoCozido.tipoUsuario = "2";
-        ovoCozido.cal = ovoCozido.calcularCalorias(ovoCozido.carb, ovoCozido.prot,ovoCozido.gord);
-        System.out.println("Calorias de " + ovoCozido.porcao + " gramas de " + ovoCozido.nome +": " + ovoCozido.cal);
-        
+        ovoCozido.setId(11);
+        ovoCozido.setNome("ovo cozido");
+        ovoCozido.setCarb(1.1);
+        ovoCozido.setProt(13);
+        ovoCozido.setGord(11);
+        ovoCozido.setPorcao(100);
+        ovoCozido.setTipoUsuario("2");
+        //ovoCozido.cal = ovoCozido.calcularCalorias(ovoCozido.carb, ovoCozido.prot,ovoCozido.gord);
+        System.out.println("Calorias de " + ovoCozido.getPorcao() + " gramas de " + ovoCozido.getNome() +": " + ovoCozido.getCal());
+        alimentos [10] = ovoCozido;
         
         Alimento atum = new Alimento();
-        atum.id = 12;
-        atum.nome = "Atum";
-        atum.carb = 0;
-        atum.prot = 23;
-        atum.gord = 1;
-        atum.porcao = 100;
-        atum.tipoUsuario = "2";
-        atum.cal = atum.calcularCalorias(atum.carb, atum.prot,atum.gord);
-        System.out.println("Calorias de " + atum.porcao + " gramas de " + atum.nome +": " + atum.cal);
+        atum.setId(12);
+        atum.setNome("Atum");
+        atum.setCarb(0);
+        atum.setProt(23);
+        atum.setGord(1);
+        atum.setPorcao(100);
+        atum.setTipoUsuario("2");
+        //atum.cal = atum.calcularCalorias(atum.carb, atum.prot,atum.gord);
+        System.out.println("Calorias de " + atum.getPorcao() + " gramas de " + atum.getNome() +": " + atum.getCal());
+        alimentos [11] = atum;
         
         //Alimentos fonte de gordura
         Alimento abacate = new Alimento();
-        abacate.id = 13;
-        abacate.nome = "abacate";
-        abacate.carb = 6;
-        abacate.prot = 1.2;
-        abacate.gord = 8.4;
-        abacate.porcao = 100;
-        abacate.tipoUsuario = "3";
-        abacate.cal = abacate.calcularCalorias(abacate.carb,abacate.prot,abacate.gord);
-        System.out.println("Calorias de " + abacate.porcao + " gramas de " + abacate.nome +": " + abacate.cal);
+        abacate.setId(13);
+        abacate.setNome("abacate");
+        abacate.setCarb(6);
+        abacate.setProt(1.2);
+        abacate.setGord(8.4);
+        abacate.setPorcao(100);
+        abacate.setTipoUsuario("3");
+        //abacate.cal = abacate.calcularCalorias(abacate.carb,abacate.prot,abacate.gord);
+        System.out.println("Calorias de " + abacate.getPorcao() + " gramas de " + abacate.getNome() +": " + abacate.getCal());
+        alimentos [12] = abacate;
         
         Alimento pastaAmendoim = new Alimento();
-        pastaAmendoim.id = 14;
-        pastaAmendoim.nome = "pasta de amendoim";
-        pastaAmendoim.carb = 20;
-        pastaAmendoim.prot = 25;
-        pastaAmendoim.gord = 50;
-        pastaAmendoim.porcao = 100;
-        pastaAmendoim.tipoUsuario = "3";
-        pastaAmendoim.cal = pastaAmendoim.calcularCalorias(pastaAmendoim.carb, pastaAmendoim.prot,pastaAmendoim.gord);
-        System.out.println("Calorias de " + pastaAmendoim.porcao + " gramas de " + pastaAmendoim.nome +": " + pastaAmendoim.cal);
+        pastaAmendoim.setId(14);
+        pastaAmendoim.setNome("pasta de amendoim");
+        pastaAmendoim.setCarb(20);
+        pastaAmendoim.setProt(25);
+        pastaAmendoim.setGord(50);
+        pastaAmendoim.setPorcao(100);
+        pastaAmendoim.setTipoUsuario("3");
+        //pastaAmendoim.cal = pastaAmendoim.calcularCalorias(pastaAmendoim.carb, pastaAmendoim.prot,pastaAmendoim.gord);
+        System.out.println("Calorias de " + pastaAmendoim.getPorcao() + " gramas de " + pastaAmendoim.getNome() +": " + pastaAmendoim.getCal());
+        alimentos [13] = pastaAmendoim;
         
         Alimento azeite = new Alimento();
-        azeite.id = 15;
-        azeite.nome = "azeite";
-        azeite.carb = 0;
-        azeite.prot = 0;
-        azeite.gord = 100;
-        azeite.porcao = 100;
-        azeite.tipoUsuario = "3";
-        azeite.cal = azeite.calcularCalorias(azeite.carb, azeite.prot,azeite.gord);
-        System.out.println("Calorias de " + azeite.porcao + " gramas de " + azeite.nome +": " + azeite.cal);
+        azeite.setId(15);
+        azeite.setNome("azeite");
+        azeite.setCarb(0);
+        azeite.setProt(0);
+        azeite.setGord(100);
+        azeite.setPorcao(100);
+        azeite.setTipoUsuario("3");
+        //azeite.cal = azeite.calcularCalorias(azeite.carb, azeite.prot,azeite.gord);
+        System.out.println("Calorias de " + azeite.getPorcao() + " gramas de " + azeite.getNome() +": " + azeite.getCal());
+        alimentos [14] = azeite;
         
         Alimento manteiga = new Alimento();
-        manteiga.id = 16;
-        manteiga.nome = "manteiga";
-        manteiga.carb = 0.1;
-        manteiga.prot = 0.4;
-        manteiga.gord = 82.4;
-        manteiga.porcao = 100;
-        manteiga.tipoUsuario = "3";
-        manteiga.cal = manteiga.calcularCalorias(manteiga.carb, manteiga.prot,manteiga.gord);
-        System.out.println("Calorias de " + manteiga.porcao + " gramas de " + manteiga.nome +": " + manteiga.cal);
+        manteiga.setId(16);
+        manteiga.setNome("manteiga");
+        manteiga.setCarb(0.1);
+        manteiga.setProt(0.4);
+        manteiga.setGord(82.4);
+        manteiga.setPorcao(100);
+        manteiga.setTipoUsuario("3");
+        //manteiga.cal = manteiga.calcularCalorias(manteiga.carb, manteiga.prot,manteiga.gord);
+        System.out.println("Calorias de " + manteiga.getPorcao() + " gramas de " + manteiga.getNome() +": " + manteiga.getCal());
+        alimentos [15] = manteiga;
         
         Alimento nozes = new Alimento();
-        nozes.id = 17;
-        nozes.nome = "nozes";
-        nozes.carb = 18.4;
-        nozes.prot = 14;
-        nozes.gord = 59;
-        nozes.porcao = 100;
-        nozes.tipoUsuario = "3";
-        nozes.cal = nozes.calcularCalorias(nozes.carb, nozes.prot,nozes.gord);
-        System.out.println("Calorias de " + nozes.porcao + " gramas de " + nozes.nome +": " + nozes.cal);
-        
+        nozes.setId(17);
+        nozes.setNome("nozes");
+        nozes.setCarb(18.4);
+        nozes.setProt(14);
+        nozes.setGord(59);
+        nozes.setPorcao(100);
+        nozes.setTipoUsuario("3");
+        //nozes.cal = nozes.calcularCalorias(nozes.carb, nozes.prot,nozes.gord);
+        System.out.println("Calorias de " + nozes.getPorcao() + " gramas de " + nozes.getNome() +": " + nozes.getCal());
+        alimentos [16] = nozes;
         
         Alimento castanhas = new Alimento();
-        castanhas.id = 18;
-        castanhas.nome = "castanhas";
-        castanhas.carb = 29.1;
-        castanhas.prot = 18.5;
-        castanhas.gord = 46.3;
-        castanhas.porcao = 100;
-        castanhas.tipoUsuario = "3";
-        castanhas.cal = castanhas.calcularCalorias(castanhas.carb, castanhas.prot,castanhas.gord);
-        System.out.println("Calorias de " + castanhas.porcao + " gramas de " + castanhas.nome +": " + castanhas.cal);
-        
+        castanhas.setId(18);
+        castanhas.setNome("castanhas");
+        castanhas.setCarb(29.1);
+        castanhas.setProt(18.5);
+        castanhas.setGord(46.3);
+        castanhas.setPorcao(100);
+        castanhas.setTipoUsuario("3");
+        //castanhas.cal = castanhas.calcularCalorias(castanhas.carb, castanhas.prot,castanhas.gord);
+        System.out.println("Calorias de " + castanhas.getPorcao() + " gramas de " + castanhas.getNome() +": " + castanhas.getCal());
+        alimentos [17] = castanhas;
         
         //CRIAR TIPOS DE DIETA
         TipoDieta equilibrada = new TipoDieta();
-        equilibrada.id = 1;
-        equilibrada.nome = "equilibrada";
-        equilibrada.carb = 40;
-        equilibrada.prot = 30;
-        equilibrada.gord = 30;
+        equilibrada.setId(1);
+        equilibrada.setNome("equilibrada");
+        equilibrada.setCarb(40);
+        equilibrada.setProt(30);
+        equilibrada.setGord(30);
+        tipoDieta [0] = equilibrada;
         
         TipoDieta lowcarb = new TipoDieta();
-        lowcarb.id = 2;
-        lowcarb.nome = "low carb";
-        lowcarb.carb = 30;
-        lowcarb.prot = 50;
-        lowcarb.gord = 20;
+        lowcarb.setId(2);
+        lowcarb.setNome("low carb");
+        lowcarb.setCarb(30);
+        lowcarb.setProt(50);
+        lowcarb.setGord(20);
+        tipoDieta [1] = lowcarb;
         
         TipoDieta cetogenica = new TipoDieta();
-        cetogenica.id = 3;
-        cetogenica.nome = "cetogênica";
-        cetogenica.carb = 15;
-        cetogenica.prot = 15;
-        cetogenica.gord = 70;
+        cetogenica.setId(3);
+        cetogenica.setNome("cetogênica");
+        cetogenica.setCarb(15);
+        cetogenica.setProt(15);
+        cetogenica.setGord(70);
+        tipoDieta [2] = cetogenica;
         
         
         //calcular depois o carb, proteina e gordura baseado no peso do atleta.
         TipoDieta atleta = new TipoDieta();
-        atleta.id = 4;
-        atleta.nome = "atleta";
- 
+        atleta.setId(4);
+        atleta.setNome("atleta");
+        tipoDieta [3] = atleta;
         
         
         
