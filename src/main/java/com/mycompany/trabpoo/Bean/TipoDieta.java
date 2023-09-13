@@ -14,6 +14,7 @@ public class TipoDieta {
     private double carb;
     private double prot;
     private double gord;
+    private AvalFis avl;
     //String dataCriacao;
    // String dataModificacao;
 
@@ -56,6 +57,41 @@ public class TipoDieta {
     public void setGord(double gord) {
         this.gord = gord;
     }
+    
+//    
+//    public double getCarbAtl() {
+//        return carb;
+//    }
+//
+//    public void setCarbAtl(double carb, double prot, double gord) {
+//        this.carb = 100-(prot+gord);
+//    }
+//
+//    public double getProtAtl() {
+//        return prot;
+//    }
+//
+//    public void setProtAtl(double prot, AvalFis avl) {
+//        this.prot = prot*avl.getPeso();
+//    }
+//
+//    public double getGordAtl() {
+//        return gord;
+//    }
+//
+//    public void setGordAtl(double gord, AvalFis avl) {
+//        this.gord = 0.8*avl.getPeso();
+//    }
+//
+//    public AvalFis getAvl() {
+//        return avl;
+//    }
+//
+//    public void setAvl(AvalFis avl) {
+//        this.avl = avl;
+//    }
+//    
+    
     
     
     

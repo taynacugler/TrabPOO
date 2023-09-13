@@ -64,8 +64,8 @@ public class Alimento {
         return cal;
     }
 
-    public void setCal(double cal) {
-        this.cal = cal;
+    public void setCal(double cal, double carb, double prot, double gord) {
+        this.cal = (4*carb)+ (4*prot) + (9*gord);
     }
 
     public double getPorcao() {
@@ -82,11 +82,6 @@ public class Alimento {
 
     public void setTipoUsuario(String tipoUsuario) {
         this.tipoUsuario = tipoUsuario;
-    }
-    
-    double calcularCalorias (double carb, double prot, double gord){
-        double calorias = (4*carb)+ (4*prot) + (9*gord);
-        return calorias;        
-    }
-    
+    }    
 }
+

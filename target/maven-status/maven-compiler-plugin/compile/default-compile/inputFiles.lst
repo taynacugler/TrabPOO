@@ -1,6 +1,8 @@
-/home/taynacardoso/Desktop/TrabPOO/src/main/java/com/mycompany/trabpoo/TipoDieta.java
-/home/taynacardoso/Desktop/TrabPOO/src/main/java/com/mycompany/trabpoo/Alimento.java
+/home/taynacardoso/Desktop/TrabPOO/src/main/java/com/mycompany/trabpoo/Bean/AvalFis.java
 /home/taynacardoso/Desktop/TrabPOO/src/main/java/com/mycompany/trabpoo/Teste.java
-/home/taynacardoso/Desktop/TrabPOO/src/main/java/com/mycompany/trabpoo/AvalFis.java
+/home/taynacardoso/Desktop/TrabPOO/src/main/java/com/mycompany/trabpoo/Bean/Pessoa.java
 /home/taynacardoso/Desktop/TrabPOO/src/main/java/com/mycompany/trabpoo/TrabPOO.java
-/home/taynacardoso/Desktop/TrabPOO/src/main/java/com/mycompany/trabpoo/Pessoa.java
+/home/taynacardoso/Desktop/TrabPOO/src/main/java/com/mycompany/trabpoo/Bean/Alimento.java
+/home/taynacardoso/Desktop/TrabPOO/src/main/java/com/mycompany/trabpoo/MenuPessoa.java
+/home/taynacardoso/Desktop/TrabPOO/src/main/java/DAO/AvalFisDAO.java
+/home/taynacardoso/Desktop/TrabPOO/src/main/java/com/mycompany/trabpoo/Bean/TipoDieta.java
