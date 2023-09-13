@@ -5,6 +5,7 @@
 package com.mycompany.trabpoo;
 import com.mycompany.trabpoo.Bean.AvalFis;
 import com.mycompany.trabpoo.Bean.Pessoa;
+import com.mycompany.trabpoo.Bean.Dieta;
 import java.util.Scanner;
 
 /**
@@ -39,7 +40,7 @@ public class MenuPessoa {
         
         novaAval.setTMB(novaAval.getTMB(), novaAval.getIdade(), novaAval.getPeso(), novaAval.getAltura(), novaAval.getAtvFis(), pessoa);
         System.out.println("sua TMB " + novaAval.getTMB());
-        
+        // ifs e elses para avaliar a gordura ideal
         novaAval.setBF(novaAval.getBF(), novaAval.getAltura(), novaAval.getPescoco(), novaAval.getCintura(), novaAval.getAbdomem(), novaAval.getQuadril(), pessoa);
         System.out.println("sua gordura corporal é igual a " + novaAval.getBF());
         
@@ -50,5 +51,13 @@ public class MenuPessoa {
         System.out.println("Sua massa magra é " + novaAval.getMassaMagra());
         
         return novaAval;
+    }
+    Dieta novaDieta (Pessoa pessoa, AvalFis aval)
+    {   Dieta novaDieta = new Dieta();
+        Scanner scan = new Scanner(System.in);
+        System.out.println("vamos preencher os dados!");
+        System.out.println("Coloque seu peso:");
+        novaDieta.setObjetivo(scan.nextInt());
+        return novaDieta;
     }
 }
