@@ -7,7 +7,7 @@ package com.mycompany.trabpoo;
 import com.mycompany.trabpoo.Bean.Pessoa;
 import com.mycompany.trabpoo.Bean.Alimento;
 import com.mycompany.trabpoo.Bean.TipoDieta;
-
+import com.mycompany.trabpoo.Bean.AvalFis;
 /**
  *
  * @author taynacardoso
@@ -268,40 +268,43 @@ public class Teste {
         alimentos [17] = castanhas;
         
         //CRIAR TIPOS DE DIETA
-        TipoDieta equilibrada = new TipoDieta();
-        equilibrada.setId(1);
-        equilibrada.setNome("equilibrada");
-        equilibrada.setCarb(40);
-        equilibrada.setProt(30);
-        equilibrada.setGord(30);
-        tipoDieta [0] = equilibrada;
+//        TipoDieta equilibrada = new TipoDieta();
+//        equilibrada.setId(1);
+//        equilibrada.setNome("equilibrada");
+//        equilibrada.setCarb(40);
+//        equilibrada.setProt(30);
+//        equilibrada.setGord(30);
+//        tipoDieta [0] = equilibrada;
+//        
+//        TipoDieta lowcarb = new TipoDieta();
+//        lowcarb.setId(2);
+//        lowcarb.setNome("low carb");
+//        lowcarb.setCarb(30);
+//        lowcarb.setProt(50);
+//        lowcarb.setGord(20);
+//        tipoDieta [1] = lowcarb;
+//        
+//        TipoDieta cetogenica = new TipoDieta();
+//        cetogenica.setId(3);
+//        cetogenica.setNome("cetogênica");
+//        cetogenica.setCarb(15);
+//        cetogenica.setProt(15);
+//        cetogenica.setGord(70);
+//        tipoDieta [2] = cetogenica;
+//        
+//        
+//        //calcular depois o carb, proteina e gordura baseado no peso do atleta.
+//        TipoDieta atleta = new TipoDieta();
+//        atleta.setId(4);
+//        atleta.setNome("atleta");
+//        //atleta.setProt();
+//        tipoDieta [3] = atleta;
         
-        TipoDieta lowcarb = new TipoDieta();
-        lowcarb.setId(2);
-        lowcarb.setNome("low carb");
-        lowcarb.setCarb(30);
-        lowcarb.setProt(50);
-        lowcarb.setGord(20);
-        tipoDieta [1] = lowcarb;
+        AvalFis novaAval = new AvalFis();
+        TipoDieta novoTipo = new TipoDieta();
+        novaAval = aval.cadAval(p3);
+        aval.novaDieta(p3, novaAval, novoTipo);
         
-        TipoDieta cetogenica = new TipoDieta();
-        cetogenica.setId(3);
-        cetogenica.setNome("cetogênica");
-        cetogenica.setCarb(15);
-        cetogenica.setProt(15);
-        cetogenica.setGord(70);
-        tipoDieta [2] = cetogenica;
-        
-        
-        //calcular depois o carb, proteina e gordura baseado no peso do atleta.
-        TipoDieta atleta = new TipoDieta();
-        atleta.setId(4);
-        atleta.setNome("atleta");
-        //atleta.setProt();
-        tipoDieta [3] = atleta;
-        
-        
-        aval.cadAval(p3);
         
         
         
