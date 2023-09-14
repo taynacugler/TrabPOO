@@ -16,7 +16,7 @@ public class Pessoa {
     private String sexo;
     private String login;
     private String senha;
-    private String tipoUsuario;
+    private String tipoUsuario; //?
    // DateFormat dataCriacao;
    // DateFormat dataModificacao;
 

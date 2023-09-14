@@ -15,6 +15,7 @@ import com.mycompany.trabpoo.Bean.AvalFis;
 public class Teste {
    static Alimento alimentos [] = new Alimento [18];
    static TipoDieta tipoDieta [] = new TipoDieta [4];
+   static Pessoa usuarios [] = new Pessoa [10];
   
 
     public static void main(String[] args) {
@@ -26,7 +27,8 @@ public class Teste {
         p1.setSexo("f");
         p1.setLogin("tayna");
         p1.setSenha("1234");
-        System.out.println("nome:" + p1.getNome());   
+        System.out.println("nome:" + p1.getNome()); 
+        usuarios [0] = p1;
         
         Pessoa p2 = new Pessoa();
         p2.setNome("Silvio");
@@ -34,7 +36,8 @@ public class Teste {
         p2.setSexo("m");
         p2.setLogin("silvio");
         p2.setSenha("5678");
-        System.out.println("nome:" + p2.getNome()); 
+        System.out.println("nome:" + p2.getNome());
+        usuarios [1] = p2;
         
         Pessoa p3 = new Pessoa();
         p3.setNome("Malu");
@@ -43,6 +46,7 @@ public class Teste {
         p3.setLogin("Malu");
         p3.setSenha("1256");
         System.out.println("nome:" + p3.getNome()); 
+        usuarios [2] = p3;
         
         //CRIANDO ALIMENTOS
         //fontes de carboidratos:
@@ -300,12 +304,18 @@ public class Teste {
 //        //atleta.setProt();
 //        tipoDieta [3] = atleta;
         
-        AvalFis novaAval = new AvalFis();
-        TipoDieta novoTipo = new TipoDieta();
-        novaAval = aval.cadAval(p3);
-        aval.novaDieta(p3, novaAval, novoTipo);
+//        AvalFis novaAval = new AvalFis();
+//        TipoDieta novoTipo = new TipoDieta();
+//        novaAval = aval.cadAval(p3);
+//        aval.novaDieta(p3, novaAval, novoTipo);
         
+        int n = 0;
+        while (usuarios[n] != null) {
+            n++;
+        }
+        usuarios[n] = aval.cadastro(usuarios);
         
+        System.out.println(usuarios[3].getNome());
         
         
     }

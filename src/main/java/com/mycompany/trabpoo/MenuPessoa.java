@@ -162,4 +162,28 @@ public class MenuPessoa {
         System.out.println("Sua dieta vai ter " + novaDieta.getTipo().getCarb() + " de calorias de carboidrato" + novaDieta.getTipo().getProt() + "de calorias de proteina" + novaDieta.getTipo().getGord() + "de calorias de gordura");
         return novaDieta;
     }
+    Pessoa cadastro (Pessoa usuarios[])
+    {
+        Scanner scan = new Scanner(System.in);
+        Pessoa pessoa = new Pessoa();
+        System.out.println("Cadastro:");
+        System.out.println("Insira seu nome:"); 
+        pessoa.setNome(scan.nextLine());
+        while (pessoa.getNome().length() <= 3) {
+        System.out.println("Insira um nome com mais de 3 caracteres:");
+        pessoa.setNome(scan.nextLine());}
+        
+        System.out.println("Insira seu sexo, f para feminino e m para masculino:");
+        pessoa.setSexo(scan.nextLine());
+        while (!pessoa.getSexo().equals("f") && !pessoa.getSexo().equals("m")) {
+        System.out.println("Sexo invalido. Insira seu sexo f para femino e m para masculino:");
+        pessoa.setSexo(scan.nextLine());
+        }
+        //buscar logins para ver se ja existe igual
+        System.out.println("Crie um login:");
+        pessoa.setLogin(scan.nextLine());
+        System.out.println("Crie um senha:");
+        pessoa.setSenha(scan.nextLine());
+        return pessoa;
+    }
 }
