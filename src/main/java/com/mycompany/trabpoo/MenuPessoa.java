@@ -182,6 +182,16 @@ public class MenuPessoa {
         //buscar logins para ver se ja existe igual
         System.out.println("Crie um login:");
         pessoa.setLogin(scan.nextLine());
+//         for (int x= 0; x < usuarios.length(); x++)
+//        {
+//           if (pessoa.getLogin().equals(usuarios[x].getLogin())
+//                   {
+//                       System.out.println("Crie um login:");
+//                       pessoa.setLogin(scan.nextLine())
+//                       
+//                   }
+//           
+//        }
         System.out.println("Crie um senha:");
         pessoa.setSenha(scan.nextLine());
         return pessoa;
