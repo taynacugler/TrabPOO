@@ -31,6 +31,12 @@ public class MenuPessoa {
         novaAval.setQuadril(scan.nextDouble());
         System.out.println("Coloque seu abdomem:");
         novaAval.setAbdomem(scan.nextDouble());
+        System.out.println("Nível de atividade física");
+        System.out.println("1.2: sedentário (pouco ou nenhum exercício)");
+        System.out.println("1,375: levemente ativo (exercício leve 1 a 3 dias por semana)");
+        System.out.println("1,55: moderadamente ativo (exercício moderado 6 a 7 dias por semana)");
+        System.out.println("1,725: muito ativo (exercício intenso todos os dias ou exercício duas vezes ao dia)");
+        System.out.println("1,9: extra ativo (exercício muito difícil, treinamento ou trabalho físico)");
         System.out.println("Coloque o numero de ativ fisica que você faz:");
         novaAval.setAtvFis(scan.nextDouble());
         System.out.println("Coloque seu pescoço");
