@@ -304,19 +304,20 @@ public class Teste {
 //        //atleta.setProt();
 //        tipoDieta [3] = atleta;
         
-//        AvalFis novaAval = new AvalFis();
-//        TipoDieta novoTipo = new TipoDieta();
-//        novaAval = aval.cadAval(p3);
+        AvalFis novaAval = new AvalFis();
+        TipoDieta novoTipo = new TipoDieta();
+        novaAval = aval.cadAval(p3);
 //        aval.novaDieta(p3, novaAval, novoTipo);
-        
-        int n = 0;
-        while (usuarios[n] != null) {
-            n++;
-        }
-        usuarios[n] = aval.cadastro(usuarios);
-        
-        System.out.println(usuarios[3].getNome());
-        
-        
-    }
+//        
+//        int n = 0;
+//        while (usuarios[n] != null) {
+//            n++;
+//        }
+//        usuarios[n] = aval.cadastro(usuarios);
+//        
+//        System.out.println(usuarios[3].getNome());
+//        
+//        
+//    }
+}
 }

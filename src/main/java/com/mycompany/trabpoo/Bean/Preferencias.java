@@ -12,7 +12,16 @@ public class Preferencias {
     private int id;
     private Pessoa pessoa;
     private Alimento alimento;
+    private int Tipo;
     //dataCriacao, dataModificacao.
+
+    public int getTipo() {
+        return Tipo;
+    }
+
+    public void setTipo(int Tipo) {
+        this.Tipo = Tipo;
+    }
 
     public int getId() {
         return id;

@@ -7,6 +7,7 @@ import com.mycompany.trabpoo.Bean.AvalFis;
 import com.mycompany.trabpoo.Bean.Pessoa;
 import com.mycompany.trabpoo.Bean.Dieta;
 import com.mycompany.trabpoo.Bean.TipoDieta;
+import com.mycompany.trabpoo.Bean.Preferencias;
 import java.util.Scanner;
 
 /**
@@ -66,6 +67,65 @@ public class MenuPessoa {
         novaDieta.setTipo(novoTipo);
         Scanner scan = new Scanner(System.in);
   //comparações
+  //bf
+  if (aval.getPessoa().getSexo().equals("f") && aval.getIdade()<30 && aval.getBF()<19)
+  {
+      System.out.println("A sua porcentagem de gordura corporal está boa");
+  } else if (aval.getPessoa().getSexo().equals("f") && aval.getIdade()>29 && aval.getIdade()<40 && aval.getBF()<20)
+  {
+      System.out.println("A sua porcentagem de gordura corporal está boa");
+  } else if (aval.getPessoa().getSexo().equals("f") && aval.getIdade()>=40 && aval.getBF()<21)
+  {
+      System.out.println("A sua porcentagem de gordura corporal está boa");
+  } else if (aval.getPessoa().getSexo().equals("f") && aval.getIdade()<30 && aval.getBF()>19 && aval.getBF()<29)
+  {
+      System.out.println("A sua porcentagem de gordura corporal está normal");
+  } else if (aval.getPessoa().getSexo().equals("f") && aval.getIdade()<40 && aval.getIdade()>=30 && aval.getBF()>20 && aval.getBF()<30)
+  {
+      System.out.println("A sua porcentagem de gordura corporal está normal");
+  } else if (aval.getPessoa().getSexo().equals("f") && aval.getIdade()>=40 && aval.getBF()>21 && aval.getBF()<31)
+  {
+      System.out.println("A sua porcentagem de gordura corporal está normal");
+  } else if (aval.getPessoa().getSexo().equals("f") && aval.getIdade()<30 && aval.getBF()>28)
+  {
+      System.out.println("A sua porcentagem de gordura corporal está elevada");
+  } else if (aval.getPessoa().getSexo().equals("f") && aval.getIdade()<40 && aval.getIdade()>=30 && aval.getBF()>29)
+  {
+      System.out.println("A sua porcentagem de gordura corporal está elevada");
+  } else if (aval.getPessoa().getSexo().equals("f") && aval.getIdade()>=40 && aval.getBF()>30)
+  {
+      System.out.println("A sua porcentagem de gordura corporal está elevada");
+  }
+  
+  
+  else if (aval.getPessoa().getSexo().equals("m") && aval.getIdade()<30 && aval.getBF()<14)
+  {
+      System.out.println("A sua porcentagem de gordura corporal está boa");
+  } else if (aval.getPessoa().getSexo().equals("m") && aval.getIdade()>29 && aval.getIdade()<40 && aval.getBF()<15)
+  {
+      System.out.println("A sua porcentagem de gordura corporal está boa");
+  } else if (aval.getPessoa().getSexo().equals("m") && aval.getIdade()>=40 && aval.getBF()<17)
+  {
+      System.out.println("A sua porcentagem de gordura corporal está boa");
+  } else if (aval.getPessoa().getSexo().equals("m") && aval.getIdade()<30 && aval.getBF()>13 && aval.getBF()<21)
+  {
+      System.out.println("A sua porcentagem de gordura corporal está normal");
+  } else if (aval.getPessoa().getSexo().equals("m") && aval.getIdade()<40 && aval.getIdade()>=30 && aval.getBF()>14 && aval.getBF()<22)
+  {
+      System.out.println("A sua porcentagem de gordura corporal está normal");
+  } else if (aval.getPessoa().getSexo().equals("m") && aval.getIdade()>=40 && aval.getBF()>16 && aval.getBF()<24)
+  {
+      System.out.println("A sua porcentagem de gordura corporal está normal");
+  } else if (aval.getPessoa().getSexo().equals("m") && aval.getIdade()<30 && aval.getBF()>20)
+  {
+      System.out.println("A sua porcentagem de gordura corporal está elevada");
+  } else if (aval.getPessoa().getSexo().equals("m") && aval.getIdade()<40 && aval.getIdade()>=30 && aval.getBF()>21)
+  {
+      System.out.println("A sua porcentagem de gordura corporal está elevada");
+  } else if (aval.getPessoa().getSexo().equals("m") && aval.getIdade()>=40 && aval.getBF()>23)
+  {
+      System.out.println("A sua porcentagem de gordura corporal está elevada");
+  }
  //IMC
         if (aval.getIMC() > 40)
         {
@@ -202,4 +262,11 @@ public class MenuPessoa {
         pessoa.setSenha(scan.nextLine());
         return pessoa;
     }
+//    Preferencias pegarPref (Pessoa pessoa)
+//    {
+//        Preferencias pref = new Preferencias();
+//        pref.
+//        
+//        return pref
+//    }
 }

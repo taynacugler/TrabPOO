@@ -148,11 +148,11 @@ public class AvalFis {
         { 
           double x = 0;
           x = cintura + quadril - pescoco;
-         this.BF =(163.205*Math.log10(x)) - (97.684 *Math.log10(altura))- 78.387;
+         this.BF =(163.205*Math.log10(x)) - (97.684 *Math.log10(altura*100))- 78.387;
             
         }
         else if (pessoa.getSexo().equals("m")) {
-          this.BF = (86.010*Math.log10 (abdomem-pescoco))-(70.041*Math.log10(altura)) + 36.76;
+          this.BF = (86.010*Math.log10 (abdomem-pescoco))-(70.041*Math.log10(altura*100)) + 36.76;
         }
     }
 
