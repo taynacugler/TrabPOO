@@ -149,7 +149,7 @@ public class MenuPessoa {
         
         while (novaDieta.getObjetivo() < 1 || novaDieta.getObjetivo()>3){ 
             
-        System.out.println("Qual é seu objetivo? Se for perde peso digite 1, se for manter o peso digite 2, se for ganhar peso digite 3");
+        System.out.println("Qual é seu objetivo? Se for perda peso digite 1, se for manter o peso digite 2, se for ganhar peso digite 3");
         novaDieta.setObjetivo(scan.nextInt());
         }
         if (novaDieta.getObjetivo() == 1)

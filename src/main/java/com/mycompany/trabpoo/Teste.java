@@ -124,10 +124,22 @@ public class Teste {
         System.out.println("Calorias de " + tapioca.getPorcao() + " gramas de " + tapioca.getNome() +": " + tapioca.getCal());
         alimentos [5] = tapioca;
         
+        Alimento banana = new Alimento();
+        banana.setId(7);
+        banana.setNome("tapioca");
+        banana.setCarb(22);
+        banana.setProt(2);
+        banana.setGord(3.9);
+        banana.setPorcao(100);
+        banana.setTipoUsuario("1");
+        banana.setCal(banana.getCal(), banana.getCarb(), banana.getProt(),banana.getGord());
+        System.out.println("Calorias de " + banana.getPorcao() + " gramas de " + banana.getNome() +": " + banana.getCal());
+        alimentos [5] = banana;
+        
         //Alimentos fonte de proteina
         
         Alimento peitoFrango = new Alimento();
-        peitoFrango.setId(7);
+        peitoFrango.setId(8);
         peitoFrango.setNome("peito de frango");
         peitoFrango.setCarb(0);
         peitoFrango.setProt(32);
@@ -139,7 +151,7 @@ public class Teste {
         alimentos [6] = peitoFrango;
         
         Alimento patinho = new Alimento();
-        patinho.setId(8);
+        patinho.setId(9);
         patinho.setNome("patinho");
         patinho.setCarb(0);
         patinho.setProt(35.9);
@@ -151,7 +163,7 @@ public class Teste {
         alimentos [7] = patinho ;
         
         Alimento tilapia = new Alimento();
-        tilapia.setId(9);
+        tilapia.setId(10);
         tilapia.setNome("tilápia");
         tilapia.setCarb(0);
         tilapia.setProt(23);
@@ -163,7 +175,7 @@ public class Teste {
         alimentos [8] = tilapia;
         
         Alimento soja = new Alimento();
-        soja.setId(10);
+        soja.setId(11);
         soja.setNome("proteína de soja");
         soja.setCarb(8);
         soja.setProt(23);
@@ -175,7 +187,7 @@ public class Teste {
         alimentos [9] = soja;
         
         Alimento ovoCozido = new Alimento();
-        ovoCozido.setId(11);
+        ovoCozido.setId(12);
         ovoCozido.setNome("ovo cozido");
         ovoCozido.setCarb(1.1);
         ovoCozido.setProt(13);
@@ -187,7 +199,7 @@ public class Teste {
         alimentos [10] = ovoCozido;
         
         Alimento atum = new Alimento();
-        atum.setId(12);
+        atum.setId(13);
         atum.setNome("Atum");
         atum.setCarb(0);
         atum.setProt(23);
@@ -200,7 +212,7 @@ public class Teste {
         
         //Alimentos fonte de gordura
         Alimento abacate = new Alimento();
-        abacate.setId(13);
+        abacate.setId(14);
         abacate.setNome("abacate");
         abacate.setCarb(6);
         abacate.setProt(1.2);
@@ -212,7 +224,7 @@ public class Teste {
         alimentos [12] = abacate;
         
         Alimento pastaAmendoim = new Alimento();
-        pastaAmendoim.setId(14);
+        pastaAmendoim.setId(15);
         pastaAmendoim.setNome("pasta de amendoim");
         pastaAmendoim.setCarb(20);
         pastaAmendoim.setProt(25);
@@ -224,7 +236,7 @@ public class Teste {
         alimentos [13] = pastaAmendoim;
         
         Alimento azeite = new Alimento();
-        azeite.setId(15);
+        azeite.setId(16);
         azeite.setNome("azeite");
         azeite.setCarb(0);
         azeite.setProt(0);
@@ -236,7 +248,7 @@ public class Teste {
         alimentos [14] = azeite;
         
         Alimento manteiga = new Alimento();
-        manteiga.setId(16);
+        manteiga.setId(17);
         manteiga.setNome("manteiga");
         manteiga.setCarb(0.1);
         manteiga.setProt(0.4);
@@ -248,7 +260,7 @@ public class Teste {
         alimentos [15] = manteiga;
         
         Alimento nozes = new Alimento();
-        nozes.setId(17);
+        nozes.setId(18);
         nozes.setNome("nozes");
         nozes.setCarb(18.4);
         nozes.setProt(14);
@@ -260,7 +272,7 @@ public class Teste {
         alimentos [16] = nozes;
         
         Alimento castanhas = new Alimento();
-        castanhas.setId(18);
+        castanhas.setId(19);
         castanhas.setNome("castanhas");
         castanhas.setCarb(29.1);
         castanhas.setProt(18.5);
@@ -306,7 +318,8 @@ public class Teste {
         
         AvalFis novaAval = new AvalFis();
         TipoDieta novoTipo = new TipoDieta();
-        novaAval = aval.cadAval(p3);
+        novaAval = aval.cadAval(p2);
+        
 //        aval.novaDieta(p3, novaAval, novoTipo);
 //        
 //        int n = 0;
