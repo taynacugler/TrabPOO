@@ -8,6 +8,7 @@ import com.mycompany.trabpoo.Bean.Pessoa;
 import com.mycompany.trabpoo.Bean.Dieta;
 import com.mycompany.trabpoo.Bean.TipoDieta;
 import com.mycompany.trabpoo.Bean.Preferencias;
+import com.mycompany.trabpoo.Bean.Alimento;
 import java.util.Scanner;
 
 /**
@@ -60,11 +61,10 @@ public class MenuPessoa {
         
         return novaAval;
     }
-    Dieta novaDieta (Pessoa pessoa, AvalFis aval, TipoDieta novoTipo)
+    Dieta novaDieta (Pessoa pessoa, AvalFis aval)
     {   Dieta novaDieta = new Dieta();
         novaDieta.setPessoa(pessoa);
         novaDieta.setAval(aval);
-        novaDieta.setTipo(novoTipo);
         Scanner scan = new Scanner(System.in);
   //comparações
   //bf
@@ -262,11 +262,21 @@ public class MenuPessoa {
         pessoa.setSenha(scan.nextLine());
         return pessoa;
     }
-//    Preferencias pegarPref (Pessoa pessoa)
-//    {
-//        Preferencias pref = new Preferencias();
-//        pref.
-//        
-//        return pref
-//    }
+    Preferencias pegarPref (Pessoa pessoa, String tipo, int num, Alimento alim [])
+    {
+        Preferencias pref = new Preferencias();
+       // pref.setTipo(tipo);
+        
+       // pref.setAlimento(scan.nextInt(num));
+       for (Alimento tempAlim : alim)
+       {
+           if (tempAlim.getId() == num)
+           {
+               pref.setAlimento(tempAlim);
+           }
+       }
+           
+        
+        return pref;
+    }
 }
