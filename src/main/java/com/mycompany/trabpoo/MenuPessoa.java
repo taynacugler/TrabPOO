@@ -9,6 +9,7 @@ import com.mycompany.trabpoo.Bean.Dieta;
 import com.mycompany.trabpoo.Bean.TipoDieta;
 import com.mycompany.trabpoo.Bean.Preferencias;
 import com.mycompany.trabpoo.Bean.Alimento;
+import com.mycompany.trabpoo.Bean.Refeicoes;
 import java.util.Scanner;
 
 /**
@@ -68,64 +69,64 @@ public class MenuPessoa {
         Scanner scan = new Scanner(System.in);
   //comparações
   //bf
-  if (aval.getPessoa().getSexo().equals("f") && aval.getIdade()<30 && aval.getBF()<19)
-  {
-      System.out.println("A sua porcentagem de gordura corporal está boa");
-  } else if (aval.getPessoa().getSexo().equals("f") && aval.getIdade()>29 && aval.getIdade()<40 && aval.getBF()<20)
-  {
-      System.out.println("A sua porcentagem de gordura corporal está boa");
-  } else if (aval.getPessoa().getSexo().equals("f") && aval.getIdade()>=40 && aval.getBF()<21)
-  {
-      System.out.println("A sua porcentagem de gordura corporal está boa");
-  } else if (aval.getPessoa().getSexo().equals("f") && aval.getIdade()<30 && aval.getBF()>19 && aval.getBF()<29)
-  {
-      System.out.println("A sua porcentagem de gordura corporal está normal");
-  } else if (aval.getPessoa().getSexo().equals("f") && aval.getIdade()<40 && aval.getIdade()>=30 && aval.getBF()>20 && aval.getBF()<30)
-  {
-      System.out.println("A sua porcentagem de gordura corporal está normal");
-  } else if (aval.getPessoa().getSexo().equals("f") && aval.getIdade()>=40 && aval.getBF()>21 && aval.getBF()<31)
-  {
-      System.out.println("A sua porcentagem de gordura corporal está normal");
-  } else if (aval.getPessoa().getSexo().equals("f") && aval.getIdade()<30 && aval.getBF()>28)
-  {
-      System.out.println("A sua porcentagem de gordura corporal está elevada");
-  } else if (aval.getPessoa().getSexo().equals("f") && aval.getIdade()<40 && aval.getIdade()>=30 && aval.getBF()>29)
-  {
-      System.out.println("A sua porcentagem de gordura corporal está elevada");
-  } else if (aval.getPessoa().getSexo().equals("f") && aval.getIdade()>=40 && aval.getBF()>30)
-  {
-      System.out.println("A sua porcentagem de gordura corporal está elevada");
-  }
-  
-  
-  else if (aval.getPessoa().getSexo().equals("m") && aval.getIdade()<30 && aval.getBF()<14)
-  {
-      System.out.println("A sua porcentagem de gordura corporal está boa");
-  } else if (aval.getPessoa().getSexo().equals("m") && aval.getIdade()>29 && aval.getIdade()<40 && aval.getBF()<15)
-  {
-      System.out.println("A sua porcentagem de gordura corporal está boa");
-  } else if (aval.getPessoa().getSexo().equals("m") && aval.getIdade()>=40 && aval.getBF()<17)
-  {
-      System.out.println("A sua porcentagem de gordura corporal está boa");
-  } else if (aval.getPessoa().getSexo().equals("m") && aval.getIdade()<30 && aval.getBF()>13 && aval.getBF()<21)
-  {
-      System.out.println("A sua porcentagem de gordura corporal está normal");
-  } else if (aval.getPessoa().getSexo().equals("m") && aval.getIdade()<40 && aval.getIdade()>=30 && aval.getBF()>14 && aval.getBF()<22)
-  {
-      System.out.println("A sua porcentagem de gordura corporal está normal");
-  } else if (aval.getPessoa().getSexo().equals("m") && aval.getIdade()>=40 && aval.getBF()>16 && aval.getBF()<24)
-  {
-      System.out.println("A sua porcentagem de gordura corporal está normal");
-  } else if (aval.getPessoa().getSexo().equals("m") && aval.getIdade()<30 && aval.getBF()>20)
-  {
-      System.out.println("A sua porcentagem de gordura corporal está elevada");
-  } else if (aval.getPessoa().getSexo().equals("m") && aval.getIdade()<40 && aval.getIdade()>=30 && aval.getBF()>21)
-  {
-      System.out.println("A sua porcentagem de gordura corporal está elevada");
-  } else if (aval.getPessoa().getSexo().equals("m") && aval.getIdade()>=40 && aval.getBF()>23)
-  {
-      System.out.println("A sua porcentagem de gordura corporal está elevada");
-  }
+//  if (aval.getPessoa().getSexo().equals("f") && aval.getIdade()<30 && aval.getBF()<19)
+//  {
+//      System.out.println("A sua porcentagem de gordura corporal está boa");
+//  } else if (aval.getPessoa().getSexo().equals("f") && aval.getIdade()>29 && aval.getIdade()<40 && aval.getBF()<20)
+//  {
+//      System.out.println("A sua porcentagem de gordura corporal está boa");
+//  } else if (aval.getPessoa().getSexo().equals("f") && aval.getIdade()>=40 && aval.getBF()<21)
+//  {
+//      System.out.println("A sua porcentagem de gordura corporal está boa");
+//  } else if (aval.getPessoa().getSexo().equals("f") && aval.getIdade()<30 && aval.getBF()>19 && aval.getBF()<29)
+//  {
+//      System.out.println("A sua porcentagem de gordura corporal está normal");
+//  } else if (aval.getPessoa().getSexo().equals("f") && aval.getIdade()<40 && aval.getIdade()>=30 && aval.getBF()>20 && aval.getBF()<30)
+//  {
+//      System.out.println("A sua porcentagem de gordura corporal está normal");
+//  } else if (aval.getPessoa().getSexo().equals("f") && aval.getIdade()>=40 && aval.getBF()>21 && aval.getBF()<31)
+//  {
+//      System.out.println("A sua porcentagem de gordura corporal está normal");
+//  } else if (aval.getPessoa().getSexo().equals("f") && aval.getIdade()<30 && aval.getBF()>28)
+//  {
+//      System.out.println("A sua porcentagem de gordura corporal está elevada");
+//  } else if (aval.getPessoa().getSexo().equals("f") && aval.getIdade()<40 && aval.getIdade()>=30 && aval.getBF()>29)
+//  {
+//      System.out.println("A sua porcentagem de gordura corporal está elevada");
+//  } else if (aval.getPessoa().getSexo().equals("f") && aval.getIdade()>=40 && aval.getBF()>30)
+//  {
+//      System.out.println("A sua porcentagem de gordura corporal está elevada");
+//  }
+//  
+//  
+//  else if (aval.getPessoa().getSexo().equals("m") && aval.getIdade()<30 && aval.getBF()<14)
+//  {
+//      System.out.println("A sua porcentagem de gordura corporal está boa");
+//  } else if (aval.getPessoa().getSexo().equals("m") && aval.getIdade()>29 && aval.getIdade()<40 && aval.getBF()<15)
+//  {
+//      System.out.println("A sua porcentagem de gordura corporal está boa");
+//  } else if (aval.getPessoa().getSexo().equals("m") && aval.getIdade()>=40 && aval.getBF()<17)
+//  {
+//      System.out.println("A sua porcentagem de gordura corporal está boa");
+//  } else if (aval.getPessoa().getSexo().equals("m") && aval.getIdade()<30 && aval.getBF()>13 && aval.getBF()<21)
+//  {
+//      System.out.println("A sua porcentagem de gordura corporal está normal");
+//  } else if (aval.getPessoa().getSexo().equals("m") && aval.getIdade()<40 && aval.getIdade()>=30 && aval.getBF()>14 && aval.getBF()<22)
+//  {
+//      System.out.println("A sua porcentagem de gordura corporal está normal");
+//  } else if (aval.getPessoa().getSexo().equals("m") && aval.getIdade()>=40 && aval.getBF()>16 && aval.getBF()<24)
+//  {
+//      System.out.println("A sua porcentagem de gordura corporal está normal");
+//  } else if (aval.getPessoa().getSexo().equals("m") && aval.getIdade()<30 && aval.getBF()>20)
+//  {
+//      System.out.println("A sua porcentagem de gordura corporal está elevada");
+//  } else if (aval.getPessoa().getSexo().equals("m") && aval.getIdade()<40 && aval.getIdade()>=30 && aval.getBF()>21)
+//  {
+//      System.out.println("A sua porcentagem de gordura corporal está elevada");
+//  } else if (aval.getPessoa().getSexo().equals("m") && aval.getIdade()>=40 && aval.getBF()>23)
+//  {
+//      System.out.println("A sua porcentagem de gordura corporal está elevada");
+//  }
  //IMC
         if (aval.getIMC() > 40)
         {
@@ -149,7 +150,7 @@ public class MenuPessoa {
         
         while (novaDieta.getObjetivo() < 1 || novaDieta.getObjetivo()>3){ 
             
-        System.out.println("Qual é seu objetivo? Se for perda peso digite 1, se for manter o peso digite 2, se for ganhar peso digite 3");
+        System.out.println("Qual é seu objetivo? Se for perda de peso digite 1, se for manter o peso digite 2, se for ganhar peso digite 3");
         novaDieta.setObjetivo(scan.nextInt());
         }
         if (novaDieta.getObjetivo() == 1)
@@ -174,6 +175,8 @@ public class MenuPessoa {
         novaDieta.setNumRef(scan.nextInt());
         }
         int tipo = 0;
+        TipoDieta novoTipo = new TipoDieta();
+        novaDieta.setTipo(novoTipo);
         while (tipo<1 || tipo>4){ 
         System.out.println("Tipos de Dieta");
         System.out.println("1- Equilibrada");
@@ -184,7 +187,9 @@ public class MenuPessoa {
         System.out.println("Qual o tipo de dieta que você quer ter? Digite o numero");
         tipo = scan.nextInt();
         }
+        
         if (tipo == 1) {
+            
             novaDieta.getTipo().setNome("equilibrada");
             double carb = novaDieta.getCalorias()*0.4;
             double prot = novaDieta.getCalorias()*0.3;
@@ -278,5 +283,149 @@ public class MenuPessoa {
            
         
         return pref;
+    }
+    Refeicoes[] quantRef (Dieta dieta) {
+        Refeicoes quantRef[] = new Refeicoes [6];
+         for (int i = 0; i < 6; i++) {
+        quantRef[i] = new Refeicoes();
+    }
+       if (dieta.getNumRef() == 3) {
+           System.out.println("teste");
+           quantRef[0].setNomeRef("Café da manhã");
+           quantRef[0].setId(1);
+           quantRef[0].setCalorias(dieta.getCalorias()*0.35);
+           quantRef[0].setProteína(dieta.getTipo().getProt()*0.35);
+           quantRef[0].setCarboidrato(dieta.getTipo().getCarb()*0.35);
+           quantRef[0].setGordura(dieta.getTipo().getGord()*0.35);
+           
+           quantRef[1].setNomeRef("Almoço");
+           quantRef[1].setId(2);
+           quantRef[1].setCalorias(dieta.getCalorias()*0.35);
+           quantRef[1].setProteína(dieta.getTipo().getProt()*0.35);
+           quantRef[1].setCarboidrato(dieta.getTipo().getCarb()*0.35);
+           quantRef[1].setGordura(dieta.getTipo().getGord()*0.35);
+           
+           quantRef[2].setNomeRef("Janta");
+           quantRef[2].setId(3);
+           quantRef[2].setCalorias(dieta.getCalorias()*0.3);
+           quantRef[2].setProteína(dieta.getTipo().getProt()*0.3);
+           quantRef[2].setCarboidrato(dieta.getTipo().getCarb()*0.3);
+           quantRef[2].setGordura(dieta.getTipo().getGord()*0.3);
+           
+       } else if (dieta.getNumRef() == 4)
+       {
+           System.out.println("teste");
+           quantRef[0].setNomeRef("Café da manhã");
+           quantRef[0].setId(1);
+           quantRef[0].setCalorias(dieta.getCalorias()*0.3);
+           quantRef[0].setProteína(dieta.getTipo().getProt()*0.3);
+           quantRef[0].setCarboidrato(dieta.getTipo().getCarb()*0.3);
+           quantRef[0].setGordura(dieta.getTipo().getGord()*0.3);
+           
+           quantRef[1].setNomeRef("Almoço");
+           quantRef[1].setId(2);
+           quantRef[1].setCalorias(dieta.getCalorias()*0.3);
+           quantRef[1].setProteína(dieta.getTipo().getProt()*0.3);
+           quantRef[1].setCarboidrato(dieta.getTipo().getCarb()*0.3);
+           quantRef[1].setGordura(dieta.getTipo().getGord()*0.3);
+           
+           quantRef[2].setNomeRef("lanche");
+           quantRef[2].setId(3);
+           quantRef[2].setCalorias(dieta.getCalorias()*0.1);
+           quantRef[2].setProteína(dieta.getTipo().getProt()*0.1);
+           quantRef[2].setCarboidrato(dieta.getTipo().getCarb()*0.1);
+           quantRef[2].setGordura(dieta.getTipo().getGord()*0.1);
+           
+           quantRef[3].setNomeRef("Janta");
+           quantRef[3].setId(4);
+           quantRef[3].setCalorias(dieta.getCalorias()*0.3);
+           quantRef[3].setProteína(dieta.getTipo().getProt()*0.3);
+           quantRef[3].setCarboidrato(dieta.getTipo().getCarb()*0.3);
+           quantRef[3].setGordura(dieta.getTipo().getGord()*0.3);
+       } else if (dieta.getNumRef() == 5)
+       {
+           System.out.println("teste");
+           quantRef[0].setNomeRef("Café da manhã");
+           quantRef[0].setId(1);
+           quantRef[0].setCalorias(dieta.getCalorias()*0.25);
+           quantRef[0].setProteína(dieta.getTipo().getProt()*0.25);
+           quantRef[0].setCarboidrato(dieta.getTipo().getCarb()*0.25);
+           quantRef[0].setGordura(dieta.getTipo().getGord()*0.25);
+           
+           quantRef[1].setNomeRef("lanche");
+           quantRef[1].setId(2);
+           quantRef[1].setCalorias(dieta.getCalorias()*0.1);
+           quantRef[1].setProteína(dieta.getTipo().getProt()*0.1);
+           quantRef[1].setCarboidrato(dieta.getTipo().getCarb()*0.1);
+           quantRef[1].setGordura(dieta.getTipo().getGord()*0.1);
+           
+           quantRef[2].setNomeRef("almoço");
+           quantRef[2].setId(3);
+           quantRef[2].setCalorias(dieta.getCalorias()*0.3);
+           quantRef[2].setProteína(dieta.getTipo().getProt()*0.3);
+           quantRef[2].setCarboidrato(dieta.getTipo().getCarb()*0.3);
+           quantRef[2].setGordura(dieta.getTipo().getGord()*0.3);
+           
+           quantRef[3].setNomeRef("lanche");
+           quantRef[3].setId(4);
+           quantRef[3].setCalorias(dieta.getCalorias()*0.1);
+           quantRef[3].setProteína(dieta.getTipo().getProt()*0.1);
+           quantRef[3].setCarboidrato(dieta.getTipo().getCarb()*0.1);
+           quantRef[3].setGordura(dieta.getTipo().getGord()*0.1);
+           
+           quantRef[4].setNomeRef("Janta");
+           quantRef[4].setId(5);
+           quantRef[4].setCalorias(dieta.getCalorias()*0.25);
+           quantRef[4].setProteína(dieta.getTipo().getProt()*0.25);
+           quantRef[4].setCarboidrato(dieta.getTipo().getCarb()*0.25);
+           quantRef[4].setGordura(dieta.getTipo().getGord()*0.25);
+       } else if (dieta.getNumRef() == 6)
+       {
+           System.out.println("teste");
+           quantRef[0].setNomeRef("Café da manhã");
+           quantRef[0].setId(1);
+           quantRef[0].setCalorias(dieta.getCalorias()*0.25);
+           quantRef[0].setProteína(dieta.getTipo().getProt()*0.25);
+           quantRef[0].setCarboidrato(dieta.getTipo().getCarb()*0.25);
+           quantRef[0].setGordura(dieta.getTipo().getGord()*0.25);
+           
+           quantRef[1].setNomeRef("lanche");
+           quantRef[1].setId(2);
+           quantRef[1].setCalorias(dieta.getCalorias()*0.08);
+           quantRef[1].setProteína(dieta.getTipo().getProt()*0.08);
+           quantRef[1].setCarboidrato(dieta.getTipo().getCarb()*0.08);
+           quantRef[1].setGordura(dieta.getTipo().getGord()*0.08);
+           
+           quantRef[2].setNomeRef("almoço");
+           quantRef[2].setId(3);
+           quantRef[2].setCalorias(dieta.getCalorias()*0.25);
+           quantRef[2].setProteína(dieta.getTipo().getProt()*0.25);
+           quantRef[2].setCarboidrato(dieta.getTipo().getCarb()*0.25);
+           quantRef[2].setGordura(dieta.getTipo().getGord()*0.25);
+           
+           quantRef[3].setNomeRef("lanche");
+           quantRef[3].setId(4);
+           quantRef[3].setCalorias(dieta.getCalorias()*0.09);
+           quantRef[3].setProteína(dieta.getTipo().getProt()*0.09);
+           quantRef[3].setCarboidrato(dieta.getTipo().getCarb()*0.09);
+           quantRef[3].setGordura(dieta.getTipo().getGord()*0.09);
+           
+           quantRef[4].setNomeRef("Janta");
+           quantRef[4].setId(5);
+           quantRef[4].setCalorias(dieta.getCalorias()*0.25);
+           quantRef[4].setProteína(dieta.getTipo().getProt()*0.25);
+           quantRef[4].setCarboidrato(dieta.getTipo().getCarb()*0.25);
+           quantRef[4].setGordura(dieta.getTipo().getGord()*0.25);
+           
+           quantRef[5].setNomeRef("ceia");
+           quantRef[5].setId(6);
+           quantRef[5].setCalorias(dieta.getCalorias()*0.08);
+           quantRef[5].setProteína(dieta.getTipo().getProt()*0.08);
+           quantRef[5].setCarboidrato(dieta.getTipo().getCarb()*0.08);
+           quantRef[5].setGordura(dieta.getTipo().getGord()*0.08);
+       }
+        
+            
+            return quantRef;
     }
 }

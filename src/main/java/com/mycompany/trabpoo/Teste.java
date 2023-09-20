@@ -10,6 +10,7 @@ import com.mycompany.trabpoo.Bean.TipoDieta;
 import com.mycompany.trabpoo.Bean.AvalFis;
 import com.mycompany.trabpoo.Bean.Preferencias;
 import com.mycompany.trabpoo.Bean.Dieta;
+import com.mycompany.trabpoo.Bean.Refeicoes;
 import java.util.Scanner;
 /**
  *
@@ -325,13 +326,11 @@ public class Teste {
         AvalFis novaAval = new AvalFis();
         Dieta dieta = new Dieta();
         novaAval = aval.cadAval(p2);
-        dieta = aval.novaDieta(p3, novaAval);
+        dieta = aval.novaDieta(p2, novaAval);
         
         //num de refeições 
         
-        if (dieta.getNumRef() == 1) {
-            
-        }
+       
 
 
 //pegar preferencias 
@@ -400,6 +399,14 @@ public class Teste {
     }
         }
         // fim pegar preferencias
+        
+        int tipoGerar = 0;
+        //refeições
+        Refeicoes ref[] = aval.quantRef(dieta);
+        System.out.println(ref[0].getCarboidrato());
+        Scanner scan = new Scanner(System.in);
+        tipoGerar = scan.nextInt();
+        
                 
 //   
 }
