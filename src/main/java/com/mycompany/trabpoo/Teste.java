@@ -404,6 +404,10 @@ public class Teste {
         //refeições
         Refeicoes ref[] = aval.quantRef(dieta);
         System.out.println(ref[0].getCarboidrato());
+        System.out.println("Como você prefere que sua dieta seja gerada? /n");
+        System.out.println("1- Com base nas suas preferencias");
+        System.out.println("2- Gerar automaticamente");
+
         Scanner scan = new Scanner(System.in);
         tipoGerar = scan.nextInt();
         
