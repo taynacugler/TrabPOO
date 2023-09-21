@@ -398,6 +398,8 @@ public class Teste {
         System.out.println(pref.getAlimento().getNome());
     }
         }
+        
+        
         // fim pegar preferencias
         
         int tipoGerar = 0;
@@ -410,6 +412,7 @@ public class Teste {
 
         Scanner scan = new Scanner(System.in);
         tipoGerar = scan.nextInt();
+       
         
                 
 //   

@@ -10,13 +10,13 @@ import java.util.Scanner;
  * @author taynacardoso
  */
 public class Dieta {
-    int id;
-    Pessoa pessoa;
-    AvalFis aval;
-    TipoDieta tipo;
-    int objetivo;
-    double calorias;
-    int numRef;
+    private int id;
+    private Pessoa pessoa;
+    private AvalFis aval;
+    private TipoDieta tipo;
+    private int objetivo;
+    private double calorias;
+    private int numRef;
     
     //dataCriacao, dataModificacao. 
 
