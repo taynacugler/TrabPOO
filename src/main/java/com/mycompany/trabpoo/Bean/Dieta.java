@@ -10,6 +10,7 @@ import java.util.Scanner;
  * @author taynacardoso
  */
 public class Dieta {
+    private static int cont;
     private int id;
     private Pessoa pessoa;
     private AvalFis aval;
@@ -18,16 +19,16 @@ public class Dieta {
     private double calorias;
     private int numRef;
     
-    //dataCriacao, dataModificacao. 
+    //dataCriacao, dataModificacao.
+
+    public Dieta() {
+        this.id = ++Dieta.cont;
+    }
+    
 
     public int getId() {
         return id;
     }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public Pessoa getPessoa() {
         return pessoa;
     }

@@ -10,6 +10,7 @@ package com.mycompany.trabpoo.Bean;
  * @author taynacardoso
  */
 public class AvalFis {
+    private static int cont;
     private int id;
     private Pessoa pessoa;
     private double peso;
@@ -19,9 +20,7 @@ public class AvalFis {
     private double cintura;
     private double quadril;
     private double atvFis;
-    private double abdomem;
-
-     
+    private double abdomem; 
     
     private double IMC;
     private double TMB;
@@ -31,14 +30,12 @@ public class AvalFis {
     private double massaMagra;
     //dataCriacao, dataModificacao.
 
+    public AvalFis() {
+        this.id = ++AvalFis.cont;
+    }
     public int getId() {
         return id;
     }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public Pessoa getPessoa() {
         return pessoa;
     }

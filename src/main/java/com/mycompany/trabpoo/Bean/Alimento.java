@@ -9,6 +9,7 @@ package com.mycompany.trabpoo.Bean;
  * @author taynacardoso
  */
 public class Alimento {
+    private static int cont;
     private int id;
     private String nome;
     private double carb;
@@ -20,14 +21,13 @@ public class Alimento {
    //String dataCriacao;
     //String dataModificacao;
 
+    public Alimento() {
+        this.id = ++Alimento.cont;
+    }
+
     public int getId() {
         return id;
     }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getNome() {
         return nome;
     }

@@ -292,21 +292,18 @@ public class MenuPessoa {
        if (dieta.getNumRef() == 3) {
            System.out.println("teste");
            quantRef[0].setNomeRef("Café da manhã");
-           quantRef[0].setId(1);
            quantRef[0].setCalorias(dieta.getCalorias()*0.35);
            quantRef[0].setProteína(dieta.getTipo().getProt()*0.35);
            quantRef[0].setCarboidrato(dieta.getTipo().getCarb()*0.35);
            quantRef[0].setGordura(dieta.getTipo().getGord()*0.35);
            
            quantRef[1].setNomeRef("Almoço");
-           quantRef[1].setId(2);
            quantRef[1].setCalorias(dieta.getCalorias()*0.35);
            quantRef[1].setProteína(dieta.getTipo().getProt()*0.35);
            quantRef[1].setCarboidrato(dieta.getTipo().getCarb()*0.35);
            quantRef[1].setGordura(dieta.getTipo().getGord()*0.35);
            
            quantRef[2].setNomeRef("Janta");
-           quantRef[2].setId(3);
            quantRef[2].setCalorias(dieta.getCalorias()*0.3);
            quantRef[2].setProteína(dieta.getTipo().getProt()*0.3);
            quantRef[2].setCarboidrato(dieta.getTipo().getCarb()*0.3);
@@ -316,28 +313,24 @@ public class MenuPessoa {
        {
            System.out.println("teste");
            quantRef[0].setNomeRef("Café da manhã");
-           quantRef[0].setId(1);
            quantRef[0].setCalorias(dieta.getCalorias()*0.3);
            quantRef[0].setProteína(dieta.getTipo().getProt()*0.3);
            quantRef[0].setCarboidrato(dieta.getTipo().getCarb()*0.3);
            quantRef[0].setGordura(dieta.getTipo().getGord()*0.3);
            
            quantRef[1].setNomeRef("Almoço");
-           quantRef[1].setId(2);
            quantRef[1].setCalorias(dieta.getCalorias()*0.3);
            quantRef[1].setProteína(dieta.getTipo().getProt()*0.3);
            quantRef[1].setCarboidrato(dieta.getTipo().getCarb()*0.3);
            quantRef[1].setGordura(dieta.getTipo().getGord()*0.3);
            
            quantRef[2].setNomeRef("lanche");
-           quantRef[2].setId(3);
            quantRef[2].setCalorias(dieta.getCalorias()*0.1);
            quantRef[2].setProteína(dieta.getTipo().getProt()*0.1);
            quantRef[2].setCarboidrato(dieta.getTipo().getCarb()*0.1);
            quantRef[2].setGordura(dieta.getTipo().getGord()*0.1);
            
            quantRef[3].setNomeRef("Janta");
-           quantRef[3].setId(4);
            quantRef[3].setCalorias(dieta.getCalorias()*0.3);
            quantRef[3].setProteína(dieta.getTipo().getProt()*0.3);
            quantRef[3].setCarboidrato(dieta.getTipo().getCarb()*0.3);
@@ -346,35 +339,30 @@ public class MenuPessoa {
        {
            System.out.println("teste");
            quantRef[0].setNomeRef("Café da manhã");
-           quantRef[0].setId(1);
            quantRef[0].setCalorias(dieta.getCalorias()*0.25);
            quantRef[0].setProteína(dieta.getTipo().getProt()*0.25);
            quantRef[0].setCarboidrato(dieta.getTipo().getCarb()*0.25);
            quantRef[0].setGordura(dieta.getTipo().getGord()*0.25);
            
            quantRef[1].setNomeRef("lanche");
-           quantRef[1].setId(2);
            quantRef[1].setCalorias(dieta.getCalorias()*0.1);
            quantRef[1].setProteína(dieta.getTipo().getProt()*0.1);
            quantRef[1].setCarboidrato(dieta.getTipo().getCarb()*0.1);
            quantRef[1].setGordura(dieta.getTipo().getGord()*0.1);
            
            quantRef[2].setNomeRef("almoço");
-           quantRef[2].setId(3);
            quantRef[2].setCalorias(dieta.getCalorias()*0.3);
            quantRef[2].setProteína(dieta.getTipo().getProt()*0.3);
            quantRef[2].setCarboidrato(dieta.getTipo().getCarb()*0.3);
            quantRef[2].setGordura(dieta.getTipo().getGord()*0.3);
            
            quantRef[3].setNomeRef("lanche");
-           quantRef[3].setId(4);
            quantRef[3].setCalorias(dieta.getCalorias()*0.1);
            quantRef[3].setProteína(dieta.getTipo().getProt()*0.1);
            quantRef[3].setCarboidrato(dieta.getTipo().getCarb()*0.1);
            quantRef[3].setGordura(dieta.getTipo().getGord()*0.1);
            
            quantRef[4].setNomeRef("Janta");
-           quantRef[4].setId(5);
            quantRef[4].setCalorias(dieta.getCalorias()*0.25);
            quantRef[4].setProteína(dieta.getTipo().getProt()*0.25);
            quantRef[4].setCarboidrato(dieta.getTipo().getCarb()*0.25);
@@ -383,42 +371,36 @@ public class MenuPessoa {
        {
            System.out.println("teste");
            quantRef[0].setNomeRef("Café da manhã");
-           quantRef[0].setId(1);
            quantRef[0].setCalorias(dieta.getCalorias()*0.25);
            quantRef[0].setProteína(dieta.getTipo().getProt()*0.25);
            quantRef[0].setCarboidrato(dieta.getTipo().getCarb()*0.25);
            quantRef[0].setGordura(dieta.getTipo().getGord()*0.25);
            
            quantRef[1].setNomeRef("lanche");
-           quantRef[1].setId(2);
            quantRef[1].setCalorias(dieta.getCalorias()*0.08);
            quantRef[1].setProteína(dieta.getTipo().getProt()*0.08);
            quantRef[1].setCarboidrato(dieta.getTipo().getCarb()*0.08);
            quantRef[1].setGordura(dieta.getTipo().getGord()*0.08);
            
            quantRef[2].setNomeRef("almoço");
-           quantRef[2].setId(3);
            quantRef[2].setCalorias(dieta.getCalorias()*0.25);
            quantRef[2].setProteína(dieta.getTipo().getProt()*0.25);
            quantRef[2].setCarboidrato(dieta.getTipo().getCarb()*0.25);
            quantRef[2].setGordura(dieta.getTipo().getGord()*0.25);
            
            quantRef[3].setNomeRef("lanche");
-           quantRef[3].setId(4);
            quantRef[3].setCalorias(dieta.getCalorias()*0.09);
            quantRef[3].setProteína(dieta.getTipo().getProt()*0.09);
            quantRef[3].setCarboidrato(dieta.getTipo().getCarb()*0.09);
            quantRef[3].setGordura(dieta.getTipo().getGord()*0.09);
            
            quantRef[4].setNomeRef("Janta");
-           quantRef[4].setId(5);
            quantRef[4].setCalorias(dieta.getCalorias()*0.25);
            quantRef[4].setProteína(dieta.getTipo().getProt()*0.25);
            quantRef[4].setCarboidrato(dieta.getTipo().getCarb()*0.25);
            quantRef[4].setGordura(dieta.getTipo().getGord()*0.25);
            
            quantRef[5].setNomeRef("ceia");
-           quantRef[5].setId(6);
            quantRef[5].setCalorias(dieta.getCalorias()*0.08);
            quantRef[5].setProteína(dieta.getTipo().getProt()*0.08);
            quantRef[5].setCarboidrato(dieta.getTipo().getCarb()*0.08);

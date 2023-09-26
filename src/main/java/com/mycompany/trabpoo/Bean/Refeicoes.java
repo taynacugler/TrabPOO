@@ -9,6 +9,7 @@ package com.mycompany.trabpoo.Bean;
  * @author taynacardoso
  */
 public class Refeicoes {
+    private static int cont;
     private int id;
     private Dieta dieta;
     private double carboidrato;
@@ -18,12 +19,14 @@ public class Refeicoes {
     private String nomeRef;
     //dataCriacao, dataModificacao.
 
+    public Refeicoes() {
+        this.id = ++Refeicoes.cont;
+    }
+    
+    
+
     public int getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public Dieta getDieta() {

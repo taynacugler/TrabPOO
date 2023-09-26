@@ -9,6 +9,7 @@ package com.mycompany.trabpoo.Bean;
  * @author taynacardoso
  */
 public class AlimRef {
+     private static int cont; 
      private int id;
      private Refeicoes refeição;
      private Alimento alimento;
@@ -18,14 +19,12 @@ public class AlimRef {
      private double calorias;
      //dataCriacao, dataModificacao.
 
+    public AlimRef() {
+        this.id = ++AlimRef.cont;
+    }
     public int getId() {
         return id;
     }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public Refeicoes getRefeição() {
         return refeição;
     }

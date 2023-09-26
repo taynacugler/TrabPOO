@@ -9,6 +9,7 @@ package com.mycompany.trabpoo.Bean;
  * @author taynacardoso
  */
 public class Prato {
+    private static int cont;
     private int id;
     private Refeicoes refeição;
     private AlimRef fonteProt;
@@ -18,14 +19,12 @@ public class Prato {
     private double gordura;
     private double carboidratos;
 
+    public Prato() {
+        this.id = ++Prato.cont;
+    }
     public int getId() {
         return id;
     }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public Refeicoes getRefeição() {
         return refeição;
     }

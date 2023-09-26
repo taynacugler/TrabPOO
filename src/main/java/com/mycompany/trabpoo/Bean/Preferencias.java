@@ -9,26 +9,28 @@ package com.mycompany.trabpoo.Bean;
  * @author taynacardoso
  */
 public class Preferencias {
+    private static int cont;
     private int id;
     private Pessoa pessoa;
     private Alimento alimento;
     private int Tipo;
     //dataCriacao, dataModificacao.
 
+    public Preferencias() {
+        this.id = ++Preferencias.cont;
+    }
+
+    
+    public int getId() {
+        return id;
+    }
+    
     public int getTipo() {
         return Tipo;
     }
 
     public void setTipo(int Tipo) {
         this.Tipo = Tipo;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public Pessoa getPessoa() {

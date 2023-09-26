@@ -27,7 +27,7 @@ public class Teste {
      //Criando Pessoas        
         Pessoa p1 = new Pessoa();
         p1.setNome("Tayna");
-        p1.setId (1);
+        System.out.println(p1.getId()); 
         p1.setSexo("f");
         p1.setLogin("tayna");
         p1.setSenha("1234");
@@ -36,7 +36,7 @@ public class Teste {
         
         Pessoa p2 = new Pessoa();
         p2.setNome("Silvio");
-        p2.setId(2);
+        System.out.println(p2.getId()); 
         p2.setSexo("m");
         p2.setLogin("silvio");
         p2.setSenha("5678");
@@ -45,7 +45,7 @@ public class Teste {
         
         Pessoa p3 = new Pessoa();
         p3.setNome("Malu");
-        p3.setId(3);
+       
         p3.setSexo("f");
         p3.setLogin("Malu");
         p3.setSenha("1256");
@@ -55,7 +55,6 @@ public class Teste {
         //CRIANDO ALIMENTOS
         //fontes de carboidratos:
         Alimento arroz = new Alimento();
-        arroz.setId(1);
         arroz.setNome("arroz");
         arroz.setCarb(28.1);
         arroz.setProt(2.5);
@@ -67,7 +66,6 @@ public class Teste {
         alimentos [0] = arroz;
         
         Alimento macarrao = new Alimento();
-        macarrao.setId(2);
         macarrao.setNome("macarrão");
         macarrao.setCarb(77.9);
         macarrao.setProt(10);
@@ -80,7 +78,6 @@ public class Teste {
         
         
         Alimento pao = new Alimento();
-        pao.setId(3);
         pao.setNome("pão francês");
         pao.setCarb(58.6);
         pao.setProt(80);
@@ -92,7 +89,6 @@ public class Teste {
         alimentos [2] = pao;
        
         Alimento batataDoce = new Alimento();
-        batataDoce.setId(4);
         batataDoce.setNome("batata doce");
         batataDoce.setCarb(18.4);
         batataDoce.setProt(0.6);
@@ -105,7 +101,6 @@ public class Teste {
 
         
         Alimento batataInglesa = new Alimento();
-        batataInglesa.setId(5);
         batataInglesa.setNome("batata inglesa");
         batataInglesa.setCarb(11.9);
         batataInglesa.setProt(1.2);
@@ -117,7 +112,6 @@ public class Teste {
         alimentos [4] = batataInglesa;
         
         Alimento tapioca = new Alimento();
-        tapioca.setId(6);
         tapioca.setNome("tapioca");
         tapioca.setCarb(22);
         tapioca.setProt(2);
@@ -129,7 +123,6 @@ public class Teste {
         alimentos [5] = tapioca;
         
         Alimento banana = new Alimento();
-        banana.setId(7);
         banana.setNome("banana");
         banana.setCarb(23);
         banana.setProt(1.1);
@@ -143,7 +136,6 @@ public class Teste {
         //Alimentos fonte de proteina
         
         Alimento peitoFrango = new Alimento();
-        peitoFrango.setId(8);
         peitoFrango.setNome("peito de frango");
         peitoFrango.setCarb(0);
         peitoFrango.setProt(32);
@@ -155,7 +147,6 @@ public class Teste {
         alimentos [7] = peitoFrango;
         
         Alimento patinho = new Alimento();
-        patinho.setId(9);
         patinho.setNome("patinho");
         patinho.setCarb(0);
         patinho.setProt(35.9);
@@ -167,7 +158,6 @@ public class Teste {
         alimentos [8] = patinho ;
         
         Alimento tilapia = new Alimento();
-        tilapia.setId(10);
         tilapia.setNome("tilápia");
         tilapia.setCarb(0);
         tilapia.setProt(23);
@@ -179,7 +169,6 @@ public class Teste {
         alimentos [9] = tilapia;
         
         Alimento soja = new Alimento();
-        soja.setId(11);
         soja.setNome("proteína de soja");
         soja.setCarb(8);
         soja.setProt(23);
@@ -191,7 +180,6 @@ public class Teste {
         alimentos [10] = soja;
         
         Alimento ovoCozido = new Alimento();
-        ovoCozido.setId(12);
         ovoCozido.setNome("ovo cozido");
         ovoCozido.setCarb(1.1);
         ovoCozido.setProt(13);
@@ -203,7 +191,6 @@ public class Teste {
         alimentos [11] = ovoCozido;
         
         Alimento atum = new Alimento();
-        atum.setId(13);
         atum.setNome("Atum");
         atum.setCarb(0);
         atum.setProt(23);
@@ -216,7 +203,6 @@ public class Teste {
         
         //Alimentos fonte de gordura
         Alimento abacate = new Alimento();
-        abacate.setId(14);
         abacate.setNome("abacate");
         abacate.setCarb(6);
         abacate.setProt(1.2);
@@ -228,7 +214,6 @@ public class Teste {
         alimentos [13] = abacate;
         
         Alimento pastaAmendoim = new Alimento();
-        pastaAmendoim.setId(15);
         pastaAmendoim.setNome("pasta de amendoim");
         pastaAmendoim.setCarb(20);
         pastaAmendoim.setProt(25);
@@ -240,7 +225,6 @@ public class Teste {
         alimentos [14] = pastaAmendoim;
         
         Alimento azeite = new Alimento();
-        azeite.setId(16);
         azeite.setNome("azeite");
         azeite.setCarb(0);
         azeite.setProt(0);
@@ -252,7 +236,6 @@ public class Teste {
         alimentos [15] = azeite;
         
         Alimento manteiga = new Alimento();
-        manteiga.setId(17);
         manteiga.setNome("manteiga");
         manteiga.setCarb(0.1);
         manteiga.setProt(0.4);
@@ -264,7 +247,6 @@ public class Teste {
         alimentos [16] = manteiga;
         
         Alimento nozes = new Alimento();
-        nozes.setId(18);
         nozes.setNome("nozes");
         nozes.setCarb(18.4);
         nozes.setProt(14);
@@ -276,7 +258,6 @@ public class Teste {
         alimentos [17] = nozes;
         
         Alimento castanhas = new Alimento();
-        castanhas.setId(19);
         castanhas.setNome("castanhas");
         castanhas.setCarb(29.1);
         castanhas.setProt(18.5);

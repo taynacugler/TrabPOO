@@ -12,6 +12,7 @@ import java.text.DateFormat;
  */
 public class Pessoa {
     private String nome;
+    private static int cont = 0;
     private int id;
     private String sexo;
     private String login;
@@ -19,6 +20,11 @@ public class Pessoa {
     private String tipoUsuario; //?
    // DateFormat dataCriacao;
    // DateFormat dataModificacao;
+
+    public Pessoa() {
+        
+        this.id = ++Pessoa.cont;
+    }
 
     public String getNome() {
         return nome;
@@ -31,11 +37,6 @@ public class Pessoa {
     public int getId() {
         return id;
     }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getSexo() {
         return sexo;
     }
