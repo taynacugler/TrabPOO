@@ -15,6 +15,7 @@ import java.util.Scanner;
 public class Programa {
     Pessoa usuarios [] = new Pessoa [10];
     Alimento alimentos [] = new Alimento [19];
+    
     static Pessoa[] setarPessoas (Pessoa usuarios[])
     {
         Pessoa p1 = new Pessoa();
@@ -39,6 +40,7 @@ public class Programa {
         usuarios [2] = p3;
         return usuarios;
     }
+    
     static Alimento[] setarAlimen (Alimento alimentos[]) {
         Alimento arroz = new Alimento();
         arroz.setNome("arroz");
@@ -48,7 +50,7 @@ public class Programa {
         arroz.setPorcao(100);
         arroz.setTipoUsuario("1");
         arroz.setCal(arroz.getCal(), arroz.getCarb(), arroz.getProt(), arroz.getGord());
-        System.out.println("Calorias de " + arroz.getPorcao() + " gramas de " + arroz.getNome() +": " + arroz.getCal());
+       // System.out.println("Calorias de " + arroz.getPorcao() + " gramas de " + arroz.getNome() +": " + arroz.getCal());
         alimentos [0] = arroz;
         
         Alimento macarrao = new Alimento();
@@ -59,7 +61,7 @@ public class Programa {
         macarrao.setPorcao(100);
         macarrao.setTipoUsuario("1");
         macarrao.setCal(macarrao.getCal(), macarrao.getCarb(), macarrao.getProt(), macarrao.getGord());
-        System.out.println("Calorias de " + macarrao.getPorcao() + " gramas de " + macarrao.getNome() +": " + macarrao.getCal());
+       // System.out.println("Calorias de " + macarrao.getPorcao() + " gramas de " + macarrao.getNome() +": " + macarrao.getCal());
         alimentos [1] = macarrao;
         
         
@@ -71,7 +73,7 @@ public class Programa {
         pao.setPorcao(100);
         pao.setTipoUsuario("1");
         pao.setCal(pao.getCal(), pao.getCarb(), pao.getProt(), pao.getGord());
-        System.out.println("Calorias de " + pao.getPorcao() + " gramas de " + pao.getNome() +": " + pao.getCal());
+       // System.out.println("Calorias de " + pao.getPorcao() + " gramas de " + pao.getNome() +": " + pao.getCal());
         alimentos [2] = pao;
        
         Alimento batataDoce = new Alimento();
@@ -82,7 +84,7 @@ public class Programa {
         batataDoce.setPorcao(100);
         batataDoce.setTipoUsuario("1");
         batataDoce.setCal(batataDoce.getCal(), batataDoce.getCarb(), batataDoce.getProt(), batataDoce.getGord());
-        System.out.println("Calorias de " + batataDoce.getPorcao() + " gramas de " + batataDoce.getNome() +": " + batataDoce.getCal());
+        //System.out.println("Calorias de " + batataDoce.getPorcao() + " gramas de " + batataDoce.getNome() +": " + batataDoce.getCal());
         alimentos [3] = batataDoce;
 
         
@@ -94,7 +96,7 @@ public class Programa {
         batataInglesa.setPorcao(100);
         batataInglesa.setTipoUsuario("1");
         batataInglesa.setCal(batataInglesa.getCal(), batataInglesa.getCarb(), batataInglesa.getProt(), batataInglesa.getGord());
-        System.out.println("Calorias de " + batataInglesa.getPorcao() + " gramas de " + batataInglesa.getNome() +": " + batataInglesa.getCal());
+       // System.out.println("Calorias de " + batataInglesa.getPorcao() + " gramas de " + batataInglesa.getNome() +": " + batataInglesa.getCal());
         alimentos [4] = batataInglesa;
         
         Alimento tapioca = new Alimento();
@@ -105,7 +107,7 @@ public class Programa {
         tapioca.setPorcao(100);
         tapioca.setTipoUsuario("1");
         tapioca.setCal(tapioca.getCal(), tapioca.getCarb(), tapioca.getProt(),tapioca.getGord());
-        System.out.println("Calorias de " + tapioca.getPorcao() + " gramas de " + tapioca.getNome() +": " + tapioca.getCal());
+       // System.out.println("Calorias de " + tapioca.getPorcao() + " gramas de " + tapioca.getNome() +": " + tapioca.getCal());
         alimentos [5] = tapioca;
         
         Alimento banana = new Alimento();
@@ -116,7 +118,7 @@ public class Programa {
         banana.setPorcao(100);
         banana.setTipoUsuario("1");
         banana.setCal(banana.getCal(), banana.getCarb(), banana.getProt(),banana.getGord());
-        System.out.println("Calorias de " + banana.getPorcao() + " gramas de " + banana.getNome() +": " + banana.getCal());
+        //System.out.println("Calorias de " + banana.getPorcao() + " gramas de " + banana.getNome() +": " + banana.getCal());
         alimentos [6] = banana;
         
         //Alimentos fonte de proteina
@@ -129,7 +131,7 @@ public class Programa {
         peitoFrango.setPorcao(100);
         peitoFrango.setTipoUsuario("2");
         peitoFrango.setCal(peitoFrango.getCal(), peitoFrango.getCarb(), peitoFrango.getProt(),peitoFrango.getGord());
-        System.out.println("Calorias de " + peitoFrango.getPorcao() + " gramas de " + peitoFrango.getNome() +": " + peitoFrango.getCal());
+       //System.out.println("Calorias de " + peitoFrango.getPorcao() + " gramas de " + peitoFrango.getNome() +": " + peitoFrango.getCal());
         alimentos [7] = peitoFrango;
         
         Alimento patinho = new Alimento();
@@ -140,7 +142,7 @@ public class Programa {
         patinho.setPorcao(100);
         patinho.setTipoUsuario("2");
         patinho.setCal(patinho.getCal(), patinho.getCarb(), patinho.getProt(),patinho.getGord());
-        System.out.println("Calorias de " + patinho.getPorcao() + " gramas de " + patinho.getNome() +": " + patinho.getCal());
+        //System.out.println("Calorias de " + patinho.getPorcao() + " gramas de " + patinho.getNome() +": " + patinho.getCal());
         alimentos [8] = patinho ;
         
         Alimento tilapia = new Alimento();
@@ -151,7 +153,7 @@ public class Programa {
         tilapia.setPorcao(100);
         tilapia.setTipoUsuario("2");
         tilapia.setCal(tilapia.getCal(), tilapia.getCarb(), tilapia.getProt(),tilapia.getGord());
-        System.out.println("Calorias de " + tilapia.getPorcao() + " gramas de " + tilapia.getNome() +": " + tilapia.getCal());
+        //System.out.println("Calorias de " + tilapia.getPorcao() + " gramas de " + tilapia.getNome() +": " + tilapia.getCal());
         alimentos [9] = tilapia;
         
         Alimento soja = new Alimento();
@@ -162,7 +164,7 @@ public class Programa {
         soja.setPorcao(100);
         soja.setTipoUsuario("2");
         soja.setCal(soja.getCal(), soja.getCarb(), soja.getProt(),soja.getGord());
-        System.out.println("Calorias de " + soja.getPorcao() + " gramas de " + soja.getNome() +": " + soja.getCal());
+        //System.out.println("Calorias de " + soja.getPorcao() + " gramas de " + soja.getNome() +": " + soja.getCal());
         alimentos [10] = soja;
         
         Alimento ovoCozido = new Alimento();
@@ -173,7 +175,7 @@ public class Programa {
         ovoCozido.setPorcao(100);
         ovoCozido.setTipoUsuario("2");
         ovoCozido.setCal(ovoCozido.getCal(), ovoCozido.getCarb(), ovoCozido.getProt(),ovoCozido.getGord());
-        System.out.println("Calorias de " + ovoCozido.getPorcao() + " gramas de " + ovoCozido.getNome() +": " + ovoCozido.getCal());
+        //System.out.println("Calorias de " + ovoCozido.getPorcao() + " gramas de " + ovoCozido.getNome() +": " + ovoCozido.getCal());
         alimentos [11] = ovoCozido;
         
         Alimento atum = new Alimento();
@@ -184,7 +186,7 @@ public class Programa {
         atum.setPorcao(100);
         atum.setTipoUsuario("2");
         atum.setCal(atum.getCal(), atum.getCarb(), atum.getProt(),atum.getGord());
-        System.out.println("Calorias de " + atum.getPorcao() + " gramas de " + atum.getNome() +": " + atum.getCal());
+        //System.out.println("Calorias de " + atum.getPorcao() + " gramas de " + atum.getNome() +": " + atum.getCal());
         alimentos [12] = atum;
         
         //Alimentos fonte de gordura
@@ -196,7 +198,7 @@ public class Programa {
         abacate.setPorcao(100);
         abacate.setTipoUsuario("3");
         abacate.setCal(abacate.getCal(), abacate.getCarb(),abacate.getProt(),abacate.getGord());
-        System.out.println("Calorias de " + abacate.getPorcao() + " gramas de " + abacate.getNome() +": " + abacate.getCal());
+        //System.out.println("Calorias de " + abacate.getPorcao() + " gramas de " + abacate.getNome() +": " + abacate.getCal());
         alimentos [13] = abacate;
         
         Alimento pastaAmendoim = new Alimento();
@@ -207,7 +209,7 @@ public class Programa {
         pastaAmendoim.setPorcao(100);
         pastaAmendoim.setTipoUsuario("3");
         pastaAmendoim.setCal(pastaAmendoim.getCal(), pastaAmendoim.getCarb(), pastaAmendoim.getProt(),pastaAmendoim.getGord());
-        System.out.println("Calorias de " + pastaAmendoim.getPorcao() + " gramas de " + pastaAmendoim.getNome() +": " + pastaAmendoim.getCal());
+        //System.out.println("Calorias de " + pastaAmendoim.getPorcao() + " gramas de " + pastaAmendoim.getNome() +": " + pastaAmendoim.getCal());
         alimentos [14] = pastaAmendoim;
         
         Alimento azeite = new Alimento();
@@ -218,7 +220,7 @@ public class Programa {
         azeite.setPorcao(100);
         azeite.setTipoUsuario("3");
         azeite.setCal(azeite.getCal(), azeite.getCarb(), azeite.getProt(),azeite.getGord());
-        System.out.println("Calorias de " + azeite.getPorcao() + " gramas de " + azeite.getNome() +": " + azeite.getCal());
+        //System.out.println("Calorias de " + azeite.getPorcao() + " gramas de " + azeite.getNome() +": " + azeite.getCal());
         alimentos [15] = azeite;
         
         Alimento manteiga = new Alimento();
@@ -229,7 +231,7 @@ public class Programa {
         manteiga.setPorcao(100);
         manteiga.setTipoUsuario("3");
         manteiga.setCal(manteiga.getCal(), manteiga.getCarb(), manteiga.getProt(),manteiga.getGord());
-        System.out.println("Calorias de " + manteiga.getPorcao() + " gramas de " + manteiga.getNome() +": " + manteiga.getCal());
+        //System.out.println("Calorias de " + manteiga.getPorcao() + " gramas de " + manteiga.getNome() +": " + manteiga.getCal());
         alimentos [16] = manteiga;
         
         Alimento nozes = new Alimento();
@@ -240,7 +242,7 @@ public class Programa {
         nozes.setPorcao(100);
         nozes.setTipoUsuario("3");
         nozes.setCal(nozes.getCal(), nozes.getCarb(), nozes.getProt(),nozes.getGord());
-        System.out.println("Calorias de " + nozes.getPorcao() + " gramas de " + nozes.getNome() +": " + nozes.getCal());
+        //System.out.println("Calorias de " + nozes.getPorcao() + " gramas de " + nozes.getNome() +": " + nozes.getCal());
         alimentos [17] = nozes;
         
         Alimento castanhas = new Alimento();
@@ -251,12 +253,13 @@ public class Programa {
         castanhas.setPorcao(100);
         castanhas.setTipoUsuario("3");
         castanhas.setCal(castanhas.getCal(), castanhas.getCarb(), castanhas.getProt(),castanhas.getGord());
-        System.out.println("Calorias de " + castanhas.getPorcao() + " gramas de " + castanhas.getNome() +": " + castanhas.getCal());
+        //System.out.println("Calorias de " + castanhas.getPorcao() + " gramas de " + castanhas.getNome() +": " + castanhas.getCal());
         alimentos [18] = castanhas;
         
         
         return alimentos;
     }
+    
     final void menu () {
         int opcao = 0;
         Scanner scan = new Scanner(System.in);
@@ -284,6 +287,7 @@ public class Programa {
             }
         }
     }
+    
     void cadastro (Pessoa usuarios[])
     {
         Scanner scan = new Scanner(System.in);
@@ -302,21 +306,21 @@ public class Programa {
         pessoa.setSexo(scan.nextLine());
         }
         //buscar logins para ver se ja existe igual
-        System.out.println("Crie um login:");
+            System.out.println("Crie um login:");
         pessoa.setLogin(scan.nextLine());
-//        boolean loginRepetido = true;
-//
-//        while (loginRepetido) {
-//            loginRepetido = false; 
-//            for (Pessoa usuario : usuarios) {
-//                if (pessoa.getLogin().equals(usuario.getLogin())) {
-//                    System.out.println("Login já utilizado, crie um novo login:");
-//                    pessoa.setLogin(scan.nextLine());
-//                    loginRepetido = true; 
-//                    break;
-//                }
-//            }
-//        }              
+        boolean loginRepetido = true;
+
+        while (loginRepetido) {
+            loginRepetido = false;
+            for (Pessoa usuario : usuarios) {
+                if (usuario != null && pessoa.getLogin().equals(usuario.getLogin())) {
+                    System.out.println("Login já utilizado, crie um novo login:");
+                    pessoa.setLogin(scan.nextLine());
+                    loginRepetido = true;
+                    break;
+                }
+            }
+        }  
         System.out.println("Crie um senha:");
         pessoa.setSenha(scan.nextLine());
                for (int y= 0; y < usuarios.length; y++)
@@ -331,43 +335,214 @@ public class Programa {
         }
         
     }
-    
-    void login (Pessoa usuarios[])
-    {
-        String login;
-        String senha;
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Login");
-        System.out.println("Insira seu login:"); 
-        login = scan.nextLine();
-//        boolean loginEncontrado = true;
-//
-//        while (loginEncontrado) {
-//            loginEncontrado = false;
-//
-//            for (Pessoa usuario : usuarios) {
-//                if (login.equals(usuario.getLogin())) {
-//                    loginEncontrado = true;
-//                    System.out.println("Login não existe, coloque um login valido");
-//                    login = scan.nextLine();
-//                    break; 
-//                }
-//            }
-//        }
-        System.out.println(login);
-        System.out.println("Insira sua Senha:"); 
-        senha = scan.nextLine();
-        System.out.println(senha);
-    }
+   
+    void login(Pessoa usuarios[]) {
+    Scanner scan = new Scanner(System.in);
+    boolean loginEncontrado = false;
 
-    /**
-     *
-     */
+    while (!loginEncontrado) {
+        System.out.println("Login");
+        System.out.println("Insira seu login:");
+        String login = scan.nextLine();
+        
+        Pessoa usuarioEncontrado = null;
+        for (Pessoa usuario : usuarios) {
+            if (usuario != null && login.equals(usuario.getLogin())) {
+                usuarioEncontrado = usuario;
+                break;
+            }
+        }
+
+        if (usuarioEncontrado != null) {
+            boolean senhaCorreta = false;
+            
+            while (!senhaCorreta) {
+                System.out.println("Insira sua senha:");
+                String senha = scan.nextLine();
+                if (senha.equals(usuarioEncontrado.getSenha())) {
+                    System.out.println("Login bem-sucedido! Bem-vindo, " + usuarioEncontrado.getNome() + "!");
+                    senhaCorreta = true; 
+                    loginEncontrado = true;
+                    tela();
+                } else {
+                    System.out.println("Senha incorreta. Tente novamente.");
+                }
+            }
+        } else {
+            System.out.println("Login não encontrado. Por favor, insira um login válido.");
+        }
+    }
+}
+    
+    void tela()
+    {
+        int opcao = 0;
+        Scanner scan = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("Opções");
+            System.out.println("Para ir para seu perfil, digite 1");
+            System.out.println("Para ir para a timeline, digite 2");
+            System.out.println("Para sair, digite 3");
+
+            opcao = scan.nextInt();
+
+            switch (opcao) {
+                case 1:
+                    System.out.println("Você escolheu ir para seu perfil");
+                    perfil();
+                    return;
+
+                case 2:
+                   System.out.println("Você escolheu ir para a timeline");
+                   timeline();
+                   return;
+                   
+                case 3:
+                    System.out.println("Você escolheu sair");
+                    return;
+                    
+                default:
+                    System.out.println("Opção inválida. Tente novamente.");
+            }
+        }
+    }
+    
+    void perfil () {
+        int opcao = 0;
+        Scanner scan = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("Opções");
+            System.out.println("1- Ultima Avaliação Física");
+            System.out.println("2- Ver Plano Alimentar");
+            System.out.println("3- Minhas Publicações");
+            System.out.println("4- Lista de amigos");
+            System.out.println("5- Fazer nova dieta");
+            System.out.println("6- Chat");
+            System.out.println("7- Timeline");
+            System.out.println("8- Sair");
+
+            opcao = scan.nextInt();
+
+            switch (opcao) {
+                case 1:
+                    System.out.println("Ultima avaliação física");
+                    avalFisica();
+                    return;
+
+                case 2:
+                   System.out.println("Plano alimentar");
+                   planoAlimentar();
+                   return;
+                   
+                case 3:
+                    System.out.println("Suas publicações");
+                    perfilPub();
+                    return;
+                
+                case 4:
+                    System.out.println("Lista de amigos");
+                    amigos();
+                    return;
+                
+                case 5:
+                    System.out.println("Nova dieta");
+                    novaDieta();
+                    return;
+                
+                case 6:
+                    System.out.println("Chat");
+                    chat();
+                    return;
+                    
+                case 7:
+                    System.out.println("Timeline");
+                    timeline();
+                    return;
+                    
+                case 8:
+                    System.out.println("Sair");
+                    return;
+                    
+                default:
+                    System.out.println("Opção inválida. Tente novamente.");
+                    return;
+            }
+        }
+    }
+    
+    void timeline () {
+        int opcao = 0;
+        Scanner scan = new Scanner(System.in);
+
+        while (true) {
+            System.out.println("Opções");
+            System.out.println("1- Ver todas as publicações");
+            System.out.println("2- Postar");
+            System.out.println("3- Voltar para seu perfil");
+            System.out.println("4- Sair");
+
+
+            opcao = scan.nextInt();
+
+            switch (opcao) {
+                case 1:
+                    System.out.println("Publicações");
+                    return;
+
+                case 2:
+                   System.out.println("Postar");
+                   Scanner post = new Scanner (System.in);
+                   String postar = post.nextLine();
+                   System.out.println(postar);
+                   
+                   return;
+                   
+                case 3:
+                    perfil();
+                    return;
+                
+                case 4:
+                    return;
+                    
+                default:
+                    System.out.println("Opção inválida. Tente novamente.");
+            }
+        }
+    }
+    
+    void avalFisica () {
+        System.out.println("Sua Avaliação Física");
+        
+    }
+    
+    void planoAlimentar() {
+        System.out.println("Seu plano alimentar");
+    }
+    
+    void novaDieta() {
+        System.out.println("Fazer nova dieta");
+    }
+    
+    void chat() {
+        System.out.println("chat");
+    }
+    
+    void amigos () {
+        System.out.println("amigos");
+    }
+    
+    void perfilPub() 
+    {
+        System.out.println("Suas publicações");
+    }
+    
     public Programa() {
         setarPessoas(usuarios);
         setarAlimen(alimentos);
         menu();
-        System.out.println(usuarios[0].getNome() + usuarios[1].getNome() + usuarios[2].getNome());
+        //System.out.println(usuarios[0].getNome() + usuarios[1].getNome() + usuarios[2].getNome());
     }
     
     
