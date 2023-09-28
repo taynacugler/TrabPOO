@@ -4,8 +4,17 @@
  */
 package com.mycompany.trabpoo;
 
+import DAO.PessoaDAO;
+import DAO.AvalFisDAO;
+import DAO.PreferenciasDAO;
 import com.mycompany.trabpoo.Bean.Alimento;
 import com.mycompany.trabpoo.Bean.Pessoa;
+import com.mycompany.trabpoo.Bean.AvalFis;
+import com.mycompany.trabpoo.Bean.Dieta;
+import com.mycompany.trabpoo.Bean.Refeicoes;
+import com.mycompany.trabpoo.Bean.Preferencias;
+import DAO.DietaDAO;
+import DAO.RefeicoesDAO;
 import java.util.Scanner;
 
 /**
@@ -15,8 +24,13 @@ import java.util.Scanner;
 public class Programa {
     Pessoa usuarios [] = new Pessoa [10];
     Alimento alimentos [] = new Alimento [19];
+    PessoaDAO op = new PessoaDAO();
+    AvalFisDAO opAF = new AvalFisDAO();
+    DietaDAO opD = new DietaDAO();
+    RefeicoesDAO opR = new RefeicoesDAO();
+    PreferenciasDAO opP = new PreferenciasDAO();
     
-    static Pessoa[] setarPessoas (Pessoa usuarios[])
+    Pessoa[] setarPessoas (Pessoa usuarios[])
     {
         Pessoa p1 = new Pessoa();
         p1.setNome("Tayna"); 
@@ -41,7 +55,7 @@ public class Programa {
         return usuarios;
     }
     
-    static Alimento[] setarAlimen (Alimento alimentos[]) {
+    Alimento[] setarAlimen (Alimento alimentos[]) {
         Alimento arroz = new Alimento();
         arroz.setNome("arroz");
         arroz.setCarb(28.1);
@@ -260,7 +274,7 @@ public class Programa {
         return alimentos;
     }
     
-    final void menu () {
+    void menu () {
         int opcao = 0;
         Scanner scan = new Scanner(System.in);
 
@@ -279,7 +293,7 @@ public class Programa {
 
                 case 2:
                     System.out.println("Você escolheu fazer cadastro.");
-                   cadastro(usuarios);
+                   cadastros();
                    return;
 
                 default:
@@ -288,46 +302,14 @@ public class Programa {
         }
     }
     
-    void cadastro (Pessoa usuarios[])
-    {
-        Scanner scan = new Scanner(System.in);
-        Pessoa pessoa = new Pessoa();
-        System.out.println("Cadastro:");
-        System.out.println("Insira seu nome:"); 
-        pessoa.setNome(scan.nextLine());
-        while (pessoa.getNome().length() <= 3) {
-        System.out.println("Insira um nome com mais de 3 caracteres:");
-        pessoa.setNome(scan.nextLine());}
+    void cadastros () {
         
-        System.out.println("Insira seu sexo, f para feminino e m para masculino:");
-        pessoa.setSexo(scan.nextLine());
-        while (!pessoa.getSexo().equals("f") && !pessoa.getSexo().equals("m")) {
-        System.out.println("Sexo invalido. Insira seu sexo f para femino e m para masculino:");
-        pessoa.setSexo(scan.nextLine());
-        }
-        //buscar logins para ver se ja existe igual
-            System.out.println("Crie um login:");
-        pessoa.setLogin(scan.nextLine());
-        boolean loginRepetido = true;
-
-        while (loginRepetido) {
-            loginRepetido = false;
-            for (Pessoa usuario : usuarios) {
-                if (usuario != null && pessoa.getLogin().equals(usuario.getLogin())) {
-                    System.out.println("Login já utilizado, crie um novo login:");
-                    pessoa.setLogin(scan.nextLine());
-                    loginRepetido = true;
-                    break;
-                }
-            }
-        }  
-        System.out.println("Crie um senha:");
-        pessoa.setSenha(scan.nextLine());
-               for (int y= 0; y < usuarios.length; y++)
+        for (int y= 0; y < usuarios.length; y++)
         {
            if (usuarios[y] == null)
                    {
-                       usuarios[y] = pessoa;
+                       usuarios[y] = op.cadastro(usuarios);
+                       tela(y);
                        return;
                        
                    }
@@ -339,7 +321,8 @@ public class Programa {
     void login(Pessoa usuarios[]) {
     Scanner scan = new Scanner(System.in);
     boolean loginEncontrado = false;
-
+    int numArray = 0;
+    
     while (!loginEncontrado) {
         System.out.println("Login");
         System.out.println("Insira seu login:");
@@ -351,6 +334,7 @@ public class Programa {
                 usuarioEncontrado = usuario;
                 break;
             }
+            numArray++;
         }
 
         if (usuarioEncontrado != null) {
@@ -363,7 +347,7 @@ public class Programa {
                     System.out.println("Login bem-sucedido! Bem-vindo, " + usuarioEncontrado.getNome() + "!");
                     senhaCorreta = true; 
                     loginEncontrado = true;
-                    tela();
+                    tela(numArray);
                 } else {
                     System.out.println("Senha incorreta. Tente novamente.");
                 }
@@ -374,7 +358,7 @@ public class Programa {
     }
 }
     
-    void tela()
+    void tela(int numArray)
     {
         int opcao = 0;
         Scanner scan = new Scanner(System.in);
@@ -390,12 +374,12 @@ public class Programa {
             switch (opcao) {
                 case 1:
                     System.out.println("Você escolheu ir para seu perfil");
-                    perfil();
+                    perfil(numArray, null);
                     return;
 
                 case 2:
                    System.out.println("Você escolheu ir para a timeline");
-                   timeline();
+                   timeline(numArray);
                    return;
                    
                 case 3:
@@ -408,7 +392,7 @@ public class Programa {
         }
     }
     
-    void perfil () {
+    void perfil (int numArray, AvalFis aval) {
         int opcao = 0;
         Scanner scan = new Scanner(System.in);
 
@@ -428,37 +412,37 @@ public class Programa {
             switch (opcao) {
                 case 1:
                     System.out.println("Ultima avaliação física");
-                    avalFisica();
+                    avalFisica(numArray, aval);
                     return;
 
                 case 2:
                    System.out.println("Plano alimentar");
-                   planoAlimentar();
+                   planoAlimentar(numArray);
                    return;
                    
                 case 3:
                     System.out.println("Suas publicações");
-                    perfilPub();
+                    perfilPub(numArray);
                     return;
                 
                 case 4:
                     System.out.println("Lista de amigos");
-                    amigos();
+                    amigos(numArray);
                     return;
                 
                 case 5:
                     System.out.println("Nova dieta");
-                    novaDieta();
+                    novaDieta(numArray);
                     return;
                 
                 case 6:
                     System.out.println("Chat");
-                    chat();
+                    chat(numArray);
                     return;
                     
                 case 7:
                     System.out.println("Timeline");
-                    timeline();
+                    timeline(numArray);
                     return;
                     
                 case 8:
@@ -472,7 +456,7 @@ public class Programa {
         }
     }
     
-    void timeline () {
+    void timeline (int numArray) {
         int opcao = 0;
         Scanner scan = new Scanner(System.in);
 
@@ -500,7 +484,7 @@ public class Programa {
                    return;
                    
                 case 3:
-                    perfil();
+                    perfil(numArray, null);
                     return;
                 
                 case 4:
@@ -512,28 +496,46 @@ public class Programa {
         }
     }
     
-    void avalFisica () {
-        System.out.println("Sua Avaliação Física");
+    void avalFisica (int numArray, AvalFis aval) {
+        AvalFis avaliacao = new AvalFis();
+        avaliacao = aval;
+        System.out.println("Seu nome" + usuarios[numArray].getNome());
+        System.out.println("Seu nome " + avaliacao.getPessoa().getNome() + "Sua TMB " + avaliacao.getTMB());
+        opAF.registro(avaliacao);
         
     }
     
-    void planoAlimentar() {
+    void planoAlimentar(int numArray) {
         System.out.println("Seu plano alimentar");
     }
     
-    void novaDieta() {
+    void novaDieta(int numArray) {
         System.out.println("Fazer nova dieta");
+        AvalFis novaAval = new AvalFis();
+        Dieta dieta = new Dieta();
+        Refeicoes[] quantidade = new Refeicoes[6];
+        Preferencias[] pref = new Preferencias[10];
+        int array = numArray;
+        novaAval = opAF.cadAval(usuarios, numArray);
+        dieta = opD.novaDieta(usuarios, novaAval, array);
+        quantidade = opR.refSetar(dieta);  
+        pref = opP.preferencias(alimentos, usuarios, numArray);
+        
+        perfil(numArray, novaAval);
+        
+        
+        
     }
     
-    void chat() {
+    void chat(int numArray) {
         System.out.println("chat");
     }
     
-    void amigos () {
+    void amigos (int numArray) {
         System.out.println("amigos");
     }
     
-    void perfilPub() 
+    void perfilPub(int numArray) 
     {
         System.out.println("Suas publicações");
     }
