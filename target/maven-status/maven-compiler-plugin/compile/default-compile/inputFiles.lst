@@ -3,6 +3,7 @@
 /home/taynacardoso/Desktop/TrabPOO/src/main/java/DAO/TipoDietaDAO.java
 /home/taynacardoso/Desktop/TrabPOO/src/main/java/DAO/AvalFisDAO.java
 /home/taynacardoso/Desktop/TrabPOO/src/main/java/com/mycompany/trabpoo/Bean/TipoDieta.java
+/home/taynacardoso/Desktop/TrabPOO/src/main/java/DAO/AlimentoDAO.java
 /home/taynacardoso/Desktop/TrabPOO/src/main/java/com/mycompany/trabpoo/Bean/Dieta.java
 /home/taynacardoso/Desktop/TrabPOO/src/main/java/com/mycompany/trabpoo/Bean/Preferencias.java
 /home/taynacardoso/Desktop/TrabPOO/src/main/java/DAO/RefeicoesDAO.java
@@ -12,7 +13,6 @@
 /home/taynacardoso/Desktop/TrabPOO/src/main/java/com/mycompany/trabpoo/Bean/Pessoa.java
 /home/taynacardoso/Desktop/TrabPOO/src/main/java/com/mycompany/trabpoo/Bean/AlimRef.java
 /home/taynacardoso/Desktop/TrabPOO/src/main/java/com/mycompany/trabpoo/TrabPOO.java
-/home/taynacardoso/Desktop/TrabPOO/src/main/java/com/mycompany/trabpoo/MenuPessoa.java
 /home/taynacardoso/Desktop/TrabPOO/src/main/java/DAO/PreferenciasDAO.java
 /home/taynacardoso/Desktop/TrabPOO/src/main/java/com/mycompany/trabpoo/Bean/Prato.java
 /home/taynacardoso/Desktop/TrabPOO/src/main/java/com/mycompany/trabpoo/Bean/Refeicoes.java

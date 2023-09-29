@@ -8,6 +8,7 @@ import com.mycompany.trabpoo.Bean.AvalFis;
 import com.mycompany.trabpoo.Bean.Dieta;
 import com.mycompany.trabpoo.Bean.Pessoa;
 import com.mycompany.trabpoo.Bean.TipoDieta;
+import DAO.TipoDietaDAO;
 import java.util.Scanner;
 
 /**
@@ -19,6 +20,7 @@ public class DietaDAO {
     {   Dieta novaDieta = new Dieta();
         novaDieta.setPessoa(pessoa[numArray]);
         novaDieta.setAval(aval);
+        TipoDietaDAO op = new TipoDietaDAO();
         Scanner scan = new Scanner(System.in);
   
         
@@ -64,44 +66,20 @@ public class DietaDAO {
         
         if (tipo == 1) {
             
-            novaDieta.getTipo().setNome("equilibrada");
-            double carb = novaDieta.getCalorias()*0.4;
-            double prot = novaDieta.getCalorias()*0.3;
-            double gord = novaDieta.getCalorias()*0.3;
-            novaDieta.getTipo().setCarb(carb);
-            novaDieta.getTipo().setProt(prot);
-            novaDieta.getTipo().setGord(gord);
+           novaDieta = op.equilibrado(novaDieta);
             
         } else if (tipo == 2)
             
         {
-            novaDieta.getTipo().setNome("cetogenica");
-            double carb = novaDieta.getCalorias()*0.15;
-            double prot = novaDieta.getCalorias()*0.15;
-            double gord = novaDieta.getCalorias()*0.7;
-            novaDieta.getTipo().setCarb(carb);
-            novaDieta.getTipo().setProt(prot);
-            novaDieta.getTipo().setGord(gord);
+            novaDieta = op.cetogenica(novaDieta);
             
         } else if (tipo == 3)
         {
-            novaDieta.getTipo().setNome("low carb");
-            double carb = novaDieta.getCalorias()*0.3;
-            double prot = novaDieta.getCalorias()*0.5;
-            double gord = novaDieta.getCalorias()*0.2;
-            novaDieta.getTipo().setCarb(carb);
-            novaDieta.getTipo().setProt(prot);
-            novaDieta.getTipo().setGord(gord);
+            novaDieta = op.lowCarb(novaDieta);
             
         } else if (tipo == 4)
         {
-            novaDieta.getTipo().setNome("atleta");
-            double prot = novaDieta.getAval().getPeso()*2*4;
-            double gord = novaDieta.getAval().getPeso()*0.8*9;
-            double carb = novaDieta.getCalorias() - (prot+gord);
-            novaDieta.getTipo().setCarb(carb);
-            novaDieta.getTipo().setProt(prot);
-            novaDieta.getTipo().setGord(gord);
+            novaDieta = op.atleta(novaDieta);
             
         }
         System.out.println("Sua dieta vai ter " + novaDieta.getTipo().getCarb() + " de calorias de carboidrato" + novaDieta.getTipo().getProt() + "de calorias de proteina" + novaDieta.getTipo().getGord() + "de calorias de gordura");

@@ -160,5 +160,15 @@ public class RefeicoesDAO {
         }
         return quantidade;
     }
+    
+    public void mostrarRef (Refeicoes[] refeicoes) {
+        for (int i = 0; i < refeicoes.length; i++) {
+            if (refeicoes[i].getCalorias() == 0) {
+                break;
+            } else {
+            System.out.println("" + refeicoes[i].getNomeRef() + " vai ter " +refeicoes[i].getCalorias()+ " calorias. " + refeicoes[i].getCarboidrato() + " de carboidrato "+ refeicoes[i].getProteína() + " de proteina "+ refeicoes[i].getGordura() + " de gordura.");
+        }
+    }
+    }
 
 }

@@ -15,6 +15,7 @@ import com.mycompany.trabpoo.Bean.Refeicoes;
 import com.mycompany.trabpoo.Bean.Preferencias;
 import DAO.DietaDAO;
 import DAO.RefeicoesDAO;
+import DAO.AlimentoDAO;
 import java.util.Scanner;
 
 /**
@@ -29,6 +30,7 @@ public class Programa {
     DietaDAO opD = new DietaDAO();
     RefeicoesDAO opR = new RefeicoesDAO();
     PreferenciasDAO opP = new PreferenciasDAO();
+    AlimentoDAO opA = new AlimentoDAO();
     
     Pessoa[] setarPessoas (Pessoa usuarios[])
     {
@@ -392,7 +394,7 @@ public class Programa {
         }
     }
     
-    void perfil (int numArray, AvalFis aval) {
+    void perfil (int numArray, Pessoa[] pessoa) {
         int opcao = 0;
         Scanner scan = new Scanner(System.in);
 
@@ -405,14 +407,19 @@ public class Programa {
             System.out.println("5- Fazer nova dieta");
             System.out.println("6- Chat");
             System.out.println("7- Timeline");
-            System.out.println("8- Sair");
+            System.out.println("8-Mostrar Alimentos");
+            System.out.println("9- Ver informações da conta");
+            System.out.println("10- Mudar informações da conta");
+            System.out.println("11- Excluir conta");
+            System.out.println("12- Sair");
 
             opcao = scan.nextInt();
 
             switch (opcao) {
                 case 1:
                     System.out.println("Ultima avaliação física");
-                    avalFisica(numArray, aval);
+                    avalFisica(numArray, usuarios);
+                    
                     return;
 
                 case 2:
@@ -444,8 +451,27 @@ public class Programa {
                     System.out.println("Timeline");
                     timeline(numArray);
                     return;
-                    
                 case 8:
+                    System.out.println("Alimentos");
+                    opA.gerenciador(alimentos);
+                    perfil(numArray, usuarios);
+                    return;
+                    
+                case 9:
+                    System.out.println("Suas informações:");
+                    op.mostrarInf(usuarios, numArray);
+                    perfil(numArray, usuarios);
+                    return;
+                case 10:
+                    System.out.println("Mudar informações");
+                    op.mudarInf(usuarios, numArray);
+                    perfil(numArray, usuarios);
+                    return;
+                case 11:
+                    System.out.println("Excluir conta");
+                    return;
+                    
+                case 12:
                     System.out.println("Sair");
                     return;
                     
@@ -496,9 +522,17 @@ public class Programa {
         }
     }
     
-    void avalFisica (int numArray, AvalFis aval) {
+    void avalFisica (int numArray, Pessoa[] pessoa) {
         AvalFis avaliacao = new AvalFis();
-        avaliacao = aval;
+        int x = 0;
+        while (pessoa[numArray].getAvaliacoes()[x] != null){
+            x++;
+        }
+        if (x==0) {
+            System.out.println("Você não tem avaliação fisica no histórico, preencha suas informações");
+            novaDieta(numArray);
+        }
+        avaliacao = pessoa[numArray].getAvaliacoes()[x-1];
         System.out.println("Seu nome" + usuarios[numArray].getNome());
         System.out.println("Seu nome " + avaliacao.getPessoa().getNome() + "Sua TMB " + avaliacao.getTMB());
         opAF.registro(avaliacao);
@@ -517,11 +551,22 @@ public class Programa {
         Preferencias[] pref = new Preferencias[10];
         int array = numArray;
         novaAval = opAF.cadAval(usuarios, numArray);
+        int y = 0;
+        while (usuarios[numArray].getAvaliacoes()[y] != null)
+        {
+            y++;
+        }
+        usuarios[numArray].getAvaliacoes()[y] = novaAval;
         dieta = opD.novaDieta(usuarios, novaAval, array);
-        quantidade = opR.refSetar(dieta);  
-        pref = opP.preferencias(alimentos, usuarios, numArray);
-        
-        perfil(numArray, novaAval);
+        int x = 0;
+        while (usuarios[numArray].getDietas()[x] != null) {
+            x++;
+        }
+        usuarios[numArray].getDietas()[x] = dieta;
+        quantidade = opR.refSetar(dieta);
+        opR.mostrarRef(quantidade);
+        pref = opP.preferencias(alimentos, usuarios, numArray);        
+        perfil(numArray, usuarios);
         
         
         

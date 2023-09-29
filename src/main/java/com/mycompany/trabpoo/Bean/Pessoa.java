@@ -17,14 +17,19 @@ public class Pessoa {
     private String sexo;
     private String login;
     private String senha;
-    private String tipoUsuario; //?
+    private AvalFis[] avaliacoes;
+    private Dieta[] dietas;
+    
    // DateFormat dataCriacao;
    // DateFormat dataModificacao;
 
     public Pessoa() {
-        
+        avaliacoes = new AvalFis[5];
+        dietas = new Dieta[5];
         this.id = ++Pessoa.cont;
     }
+
+    
 
     public String getNome() {
         return nome;
@@ -61,13 +66,22 @@ public class Pessoa {
         this.senha = senha;
     }
 
-    public String getTipoUsuario() {
-        return tipoUsuario;
+    public AvalFis[] getAvaliacoes() {
+        return avaliacoes;
     }
 
-    public void setTipoUsuario(String tipoUsuario) {
-        this.tipoUsuario = tipoUsuario;
+    public void setAvaliacoes(AvalFis[] avaliacoes) {
+        this.avaliacoes = avaliacoes;
     }
+
+    public Dieta[] getDietas() {
+        return dietas;
+    }
+
+    public void setDietas(Dieta[] dietas) {
+        this.dietas = dietas;
+    }
+
    
    
 }
