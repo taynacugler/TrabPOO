@@ -19,6 +19,7 @@ public class Pessoa {
     private String senha;
     private AvalFis[] avaliacoes;
     private Dieta[] dietas;
+    private Publicacoes[] publicacoes;
     
    // DateFormat dataCriacao;
    // DateFormat dataModificacao;
@@ -26,7 +27,16 @@ public class Pessoa {
     public Pessoa() {
         avaliacoes = new AvalFis[5];
         dietas = new Dieta[5];
+        publicacoes = new Publicacoes[10];
         this.id = ++Pessoa.cont;
+    }
+
+    public Publicacoes[] getPublicacoes() {
+        return publicacoes;
+    }
+
+    public void setPublicacoes(Publicacoes[] publicacoes) {
+        this.publicacoes = publicacoes;
     }
 
     

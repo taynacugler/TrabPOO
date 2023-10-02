@@ -25,12 +25,14 @@ import java.util.Scanner;
 public class Programa {
     Pessoa usuarios [] = new Pessoa [10];
     Alimento alimentos [] = new Alimento [19];
+    String pubTodos [] = new String [40];
     PessoaDAO op = new PessoaDAO();
     AvalFisDAO opAF = new AvalFisDAO();
     DietaDAO opD = new DietaDAO();
     RefeicoesDAO opR = new RefeicoesDAO();
     PreferenciasDAO opP = new PreferenciasDAO();
     AlimentoDAO opA = new AlimentoDAO();
+    
     
     Pessoa[] setarPessoas (Pessoa usuarios[])
     {
@@ -426,12 +428,50 @@ public class Programa {
                    System.out.println("Plano alimentar");
                    planoAlimentar(numArray);
                    return;
-                   
-                case 3:
-                    System.out.println("Suas publicações");
-                    perfilPub(numArray);
+                                   
+                case 3:    
+                    int opc = 0;
+                    System.out.println("Opcoes:");
+                    System.out.println("1- Suas publicações");
+                    System.out.println("2- Criar nova publicações");
+                    opc = scan.nextInt();
                     return;
-                
+//                    switch (opc) {
+//                        case 1:
+//                            int x = 0;
+//                            while (x < 10 && usuarios[numArray].getPublicacoes()[x] != null) {
+//                                System.out.println(usuarios[numArray].getPublicacoes()[x]);
+//                                x++;
+//                            }
+//                            perfil(numArray, usuarios);
+//                            break;
+//
+//                        case 2:
+//                            String pub;
+//                            System.out.println("Escreva sua publicação");
+//                            scan.nextLine();
+//                            pub = scan.nextLine();
+//                            for (int y = 0; y < 10; y++) {
+//                                if (usuarios[numArray].getPublicacoes()[y] == null) {
+//                                    usuarios[numArray].getPublicacoes()[y] = pub;
+//                                    for (int z = 0; z<40; z++) {
+//                                        if (pubTodos[z] == null) {
+//                                            pubTodos[z] = pub;
+//                                        }
+//                                    }
+//                                    break;
+//                                }
+//                            }
+//                            perfil(numArray, usuarios);
+//                            break;
+//
+//                        default:
+//                            System.out.println("Valor inválido");
+//                            break;
+//                    }
+                            
+                    
+                                    
                 case 4:
                     System.out.println("Lista de amigos");
                     amigos(numArray);
@@ -469,10 +509,13 @@ public class Programa {
                     return;
                 case 11:
                     System.out.println("Excluir conta");
+                    op.excluirPessoa(usuarios, numArray);
+                    menu();
                     return;
                     
                 case 12:
                     System.out.println("Sair");
+                    menu();
                     return;
                     
                 default:
@@ -497,8 +540,14 @@ public class Programa {
             opcao = scan.nextInt();
 
             switch (opcao) {
-                case 1:
-                    System.out.println("Publicações");
+                    case 1:
+                     int x = 0;
+                     while (x < 10 && usuarios[numArray].getPublicacoes()[x] != null) {
+                     System.out.println(usuarios[numArray].getPublicacoes()[x]);
+                     x++;
+                     }
+                    perfil(numArray, usuarios);
+
                     return;
 
                 case 2:
@@ -580,11 +629,10 @@ public class Programa {
         System.out.println("amigos");
     }
     
-    void perfilPub(int numArray) 
-    {
-        System.out.println("Suas publicações");
-    }
-    
+//    void perfilPub(int numArray) 
+//    
+//        System.out.println("Suas publicações");
+//    }    
     public Programa() {
         setarPessoas(usuarios);
         setarAlimen(alimentos);

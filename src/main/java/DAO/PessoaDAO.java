@@ -186,19 +186,30 @@ public void mudarInf (Pessoa usuarios[], int arrayNum)
 }
 public void excluirPessoa (Pessoa usuarios[], int arrayNum) {
                 int opcao = 0;
+                String senha;
                 Scanner scan = new Scanner(System.in);
                 while (true) {
                 System.out.println("Tem certeza que deseja excluir sua conta, aperte 1 para confirmar e 2 para voltar para seu perfil");
-                String senha;
                 opcao = scan.nextInt();
                 switch (opcao) {
                             case 1:
                                 scan.nextLine();
-                                System.out.println("Confirme sua senha antiga");
+                                System.out.println("Confirme sua senha");
                                 senha = scan.nextLine();
                                 if (senha.equals(usuarios[arrayNum].getSenha()))
                                 {
-                                    
+                                    for (Pessoa usuario : usuarios) {
+                                     if (usuario != null && usuarios[arrayNum].getLogin().equals(usuario.getLogin())) {
+                                        usuarios[arrayNum].setAvaliacoes(null);
+                                        usuarios[arrayNum].setDietas(null);
+                                        usuarios[arrayNum].setLogin(null);
+                                        usuarios[arrayNum].setNome(null);
+                                        usuarios[arrayNum].setSenha(null);
+                                        usuarios[arrayNum].setSexo(null);
+                                        
+                                        return;
+                                    }
+                                }
                                 }
                                 else {
                                     System.out.println("Senha Incorreta!");
