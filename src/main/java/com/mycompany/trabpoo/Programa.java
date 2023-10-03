@@ -23,7 +23,7 @@ import java.util.Scanner;
  * @author taynacardoso
  */
 public class Programa {
-    Pessoa usuarios [] = new Pessoa [10];
+    Pessoa usuarios [] = new Pessoa [3];
     Alimento alimentos [] = new Alimento [19];
     String pubTodos [] = new String [40];
     PessoaDAO op = new PessoaDAO();
@@ -57,6 +57,8 @@ public class Programa {
         p3.setSenha("1256");
         usuarios [2] = p3;
         return usuarios;
+        
+        
     }
     
     Alimento[] setarAlimen (Alimento alimentos[]) {
@@ -283,7 +285,7 @@ public class Programa {
         Scanner scan = new Scanner(System.in);
 
         while (true) {
-            System.out.println("Menu Inicial");
+            System.out.println("MENU INICIAL");
             System.out.println("Para fazer login, digite 1");
             System.out.println("Para fazer cadastro, digite 2");
 
@@ -291,12 +293,12 @@ public class Programa {
 
             switch (opcao) {
                 case 1:
-                    System.out.println("Você escolheu fazer login.");
+                    System.out.println("LOGIN");
                     login(usuarios);
                     return;
 
                 case 2:
-                    System.out.println("Você escolheu fazer cadastro.");
+                    System.out.println("CADASTRO");
                    cadastros();
                    return;
 
@@ -308,19 +310,50 @@ public class Programa {
     
     void cadastros () {
         
-        for (int y= 0; y < usuarios.length; y++)
-        {
-           if (usuarios[y] == null)
-                   {
-                       usuarios[y] = op.cadastro(usuarios);
-                       tela(y);
-                       return;
-                       
-                   }
-           
+        Pessoa pessoa = new Pessoa();       
+        Scanner scan = new Scanner(System.in);      
+        System.out.println("Insira seu nome:"); 
+        pessoa.setNome(scan.nextLine());
+        while (pessoa.getNome().length() <= 3) {
+        System.out.println("Insira um nome com mais de 3 caracteres:");
+        pessoa.setNome(scan.nextLine());}
+        System.out.println("Insira seu sexo, f para feminino e m para masculino:");
+        pessoa.setSexo(scan.nextLine());
+        while (!pessoa.getSexo().equals("f") && !pessoa.getSexo().equals("m")) {
+        System.out.println("Sexo invalido. Insira seu sexo f para femino e m para masculino:");
+        pessoa.setSexo(scan.nextLine());
+        }
+        //buscar logins para ver se ja existe igual
+        System.out.println("Crie um login:");
+        pessoa.setLogin(scan.nextLine());
+        boolean loginRepetido = true;
+
+        while (loginRepetido) {
+            loginRepetido = false;
+            for (Pessoa usuario : usuarios) {
+                if (usuario != null && pessoa.getLogin().equals(usuario.getLogin())) {
+                    System.out.println("Login já utilizado, crie um novo login:");
+                    pessoa.setLogin(scan.nextLine());
+                    loginRepetido = true;
+                    break;
+                }
+            }
+        }  
+        System.out.println("Crie um senha:");
+        pessoa.setSenha(scan.nextLine());
+        
+        int num = op.buscarUsuarioVazio(usuarios, pessoa);
+        if (num>= 0) {
+            System.out.println("Parabens, " + usuarios[num].getNome() + "! Seu cadastro foi feito com sucesso!");
+            tela(num);
+            
+        } else {
+            System.out.println("Não foi possível fazer um novo cadastro!");
+            menu();
         }
         
-    }
+        
+       }
    
     void login(Pessoa usuarios[]) {
     Scanner scan = new Scanner(System.in);
@@ -328,7 +361,7 @@ public class Programa {
     int numArray = 0;
     
     while (!loginEncontrado) {
-        System.out.println("Login");
+        System.out.println("LOGIN");
         System.out.println("Insira seu login:");
         String login = scan.nextLine();
         
@@ -368,7 +401,7 @@ public class Programa {
         Scanner scan = new Scanner(System.in);
 
         while (true) {
-            System.out.println("Opções");
+            System.out.println("OPCOES");
             System.out.println("Para ir para seu perfil, digite 1");
             System.out.println("Para ir para a timeline, digite 2");
             System.out.println("Para sair, digite 3");
@@ -377,17 +410,17 @@ public class Programa {
 
             switch (opcao) {
                 case 1:
-                    System.out.println("Você escolheu ir para seu perfil");
+                    System.out.println("PERFIL");
                     perfil(numArray, null);
                     return;
 
                 case 2:
-                   System.out.println("Você escolheu ir para a timeline");
+                   System.out.println("TIMELINE");
                    timeline(numArray);
                    return;
                    
                 case 3:
-                    System.out.println("Você escolheu sair");
+                    System.out.println("FIM DO PROGRAMA");
                     return;
                     
                 default:
@@ -401,7 +434,7 @@ public class Programa {
         Scanner scan = new Scanner(System.in);
 
         while (true) {
-            System.out.println("Opções");
+            System.out.println("OPCOES");
             System.out.println("1- Ultima Avaliação Física");
             System.out.println("2- Ver Plano Alimentar");
             System.out.println("3- Minhas Publicações");
@@ -419,19 +452,19 @@ public class Programa {
 
             switch (opcao) {
                 case 1:
-                    System.out.println("Ultima avaliação física");
+                    System.out.println("ULTIMA AVALIAÇÃO FÍSICA");
                     avalFisica(numArray, usuarios);
                     
                     return;
 
                 case 2:
-                   System.out.println("Plano alimentar");
+                   System.out.println("PLANO ALIMENTAR");
                    planoAlimentar(numArray);
                    return;
                                    
                 case 3:    
                     int opc = 0;
-                    System.out.println("Opcoes:");
+                    System.out.println("OPCOES:");
                     System.out.println("1- Suas publicações");
                     System.out.println("2- Criar nova publicações");
                     opc = scan.nextInt();
@@ -473,42 +506,176 @@ public class Programa {
                     
                                     
                 case 4:
-                    System.out.println("Lista de amigos");
+                    System.out.println("AMIGOS");
                     amigos(numArray);
                     return;
                 
                 case 5:
-                    System.out.println("Nova dieta");
+                    System.out.println("NOVA DIETA");
                     novaDieta(numArray);
                     return;
                 
                 case 6:
-                    System.out.println("Chat");
+                    System.out.println("CHAT ");
                     chat(numArray);
                     return;
                     
                 case 7:
-                    System.out.println("Timeline");
+                    System.out.println("TIMELINE");
                     timeline(numArray);
                     return;
                 case 8:
-                    System.out.println("Alimentos");
+                    System.out.println("ALIMENTOS");
                     opA.gerenciador(alimentos);
                     perfil(numArray, usuarios);
                     return;
                     
                 case 9:
-                    System.out.println("Suas informações:");
-                    op.mostrarInf(usuarios, numArray);
+                    System.out.println("SUAS INFOMAÇÕES:");
+                    System.out.println("Nome:" + usuarios[numArray].getNome());
+                    System.out.println("Login:" + usuarios[numArray].getLogin());
+                    System.out.println("id:" + usuarios[numArray].getId());
+                    if (usuarios[numArray].getSexo().equals("f")) {
+                    System.out.println("Sexo: feminino");
+                    } else {
+                        System.out.println("Sexo: masculino");
+                    }
                     perfil(numArray, usuarios);
                     return;
                 case 10:
-                    System.out.println("Mudar informações");
-                    op.mudarInf(usuarios, numArray);
+                    System.out.println("MUDAR INFORMAÇÕES");
+                    int z;
+                    while (true) {
+                    System.out.println("Deseja mudar alguma informação da sua conta?");
+                    System.out.println("1- Nome");
+                    System.out.println("2- Sexo");
+                    System.out.println("3- Login");
+                    System.out.println("4- Senha");
+                    System.out.println("5- Voltar para perfil");
+                    String senha;
+                    z = scan.nextInt();
+
+            switch (z) {
+                case 1:
+                    String nome;
+                    System.out.println("Insira novo nome:");
+                    scan.nextLine();
+                    nome = scan.nextLine();
+                    while (nome.length() <= 3) {
+                    System.out.println("Insira um nome com mais de 3 caracteres:");
+                    nome = scan.nextLine();
+                    }
+                    System.out.println("Confirme sua senha");
+                    senha = scan.nextLine();
+                    if (senha.equals(usuarios[numArray].getSenha()))
+                    {
+                        usuarios[numArray].setNome(nome);
+                    }
+                    else {
+                        System.out.println("Senha Incorreta!");
+                    }
+                    
+                    perfil(numArray, usuarios);
+
+                    return;
+                    
+                case 2:
+                    String sexo;
+                    System.out.println("2- Insira seu sexo, f para feminino e m para masculino:");
+                    scan.nextLine();
+                    sexo = scan.nextLine();
+                    while (!sexo.equals("f") && !sexo.equals("m")) {
+                    System.out.println("Sexo invalido. Insira seu sexo f para femino e m para masculino:");
+                    sexo = scan.nextLine();
+                    }
+                    System.out.println("Confirme sua senha");
+                    senha = scan.nextLine();
+                    if (senha.equals(usuarios[numArray].getSenha()))
+                    {
+                        usuarios[numArray].setSexo(sexo);
+                    }
+                    else {
+                        System.out.println("Senha Incorreta!");
+                    }
+                    
                     perfil(numArray, usuarios);
                     return;
+                    
+                case 3:
+                    String login;
+                    System.out.println("3- Insira novo login:");
+                    scan.nextLine();
+                    login = scan.nextLine();
+                    boolean loginRepetido = true;
+
+                    while (loginRepetido) {
+                        loginRepetido = false;
+                        for (Pessoa usuario : usuarios) {
+                            if (usuario != null && login.equals(usuario.getLogin())) {
+                                System.out.println("Login já utilizado, crie um novo login:");
+                                login = scan.nextLine();
+                                loginRepetido = true;
+                                break;
+                                     }
+                        }
+                    }
+                    System.out.println("Confirme sua senha");
+                    senha = scan.nextLine();
+                    if (senha.equals(usuarios[numArray].getSenha()))
+                    {
+                        usuarios[numArray].setLogin(login);
+                    }                            
+                    else {
+                        System.out.println("Senha Incorreta!");
+                    }
+                        
+               
+                            
+            
+                    perfil(numArray, usuarios);
+                    return;
+                    
+                case 4:
+                    String senhaNova;
+                    System.out.println("4- Insira nova senha:");
+                    scan.nextLine();
+                    senhaNova = scan.nextLine();
+                    System.out.println("Confirme sua senha antiga");
+                    senha = scan.nextLine();
+                    if (senha.equals(usuarios[numArray].getSenha()))
+                    {
+                        usuarios[numArray].setSenha(senhaNova);
+                    }
+                    else {
+                        System.out.println("Senha Incorreta!");
+                    }
+                    perfil(numArray, usuarios);
+                    return;
+                    
+                case 5:
+                    System.out.println("5- Voltar pro perfil");
+                    perfil(numArray, usuarios);
+                    return;
+                            
+                default:
+                    System.out.println("Opção inválida. Tente novamente.");
+                    perfil(numArray, usuarios);
+                    return;
+                
+                    
+    
+    
+    }                      
+
+                    }
+            
+
+                   
+                    
+           
+            
                 case 11:
-                    System.out.println("Excluir conta");
+                    System.out.println("EXCLUIR CONTA");
                     op.excluirPessoa(usuarios, numArray);
                     menu();
                     return;
@@ -530,7 +697,7 @@ public class Programa {
         Scanner scan = new Scanner(System.in);
 
         while (true) {
-            System.out.println("Opções");
+            System.out.println("OPCOES");
             System.out.println("1- Ver todas as publicações");
             System.out.println("2- Postar");
             System.out.println("3- Voltar para seu perfil");
@@ -551,7 +718,7 @@ public class Programa {
                     return;
 
                 case 2:
-                   System.out.println("Postar");
+                   System.out.println("POST");
                    Scanner post = new Scanner (System.in);
                    String postar = post.nextLine();
                    System.out.println(postar);
@@ -589,11 +756,11 @@ public class Programa {
     }
     
     void planoAlimentar(int numArray) {
-        System.out.println("Seu plano alimentar");
+        System.out.println("PLANO ALIMENTAR");
     }
     
     void novaDieta(int numArray) {
-        System.out.println("Fazer nova dieta");
+        System.out.println("NOVA DIETA");
         AvalFis novaAval = new AvalFis();
         Dieta dieta = new Dieta();
         Refeicoes[] quantidade = new Refeicoes[6];
@@ -622,7 +789,7 @@ public class Programa {
     }
     
     void chat(int numArray) {
-        System.out.println("chat");
+        System.out.println("CHAT");
     }
     
     void amigos (int numArray) {
@@ -637,7 +804,6 @@ public class Programa {
         setarPessoas(usuarios);
         setarAlimen(alimentos);
         menu();
-        //System.out.println(usuarios[0].getNome() + usuarios[1].getNome() + usuarios[2].getNome());
     }
     
     

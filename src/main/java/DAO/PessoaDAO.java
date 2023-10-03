@@ -11,57 +11,20 @@ import java.util.Scanner;
  * @author taynacardoso
  */
 public class PessoaDAO {
-public Pessoa cadastro (Pessoa usuarios[])
-    
+public int buscarUsuarioVazio (Pessoa usuarios[], Pessoa pessoa) {
+     for (int y= 0; y < usuarios.length; y++)
         {
-        Scanner scan = new Scanner(System.in);
-        Pessoa pessoa = new Pessoa();
-        System.out.println("Cadastro:");
-        System.out.println("Insira seu nome:"); 
-        pessoa.setNome(scan.nextLine());
-        while (pessoa.getNome().length() <= 3) {
-        System.out.println("Insira um nome com mais de 3 caracteres:");
-        pessoa.setNome(scan.nextLine());}
-        
-        System.out.println("Insira seu sexo, f para feminino e m para masculino:");
-        pessoa.setSexo(scan.nextLine());
-        while (!pessoa.getSexo().equals("f") && !pessoa.getSexo().equals("m")) {
-        System.out.println("Sexo invalido. Insira seu sexo f para femino e m para masculino:");
-        pessoa.setSexo(scan.nextLine());
+           if (usuarios[y] == null)
+                   {
+                       usuarios[y] = pessoa;
+                       return y;
+                       
+                   }
+           
         }
-        //buscar logins para ver se ja existe igual
-            System.out.println("Crie um login:");
-        pessoa.setLogin(scan.nextLine());
-        boolean loginRepetido = true;
+     return -1;
 
-        while (loginRepetido) {
-            loginRepetido = false;
-            for (Pessoa usuario : usuarios) {
-                if (usuario != null && pessoa.getLogin().equals(usuario.getLogin())) {
-                    System.out.println("Login já utilizado, crie um novo login:");
-                    pessoa.setLogin(scan.nextLine());
-                    loginRepetido = true;
-                    break;
-                }
-            }
-        }  
-        System.out.println("Crie um senha:");
-        pessoa.setSenha(scan.nextLine());
-        return pessoa;
         }
-public void mostrarInf (Pessoa usuarios[], int arrayNum) {
-    
-    System.out.println("Nome:" + usuarios[arrayNum].getNome());
-    System.out.println("Login:" + usuarios[arrayNum].getLogin());
-    System.out.println("id:" + usuarios[arrayNum].getId());
-    if (usuarios[arrayNum].getSexo().equals("f")) {
-    System.out.println("Sexo: feminino");
-    } else {
-        System.out.println("Sexo: masculino");
-    }
-
-}
-
 
 public void mudarInf (Pessoa usuarios[], int arrayNum)
 {

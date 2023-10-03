@@ -13,4 +13,29 @@ public class Publicacoes {
     Pessoa pessoa;
     String publicacao; 
     //dataCriacao, dataModificacao.
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public Pessoa getPessoa() {
+        return pessoa;
+    }
+
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
+    }
+
+    public String getPublicacao() {
+        return publicacao;
+    }
+
+    public void setPublicacao(String publicacao) {
+        this.publicacao = publicacao;
+    }
+    
 }
