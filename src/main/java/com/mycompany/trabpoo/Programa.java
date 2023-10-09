@@ -13,9 +13,11 @@ import com.mycompany.trabpoo.Bean.AvalFis;
 import com.mycompany.trabpoo.Bean.Dieta;
 import com.mycompany.trabpoo.Bean.Refeicoes;
 import com.mycompany.trabpoo.Bean.Preferencias;
+import com.mycompany.trabpoo.Bean.Publicacoes;
 import DAO.DietaDAO;
 import DAO.RefeicoesDAO;
 import DAO.AlimentoDAO;
+import DAO.PublicacoesDAO;
 import java.util.Scanner;
 
 /**
@@ -23,7 +25,7 @@ import java.util.Scanner;
  * @author taynacardoso
  */
 public class Programa {
-    Pessoa usuarios [] = new Pessoa [3];
+    Pessoa usuarios [] = new Pessoa [10];
     Alimento alimentos [] = new Alimento [19];
     String pubTodos [] = new String [40];
     PessoaDAO op = new PessoaDAO();
@@ -32,6 +34,7 @@ public class Programa {
     RefeicoesDAO opR = new RefeicoesDAO();
     PreferenciasDAO opP = new PreferenciasDAO();
     AlimentoDAO opA = new AlimentoDAO();
+    PublicacoesDAO opPub = new PublicacoesDAO();
     
     
     Pessoa[] setarPessoas (Pessoa usuarios[])
@@ -416,7 +419,7 @@ public class Programa {
 
                 case 2:
                    System.out.println("TIMELINE");
-                   timeline(numArray);
+                  // timeline(numArray);
                    return;
                    
                 case 3:
@@ -438,7 +441,7 @@ public class Programa {
             System.out.println("1- Ultima Avaliação Física");
             System.out.println("2- Ver Plano Alimentar");
             System.out.println("3- Minhas Publicações");
-            System.out.println("4- Lista de amigos");
+            System.out.println("4- Ver outros perfis");
             System.out.println("5- Fazer nova dieta");
             System.out.println("6- Chat");
             System.out.println("7- Timeline");
@@ -522,7 +525,7 @@ public class Programa {
                     
                 case 7:
                     System.out.println("TIMELINE");
-                    timeline(numArray);
+                    timeline(numArray, pessoa);
                     return;
                 case 8:
                     System.out.println("ALIMENTOS");
@@ -675,10 +678,47 @@ public class Programa {
            
             
                 case 11:
-                    System.out.println("EXCLUIR CONTA");
-                    op.excluirPessoa(usuarios, numArray);
-                    menu();
-                    return;
+                System.out.println("EXCLUIR CONTA");
+                int op = 0;
+                String senha;
+                while (true) {
+                System.out.println("Tem certeza que deseja excluir sua conta, aperte 1 para confirmar e 2 para voltar para seu perfil");
+                op = scan.nextInt();
+                switch (op) {
+                            case 1:
+                                scan.nextLine();
+                                System.out.println("Confirme sua senha");
+                                senha = scan.nextLine();
+                                if (senha.equals(usuarios[numArray].getSenha()))
+                                {
+                                    for (Pessoa usuario : usuarios) {
+                                     if (usuario != null && usuarios[numArray].getLogin().equals(usuario.getLogin())) {
+                                        usuarios[numArray].setAvaliacoes(null);
+                                        usuarios[numArray].setDietas(null);
+                                        usuarios[numArray].setLogin(null);
+                                        usuarios[numArray].setNome(null);
+                                        usuarios[numArray].setSenha(null);
+                                        usuarios[numArray].setSexo(null);
+                                        menu();
+                                        return;
+                                    }
+                                }
+                                }
+                                else {
+                                    System.out.println("Senha Incorreta!");
+                    }
+                                return;
+                            case 2:
+                                return;
+                                
+                            default:
+                            System.out.println("Opção inválida. Tente novamente.");
+                            return;
+                }
+
+
+                }
+                    
                     
                 case 12:
                     System.out.println("Sair");
@@ -692,7 +732,7 @@ public class Programa {
         }
     }
     
-    void timeline (int numArray) {
+    void timeline (int numArray, Pessoa[] usuarios) {
         int opcao = 0;
         Scanner scan = new Scanner(System.in);
 
@@ -709,8 +749,8 @@ public class Programa {
             switch (opcao) {
                     case 1:
                      int x = 0;
-                     while (x < 10 && usuarios[numArray].getPublicacoes()[x] != null) {
-                     System.out.println(usuarios[numArray].getPublicacoes()[x]);
+                     while (x < 10 && usuarios[numArray].getPublicacoes()[x].getPublicacao() != null) {
+                     System.out.println(usuarios[numArray].getPublicacoes()[x].getPublicacao());
                      x++;
                      }
                     perfil(numArray, usuarios);
@@ -718,10 +758,19 @@ public class Programa {
                     return;
 
                 case 2:
-                   System.out.println("POST");
+                   System.out.println("Escreva um novo post:");
                    Scanner post = new Scanner (System.in);
                    String postar = post.nextLine();
-                   System.out.println(postar);
+                   System.out.println("Novo post:" + postar);
+//                   int num;
+//                    num = opPub.buscarPubVazia(usuarios[numArray]);
+//                     System.out.println("Novo numero:" + num);
+//                    System.out.println("teste");
+                   Publicacoes novaPub = new Publicacoes();
+                   System.out.println("teste 2");
+                   novaPub.setPublicacao(postar);
+//                   usuarios[numArray].getPublicacoes()[num] = novaPub;
+                   
                    
                    return;
                    
@@ -793,7 +842,54 @@ public class Programa {
     }
     
     void amigos (int numArray) {
-        System.out.println("amigos");
+        int opcao = 0;
+        Scanner scan = new Scanner(System.in); 
+        Pessoa amigo = new Pessoa();
+
+        while (true) {
+            System.out.println("OPCOES");
+            System.out.println("1- Pesquisar um novo perfil");
+            System.out.println("2- Ver lista de amigos");
+            System.out.println("Para sair, digite 3");
+
+            opcao = scan.nextInt();
+
+            switch (opcao) {
+                case 1:
+                     Scanner sc = new Scanner(System.in);
+                     System.out.println("Digite o login que voce quer achar");
+                     String login = scan.nextLine();
+                     amigo = op.buscaPorLogin(login, usuarios);
+                     System.out.println("Nome:" + amigo.getNome());
+                    System.out.println("Login:" + amigo.getLogin());
+                    System.out.println("id:" + amigo.getId());
+                    if (amigo.getSexo().equals("f")) {
+                    System.out.println("Sexo: feminino");
+                    } else {
+                        System.out.println("Sexo: masculino");
+                    }
+                    perfil(numArray, usuarios);
+                    return;
+                    
+
+                case 2:
+                   listaAmigos (numArray);
+               return;
+                   
+                case 3:
+                    System.out.println("FIM DO PROGRAMA");
+                    return;
+                    
+                default:
+                    System.out.println("Opção inválida. Tente novamente.");
+            }
+        }
+        
+        
+        
+    }
+    void listaAmigos (int numArray) {
+        
     }
     
 //    void perfilPub(int numArray) 
