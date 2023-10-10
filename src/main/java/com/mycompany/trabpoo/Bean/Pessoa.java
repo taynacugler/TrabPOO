@@ -4,7 +4,7 @@
  */
 package com.mycompany.trabpoo.Bean;
 
-import java.text.DateFormat;
+//import java.text.DateFormat;
 
 /**
  *
@@ -20,6 +20,9 @@ public class Pessoa {
     private AvalFis[] avaliacoes;
     private Dieta[] dietas;
     private Publicacoes[] publicacoes;
+    private Pessoa[] seguindo;
+    private Pessoa[] seguidores;
+    private Chat[] mensagens;
     
    // DateFormat dataCriacao;
    // DateFormat dataModificacao;
@@ -28,7 +31,35 @@ public class Pessoa {
         avaliacoes = new AvalFis[5];
         dietas = new Dieta[5];
         publicacoes = new Publicacoes[10];
+        seguindo = new Pessoa[10];
+        seguidores = new Pessoa[10];
+        mensagens = new Chat[50];
         this.id = ++Pessoa.cont;
+    }
+
+    public Chat[] getMensagens() {
+        return mensagens;
+    }
+
+    public void setMensagens(Chat[] mensagens) {
+        this.mensagens = mensagens;
+    }
+    
+    
+    public Pessoa[] getSeguindo() {
+        return seguindo;
+    }
+
+    public void setSeguindo(Pessoa[] seguindo) {
+        this.seguindo = seguindo;
+    }
+
+    public Pessoa[] getSeguidores() {
+        return seguidores;
+    }
+
+    public void setSeguidores(Pessoa[] seguidores) {
+        this.seguidores = seguidores;
     }
 
     public Publicacoes[] getPublicacoes() {

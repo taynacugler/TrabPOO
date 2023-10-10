@@ -14,6 +14,8 @@ import com.mycompany.trabpoo.Bean.Dieta;
 import com.mycompany.trabpoo.Bean.Refeicoes;
 import com.mycompany.trabpoo.Bean.Preferencias;
 import com.mycompany.trabpoo.Bean.Publicacoes;
+import com.mycompany.trabpoo.Bean.Chat;
+import DAO.ChatDAO;
 import DAO.DietaDAO;
 import DAO.RefeicoesDAO;
 import DAO.AlimentoDAO;
@@ -27,7 +29,7 @@ import java.util.Scanner;
 public class Programa {
     Pessoa usuarios [] = new Pessoa [10];
     Alimento alimentos [] = new Alimento [19];
-    String pubTodos [] = new String [40];
+    Publicacoes pubTodos [] = new Publicacoes [40];
     PessoaDAO op = new PessoaDAO();
     AvalFisDAO opAF = new AvalFisDAO();
     DietaDAO opD = new DietaDAO();
@@ -35,6 +37,7 @@ public class Programa {
     PreferenciasDAO opP = new PreferenciasDAO();
     AlimentoDAO opA = new AlimentoDAO();
     PublicacoesDAO opPub = new PublicacoesDAO();
+    ChatDAO opC = new ChatDAO();
     
     
     Pessoa[] setarPessoas (Pessoa usuarios[])
@@ -449,7 +452,8 @@ public class Programa {
             System.out.println("9- Ver informações da conta");
             System.out.println("10- Mudar informações da conta");
             System.out.println("11- Excluir conta");
-            System.out.println("12- Sair");
+            System.out.println("12 - ver seguidores");
+            System.out.println("13- Sair");
 
             opcao = scan.nextInt();
 
@@ -471,40 +475,46 @@ public class Programa {
                     System.out.println("1- Suas publicações");
                     System.out.println("2- Criar nova publicações");
                     opc = scan.nextInt();
-                    return;
-//                    switch (opc) {
-//                        case 1:
-//                            int x = 0;
-//                            while (x < 10 && usuarios[numArray].getPublicacoes()[x] != null) {
-//                                System.out.println(usuarios[numArray].getPublicacoes()[x]);
-//                                x++;
-//                            }
-//                            perfil(numArray, usuarios);
-//                            break;
-//
-//                        case 2:
-//                            String pub;
-//                            System.out.println("Escreva sua publicação");
-//                            scan.nextLine();
-//                            pub = scan.nextLine();
-//                            for (int y = 0; y < 10; y++) {
-//                                if (usuarios[numArray].getPublicacoes()[y] == null) {
-//                                    usuarios[numArray].getPublicacoes()[y] = pub;
-//                                    for (int z = 0; z<40; z++) {
-//                                        if (pubTodos[z] == null) {
-//                                            pubTodos[z] = pub;
-//                                        }
-//                                    }
-//                                    break;
-//                                }
-//                            }
-//                            perfil(numArray, usuarios);
-//                            break;
-//
-//                        default:
-//                            System.out.println("Valor inválido");
-//                            break;
-//                    }
+                    
+                    switch (opc) {
+                        case 1:
+                            int x = 0;
+                            while (x < 10 && usuarios[numArray].getPublicacoes()[x] != null) {
+                                System.out.println(usuarios[numArray].getPublicacoes()[x].getPublicacao());
+                                x++;
+                            }
+                            perfil(numArray, usuarios);
+                            return;
+
+                        case 2:
+                            String pub;
+                            Publicacoes novaPublicacao = new Publicacoes();
+                            System.out.println("Escreva sua publicação");
+                            scan.nextLine();
+                            pub = scan.nextLine();
+                            novaPublicacao.setPublicacao(pub);
+                            novaPublicacao.setPessoa(usuarios[numArray]);
+                            int y = opPub.buscarPubVazia(usuarios[numArray]);
+                            int z = opPub.timelineVazio(pubTodos);
+                            if (y != -1) {
+                             usuarios[numArray].getPublicacoes()[y] = novaPublicacao;
+                            } else 
+                            {
+                                System.out.println("Não foi possível fazer publicação");
+                            }
+                             if (z != -1) {
+                             pubTodos[z] = novaPublicacao;
+                            } else 
+                            {
+                                System.out.println("Não foi possível publicar na timeline");
+                            }
+                            perfil(numArray, usuarios);
+                            return;
+
+                        default:
+                            System.out.println("Valor inválido");
+                            return;
+                    }
                             
                     
                                     
@@ -718,9 +728,16 @@ public class Programa {
 
 
                 }
-                    
-                    
                 case 12:
+                    int x = 0;
+                    while (usuarios[numArray].getSeguidores()[x] != null) {
+                        System.out.println("Seguidores:" + usuarios[numArray].getSeguidores()[x].getNome());
+                        x++;
+                    }
+                    return;
+                    
+                    
+                case 13:
                     System.out.println("Sair");
                     menu();
                     return;
@@ -749,30 +766,33 @@ public class Programa {
             switch (opcao) {
                     case 1:
                      int x = 0;
-                     while (x < 10 && usuarios[numArray].getPublicacoes()[x].getPublicacao() != null) {
-                     System.out.println(usuarios[numArray].getPublicacoes()[x].getPublicacao());
-                     x++;
+                     while (pubTodos[x] != null) {
+                         System.out.println(pubTodos[x].getPessoa().getNome() + "dise: " + pubTodos[x].getPublicacao());
+                         x++;
                      }
+
                     perfil(numArray, usuarios);
 
                     return;
 
                 case 2:
-                   System.out.println("Escreva um novo post:");
-                   Scanner post = new Scanner (System.in);
-                   String postar = post.nextLine();
-                   System.out.println("Novo post:" + postar);
-//                   int num;
-//                    num = opPub.buscarPubVazia(usuarios[numArray]);
-//                     System.out.println("Novo numero:" + num);
-//                    System.out.println("teste");
-                   Publicacoes novaPub = new Publicacoes();
-                   System.out.println("teste 2");
-                   novaPub.setPublicacao(postar);
-//                   usuarios[numArray].getPublicacoes()[num] = novaPub;
-                   
-                   
-                   return;
+                   String pub;
+                            Publicacoes novaPublicacao = new Publicacoes();
+                            System.out.println("Escreva sua publicação");
+                            scan.nextLine();
+                            pub = scan.nextLine();
+//                            novaPublicacao.setPublicacao(pub);
+//                            System.out.println("pub"+ novaPublicacao.getPublicacao());
+//                            int y = opPub.buscarPubVazia(usuarios[numArray]);
+//                            System.out.println(y);
+//                            if (y != -1) {
+//                             usuarios[numArray].getPublicacoes()[y] = novaPublicacao;
+//                            } else 
+//                            {
+//                                System.out.println("Não foi possível fazer publicação");
+//                            }
+                            perfil(numArray, usuarios);
+                            return;
                    
                 case 3:
                     perfil(numArray, null);
@@ -836,11 +856,85 @@ public class Programa {
         
         
     }
-    
-    void chat(int numArray) {
-        System.out.println("CHAT");
-    }
-    
+//    
+//    void chat(int numArray) {
+//        System.out.println("CHAT");
+//        System.out.println("OPCOES");
+//        System.out.println("1- Mandar nova mensagem");
+//        System.out.println("2- Ver lista de mensagens");
+//        System.out.println("Para sair, digite 3");
+//        Pessoa pessoa = new Pessoa();
+//        Scanner scan = new Scanner(System.in);
+//        Chat novoChat = new Chat();
+//        int opc;
+//        String msg;
+//        opc = scan.nextInt();
+//        switch (opc) {
+//            case 1:
+//                System.out.println("Digite login de quem receberá a mensagem");
+//                scan.nextLine();
+//                String login = scan.nextLine();
+//                pessoa = op.buscaPorLogin(login, usuarios);
+//                System.out.println("Digite a mensagem que você quer enviar");
+//                msg = scan.nextLine();
+//                int a = 0;
+//                int b, c;
+//                for (int num = 0; num< usuarios[numArray].getMensagens().length; num++) {
+//                    if (usuarios[numArray].getMensagens()[num].getPessoaDestino().getLogin().equals(login)){
+//                        a = 1;
+//                        break;
+//                    }
+//                    
+//                }
+//                
+//               if (a == 0) {
+//                int y = opC.buscarMsgVazio(pessoa);
+//                if (y> -1) {
+//                    usuarios[pessoa.getId()-1].getMensagens()[y].setPessoaDestino(usuarios[pessoa.getId()-1]);
+//                    usuarios[pessoa.getId()-1].getMensagens()[y].setPessoaOrigem(usuarios[numArray]);
+//                    usuarios[pessoa.getId()-1].getMensagens()[y].getMensagem()[0] = msg;
+//                    c= opC.buscarChatVazio(usuarios[pessoa.getId()-1].getMensagens()[y]);
+//                } else {
+//                   System.out.println("Não foi possivel mandar essa mensagem");
+//                   perfil(numArray, usuarios);
+//                   return;
+//                }
+//                int z = opC.buscarMsgVazio(usuarios[numArray]);
+//                if (z> -1) {
+//                    b = opC.buscarChatVazio(usuarios[numArray].getMensagens()[z]);
+//                    usuarios[numArray].getMensagens()[z].setPessoaDestino(usuarios[pessoa.getId()-1]);
+//                    usuarios[numArray].getMensagens()[z].setPessoaOrigem(usuarios[numArray]);
+//                    usuarios[numArray].getMensagens()[z].getMensagem()[0] = msg;                
+//                } else {
+//                    System.out.println("Não foi possivel mandar essa mensagem");
+//                   perfil(numArray, usuarios);
+//                   return;
+//                }
+//               }
+//               else {
+//                   usuarios[pessoa.getId()-1].getMensagens()[y].setPessoaDestino(usuarios[pessoa.getId()-1]);
+//                   usuarios[pessoa.getId()-1].getMensagens()[y].setPessoaOrigem(usuarios[numArray]);
+//                   usuarios[pessoa.getId()-1].getMensagens()[y].getMensagem()[c] = msg;
+//                   usuarios[numArray].getMensagens()[z].setPessoaDestino(usuarios[pessoa.getId()-1]);
+//                   usuarios[numArray].getMensagens()[z].setPessoaOrigem(usuarios[numArray]);
+//                   usuarios[numArray].getMensagens()[z].getMensagem()[b] = msg;   
+//               }
+//                
+//                
+//                
+//                
+//                
+//                
+//                
+//                
+//            case 2:
+//            case 3:
+//            default:
+//                
+//        }
+//            
+//    }
+//    
     void amigos (int numArray) {
         int opcao = 0;
         Scanner scan = new Scanner(System.in); 
@@ -856,11 +950,12 @@ public class Programa {
 
             switch (opcao) {
                 case 1:
-                     Scanner sc = new Scanner(System.in);
-                     System.out.println("Digite o login que voce quer achar");
-                     String login = scan.nextLine();
-                     amigo = op.buscaPorLogin(login, usuarios);
-                     System.out.println("Nome:" + amigo.getNome());
+                    Scanner sc = new Scanner(System.in);
+                    System.out.println("Digite o login que voce quer achar");
+                    scan.nextLine();
+                    String login = scan.nextLine();
+                    amigo = op.buscaPorLogin(login, usuarios);
+                    System.out.println("Nome:" + amigo.getNome());
                     System.out.println("Login:" + amigo.getLogin());
                     System.out.println("id:" + amigo.getId());
                     if (amigo.getSexo().equals("f")) {
@@ -868,12 +963,20 @@ public class Programa {
                     } else {
                         System.out.println("Sexo: masculino");
                     }
-                    perfil(numArray, usuarios);
+                    seguir (amigo.getId(), numArray);
+                    chat(numArray);
                     return;
                     
 
                 case 2:
-                   listaAmigos (numArray);
+//                    System.out.println("Seus seguidores = usuarios[numArray].getSeguidores()");
+                    int x = 0;
+                    while (usuarios[numArray].getSeguindo()[x] != null) {
+                    System.out.println("Seguindo =" + usuarios[numArray].getSeguindo()[x].getNome());
+                    x++;
+                    }
+                    System.out.println("Fim lista de amigos");
+                    perfil(numArray, usuarios);
                return;
                    
                 case 3:
@@ -888,14 +991,58 @@ public class Programa {
         
         
     }
-    void listaAmigos (int numArray) {
-        
-    }
-    
-//    void perfilPub(int numArray) 
-//    
-//        System.out.println("Suas publicações");
-//    }    
+    void seguir (int numAmigo, int numPerfil) {
+        Scanner sc = new Scanner(System.in);
+        numAmigo = numAmigo - 1;
+        System.out.println("OPÇÕES");
+        System.out.println("1- Seguir perfil");
+        System.out.println("2- Parar de seguir perfil");
+        System.out.println("3- Voltar para seu perfil");
+        int opc = sc.nextInt();
+        boolean verif;
+        switch (opc) {
+                case 1:
+                verif = op.verifSeguindo(usuarios[numPerfil], usuarios[numAmigo]);
+                if (verif) {
+                    System.out.println("Você já segue esse perfil!");
+                    tela(numPerfil);
+                    return;
+                    
+                } else {
+                   int x = op.buscarSeguindo(usuarios[numPerfil]);
+                   usuarios[numPerfil].getSeguindo()[x] = usuarios[numAmigo];
+                   int z = op.buscarSeguidores(usuarios[numAmigo]);
+                   usuarios[numAmigo].getSeguidores()[z] = usuarios[numPerfil];
+                    amigos(numPerfil);
+                    return;
+                    
+                }
+                                    
+                case 2:
+                verif = op.verifSeguindo(usuarios[numPerfil], usuarios[numAmigo]);
+                if (!verif) {
+                   int y = op.buscarSeguindo(usuarios[numPerfil]);
+                   usuarios[numPerfil].getSeguindo()[y] = null;
+                   int a = op.buscarSeguidores(usuarios[numAmigo]);
+                   usuarios[numAmigo].getSeguidores()[a] = null;
+                   amigos(numPerfil);
+                    return;
+                            
+                    
+                } else {
+                 System.out.println("Você não segue esse perfil!");
+                  tela(numPerfil);
+                  return;   
+                }
+                                  
+                case 3:
+                     perfil(numPerfil, usuarios);
+                    return;
+                    
+                default:
+                    System.out.println("Opção inválida. Tente novamente.");
+            }
+           }    
     public Programa() {
         setarPessoas(usuarios);
         setarAlimen(alimentos);

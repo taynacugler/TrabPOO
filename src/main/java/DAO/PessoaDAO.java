@@ -44,6 +44,42 @@ public Pessoa buscaPorLogin (String login, Pessoa usuarios[]) {
             return null;
         }
 
+
+public int buscarSeguindo (Pessoa pessoa) {
+
+for (int y=0; y< pessoa.getSeguindo().length; y++){
+        if (pessoa.getSeguindo()[y] == null) {
+            return y;
+        }
+    }
+        
+            return -1;
+}
+
+public int buscarSeguidores (Pessoa pessoa) {
+
+for (int y=0; y< pessoa.getSeguidores().length; y++){
+        if (pessoa.getSeguidores()[y] == null) {
+            return y;
+        }
+    }
+        
+            return -1;
+        
+
+}
+public boolean verifSeguindo (Pessoa seguidor, Pessoa seguido) {
+     for (int y= 0; y< seguido.getSeguidores().length; y++){
+        System.out.println("teste");
+        if (seguido.getSeguidores()[y] != null && seguido.getSeguidores()[y].getId() == seguidor.getId()) {
+            
+        }
+    }
+        
+            return false;
+    
+}
+
 }
 
 

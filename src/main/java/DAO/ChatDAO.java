@@ -5,17 +5,17 @@
 package DAO;
 
 import com.mycompany.trabpoo.Bean.Pessoa;
-import com.mycompany.trabpoo.Bean.Publicacoes;
+import com.mycompany.trabpoo.Bean.Chat;
 
 /**
  *
  * @author taynacardoso
  */
-public class PublicacoesDAO {
-    public int buscarPubVazia (Pessoa pessoa) {
+public class ChatDAO {
+     public int buscarMsgVazio (Pessoa pessoa) {
         for (int y= 0; y < 10; y++)
            {
-              if (pessoa.getPublicacoes()[y] == null)
+              if (pessoa.getMensagens()[y] == null)
                       {
                           
                           return y;
@@ -25,10 +25,10 @@ public class PublicacoesDAO {
         return -1;
 
            }
-    public int timelineVazio (Publicacoes [] pub) {
-        for (int y= 0; y < 40; y++)
+     public int buscarChatVazio (Chat chat) {
+         for (int y= 0; y < 10; y++)
            {
-              if (pub[y] == null)
+              if (chat.getMensagem()[y] == null)
                       {
                           
                           return y;
@@ -37,5 +37,8 @@ public class PublicacoesDAO {
            }
         return -1;
 
-    }
+     }
+     
+     
+     
 }
