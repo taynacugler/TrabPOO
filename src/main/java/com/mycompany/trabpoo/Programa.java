@@ -143,6 +143,7 @@ public class Programa {
         banana.setTipoUsuario("1");
         banana.setCal(banana.getCal(), banana.getCarb(), banana.getProt(),banana.getGord());
         alimentos [6] = banana;
+        System.out.println("com.mycompany.trabpoo.Programa.setarAlimen()");
         
         //Alimentos fonte de proteina
         
