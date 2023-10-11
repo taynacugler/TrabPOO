@@ -13,7 +13,7 @@ import com.mycompany.trabpoo.Bean.TipoDieta;
 public class TipoDietaDAO {
     TipoDieta tipo = new TipoDieta();
     
-    Dieta equilibrado(Dieta dieta) {
+    public Dieta equilibrado(Dieta dieta) {
         dieta.getTipo().setNome("equilibrada");
         double carb = dieta.getCalorias()*0.4;
         double prot = dieta.getCalorias()*0.3;
@@ -24,7 +24,7 @@ public class TipoDietaDAO {
         
         return dieta;
     }
-    Dieta cetogenica (Dieta dieta) {
+    public Dieta cetogenica (Dieta dieta) {
             dieta.getTipo().setNome("cetogenica");
             double carb = dieta.getCalorias()*0.15;
             double prot = dieta.getCalorias()*0.15;
@@ -36,7 +36,7 @@ public class TipoDietaDAO {
             
         return dieta;
     }
-    Dieta lowCarb(Dieta dieta) {
+    public Dieta lowCarb(Dieta dieta) {
             dieta.getTipo().setNome("low carb");
             double carb = dieta.getCalorias()*0.3;
             double prot = dieta.getCalorias()*0.5;
@@ -47,7 +47,7 @@ public class TipoDietaDAO {
             
             return dieta;
     }
-    Dieta atleta(Dieta dieta) {
+    public Dieta atleta(Dieta dieta) {
             dieta.getTipo().setNome("atleta");
             double prot = dieta.getAval().getPeso()*2*4;
             double gord = dieta.getAval().getPeso()*0.8*9;

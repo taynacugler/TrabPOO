@@ -10,12 +10,11 @@ import com.mycompany.trabpoo.Bean.Pessoa;
  * @author taynacardoso
  */
 public class PessoaDAO {
-public int buscarUsuarioVazio (Pessoa usuarios[], Pessoa pessoa) {
+public int buscarUsuarioVazio (Pessoa usuarios[]) {
     for (int y= 0; y < usuarios.length; y++)
        {
           if (usuarios[y] == null)
                   {
-                      usuarios[y] = pessoa;
                       return y;
 
                   }

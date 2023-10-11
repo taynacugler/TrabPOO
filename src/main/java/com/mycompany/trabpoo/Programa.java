@@ -4,6 +4,7 @@
  */
 package com.mycompany.trabpoo;
 
+import Control.ControlDieta;
 import DAO.PessoaDAO;
 import DAO.AvalFisDAO;
 import DAO.PreferenciasDAO;
@@ -20,6 +21,7 @@ import DAO.DietaDAO;
 import DAO.RefeicoesDAO;
 import DAO.AlimentoDAO;
 import DAO.PublicacoesDAO;
+import Control.controlPerfil;
 import java.util.Scanner;
 
 /**
@@ -38,6 +40,8 @@ public class Programa {
     AlimentoDAO opA = new AlimentoDAO();
     PublicacoesDAO opPub = new PublicacoesDAO();
     ChatDAO opC = new ChatDAO();
+    controlPerfil cp = new controlPerfil();
+    ControlDieta cd = new ControlDieta();   
     
     
     Pessoa[] setarPessoas (Pessoa usuarios[])
@@ -76,7 +80,6 @@ public class Programa {
         arroz.setPorcao(100);
         arroz.setTipoUsuario("1");
         arroz.setCal(arroz.getCal(), arroz.getCarb(), arroz.getProt(), arroz.getGord());
-       // System.out.println("Calorias de " + arroz.getPorcao() + " gramas de " + arroz.getNome() +": " + arroz.getCal());
         alimentos [0] = arroz;
         
         Alimento macarrao = new Alimento();
@@ -87,7 +90,6 @@ public class Programa {
         macarrao.setPorcao(100);
         macarrao.setTipoUsuario("1");
         macarrao.setCal(macarrao.getCal(), macarrao.getCarb(), macarrao.getProt(), macarrao.getGord());
-       // System.out.println("Calorias de " + macarrao.getPorcao() + " gramas de " + macarrao.getNome() +": " + macarrao.getCal());
         alimentos [1] = macarrao;
         
         
@@ -99,7 +101,6 @@ public class Programa {
         pao.setPorcao(100);
         pao.setTipoUsuario("1");
         pao.setCal(pao.getCal(), pao.getCarb(), pao.getProt(), pao.getGord());
-       // System.out.println("Calorias de " + pao.getPorcao() + " gramas de " + pao.getNome() +": " + pao.getCal());
         alimentos [2] = pao;
        
         Alimento batataDoce = new Alimento();
@@ -110,7 +111,6 @@ public class Programa {
         batataDoce.setPorcao(100);
         batataDoce.setTipoUsuario("1");
         batataDoce.setCal(batataDoce.getCal(), batataDoce.getCarb(), batataDoce.getProt(), batataDoce.getGord());
-        //System.out.println("Calorias de " + batataDoce.getPorcao() + " gramas de " + batataDoce.getNome() +": " + batataDoce.getCal());
         alimentos [3] = batataDoce;
 
         
@@ -122,7 +122,6 @@ public class Programa {
         batataInglesa.setPorcao(100);
         batataInglesa.setTipoUsuario("1");
         batataInglesa.setCal(batataInglesa.getCal(), batataInglesa.getCarb(), batataInglesa.getProt(), batataInglesa.getGord());
-       // System.out.println("Calorias de " + batataInglesa.getPorcao() + " gramas de " + batataInglesa.getNome() +": " + batataInglesa.getCal());
         alimentos [4] = batataInglesa;
         
         Alimento tapioca = new Alimento();
@@ -133,7 +132,6 @@ public class Programa {
         tapioca.setPorcao(100);
         tapioca.setTipoUsuario("1");
         tapioca.setCal(tapioca.getCal(), tapioca.getCarb(), tapioca.getProt(),tapioca.getGord());
-       // System.out.println("Calorias de " + tapioca.getPorcao() + " gramas de " + tapioca.getNome() +": " + tapioca.getCal());
         alimentos [5] = tapioca;
         
         Alimento banana = new Alimento();
@@ -144,7 +142,6 @@ public class Programa {
         banana.setPorcao(100);
         banana.setTipoUsuario("1");
         banana.setCal(banana.getCal(), banana.getCarb(), banana.getProt(),banana.getGord());
-        //System.out.println("Calorias de " + banana.getPorcao() + " gramas de " + banana.getNome() +": " + banana.getCal());
         alimentos [6] = banana;
         
         //Alimentos fonte de proteina
@@ -157,7 +154,6 @@ public class Programa {
         peitoFrango.setPorcao(100);
         peitoFrango.setTipoUsuario("2");
         peitoFrango.setCal(peitoFrango.getCal(), peitoFrango.getCarb(), peitoFrango.getProt(),peitoFrango.getGord());
-       //System.out.println("Calorias de " + peitoFrango.getPorcao() + " gramas de " + peitoFrango.getNome() +": " + peitoFrango.getCal());
         alimentos [7] = peitoFrango;
         
         Alimento patinho = new Alimento();
@@ -168,7 +164,6 @@ public class Programa {
         patinho.setPorcao(100);
         patinho.setTipoUsuario("2");
         patinho.setCal(patinho.getCal(), patinho.getCarb(), patinho.getProt(),patinho.getGord());
-        //System.out.println("Calorias de " + patinho.getPorcao() + " gramas de " + patinho.getNome() +": " + patinho.getCal());
         alimentos [8] = patinho ;
         
         Alimento tilapia = new Alimento();
@@ -179,7 +174,6 @@ public class Programa {
         tilapia.setPorcao(100);
         tilapia.setTipoUsuario("2");
         tilapia.setCal(tilapia.getCal(), tilapia.getCarb(), tilapia.getProt(),tilapia.getGord());
-        //System.out.println("Calorias de " + tilapia.getPorcao() + " gramas de " + tilapia.getNome() +": " + tilapia.getCal());
         alimentos [9] = tilapia;
         
         Alimento soja = new Alimento();
@@ -190,7 +184,6 @@ public class Programa {
         soja.setPorcao(100);
         soja.setTipoUsuario("2");
         soja.setCal(soja.getCal(), soja.getCarb(), soja.getProt(),soja.getGord());
-        //System.out.println("Calorias de " + soja.getPorcao() + " gramas de " + soja.getNome() +": " + soja.getCal());
         alimentos [10] = soja;
         
         Alimento ovoCozido = new Alimento();
@@ -201,7 +194,6 @@ public class Programa {
         ovoCozido.setPorcao(100);
         ovoCozido.setTipoUsuario("2");
         ovoCozido.setCal(ovoCozido.getCal(), ovoCozido.getCarb(), ovoCozido.getProt(),ovoCozido.getGord());
-        //System.out.println("Calorias de " + ovoCozido.getPorcao() + " gramas de " + ovoCozido.getNome() +": " + ovoCozido.getCal());
         alimentos [11] = ovoCozido;
         
         Alimento atum = new Alimento();
@@ -212,7 +204,6 @@ public class Programa {
         atum.setPorcao(100);
         atum.setTipoUsuario("2");
         atum.setCal(atum.getCal(), atum.getCarb(), atum.getProt(),atum.getGord());
-        //System.out.println("Calorias de " + atum.getPorcao() + " gramas de " + atum.getNome() +": " + atum.getCal());
         alimentos [12] = atum;
         
         //Alimentos fonte de gordura
@@ -224,7 +215,6 @@ public class Programa {
         abacate.setPorcao(100);
         abacate.setTipoUsuario("3");
         abacate.setCal(abacate.getCal(), abacate.getCarb(),abacate.getProt(),abacate.getGord());
-        //System.out.println("Calorias de " + abacate.getPorcao() + " gramas de " + abacate.getNome() +": " + abacate.getCal());
         alimentos [13] = abacate;
         
         Alimento pastaAmendoim = new Alimento();
@@ -235,7 +225,6 @@ public class Programa {
         pastaAmendoim.setPorcao(100);
         pastaAmendoim.setTipoUsuario("3");
         pastaAmendoim.setCal(pastaAmendoim.getCal(), pastaAmendoim.getCarb(), pastaAmendoim.getProt(),pastaAmendoim.getGord());
-        //System.out.println("Calorias de " + pastaAmendoim.getPorcao() + " gramas de " + pastaAmendoim.getNome() +": " + pastaAmendoim.getCal());
         alimentos [14] = pastaAmendoim;
         
         Alimento azeite = new Alimento();
@@ -246,7 +235,6 @@ public class Programa {
         azeite.setPorcao(100);
         azeite.setTipoUsuario("3");
         azeite.setCal(azeite.getCal(), azeite.getCarb(), azeite.getProt(),azeite.getGord());
-        //System.out.println("Calorias de " + azeite.getPorcao() + " gramas de " + azeite.getNome() +": " + azeite.getCal());
         alimentos [15] = azeite;
         
         Alimento manteiga = new Alimento();
@@ -257,7 +245,6 @@ public class Programa {
         manteiga.setPorcao(100);
         manteiga.setTipoUsuario("3");
         manteiga.setCal(manteiga.getCal(), manteiga.getCarb(), manteiga.getProt(),manteiga.getGord());
-        //System.out.println("Calorias de " + manteiga.getPorcao() + " gramas de " + manteiga.getNome() +": " + manteiga.getCal());
         alimentos [16] = manteiga;
         
         Alimento nozes = new Alimento();
@@ -268,7 +255,6 @@ public class Programa {
         nozes.setPorcao(100);
         nozes.setTipoUsuario("3");
         nozes.setCal(nozes.getCal(), nozes.getCarb(), nozes.getProt(),nozes.getGord());
-        //System.out.println("Calorias de " + nozes.getPorcao() + " gramas de " + nozes.getNome() +": " + nozes.getCal());
         alimentos [17] = nozes;
         
         Alimento castanhas = new Alimento();
@@ -279,7 +265,6 @@ public class Programa {
         castanhas.setPorcao(100);
         castanhas.setTipoUsuario("3");
         castanhas.setCal(castanhas.getCal(), castanhas.getCarb(), castanhas.getProt(),castanhas.getGord());
-        //System.out.println("Calorias de " + castanhas.getPorcao() + " gramas de " + castanhas.getNome() +": " + castanhas.getCal());
         alimentos [18] = castanhas;
         
         
@@ -300,12 +285,26 @@ public class Programa {
             switch (opcao) {
                 case 1:
                     System.out.println("LOGIN");
-                    login(usuarios);
+                    int array = cp.login(usuarios);
+                    if (array != -1) {
+                        tela(array);
+                    }
                     return;
 
                 case 2:
-                    System.out.println("CADASTRO");
-                   cadastros();
+                   System.out.println("CADASTRO");
+                   Pessoa pessoa = new Pessoa();     
+                   pessoa = cp.cadastros(usuarios);
+                   int num = op.buscarUsuarioVazio(usuarios);
+                   usuarios[num] = pessoa;
+                   if (num>= 0) {
+                   System.out.println("Parabens, " + usuarios[num].getNome() + "! Seu cadastro foi feito com sucesso!");
+                   tela(num);
+            
+        } else {
+            System.out.println("Não foi possível fazer um novo cadastro!");
+            menu();
+        }
                    return;
 
                 default:
@@ -313,94 +312,7 @@ public class Programa {
             }
         }
     }
-    
-    void cadastros () {
-        
-        Pessoa pessoa = new Pessoa();       
-        Scanner scan = new Scanner(System.in);      
-        System.out.println("Insira seu nome:"); 
-        pessoa.setNome(scan.nextLine());
-        while (pessoa.getNome().length() <= 3) {
-        System.out.println("Insira um nome com mais de 3 caracteres:");
-        pessoa.setNome(scan.nextLine());}
-        System.out.println("Insira seu sexo, f para feminino e m para masculino:");
-        pessoa.setSexo(scan.nextLine());
-        while (!pessoa.getSexo().equals("f") && !pessoa.getSexo().equals("m")) {
-        System.out.println("Sexo invalido. Insira seu sexo f para femino e m para masculino:");
-        pessoa.setSexo(scan.nextLine());
-        }
-        //buscar logins para ver se ja existe igual
-        System.out.println("Crie um login:");
-        pessoa.setLogin(scan.nextLine());
-        boolean loginRepetido = true;
-
-        while (loginRepetido) {
-            loginRepetido = false;
-            for (Pessoa usuario : usuarios) {
-                if (usuario != null && pessoa.getLogin().equals(usuario.getLogin())) {
-                    System.out.println("Login já utilizado, crie um novo login:");
-                    pessoa.setLogin(scan.nextLine());
-                    loginRepetido = true;
-                    break;
-                }
-            }
-        }  
-        System.out.println("Crie um senha:");
-        pessoa.setSenha(scan.nextLine());
-        
-        int num = op.buscarUsuarioVazio(usuarios, pessoa);
-        if (num>= 0) {
-            System.out.println("Parabens, " + usuarios[num].getNome() + "! Seu cadastro foi feito com sucesso!");
-            tela(num);
-            
-        } else {
-            System.out.println("Não foi possível fazer um novo cadastro!");
-            menu();
-        }
-        
-        
-       }
-   
-    void login(Pessoa usuarios[]) {
-    Scanner scan = new Scanner(System.in);
-    boolean loginEncontrado = false;
-    int numArray = 0;
-    
-    while (!loginEncontrado) {
-        System.out.println("LOGIN");
-        System.out.println("Insira seu login:");
-        String login = scan.nextLine();
-        
-        Pessoa usuarioEncontrado = null;
-        for (Pessoa usuario : usuarios) {
-            if (usuario != null && login.equals(usuario.getLogin())) {
-                usuarioEncontrado = usuario;
-                break;
-            }
-            numArray++;
-        }
-
-        if (usuarioEncontrado != null) {
-            boolean senhaCorreta = false;
-            
-            while (!senhaCorreta) {
-                System.out.println("Insira sua senha:");
-                String senha = scan.nextLine();
-                if (senha.equals(usuarioEncontrado.getSenha())) {
-                    System.out.println("Login bem-sucedido! Bem-vindo, " + usuarioEncontrado.getNome() + "!");
-                    senhaCorreta = true; 
-                    loginEncontrado = true;
-                    tela(numArray);
-                } else {
-                    System.out.println("Senha incorreta. Tente novamente.");
-                }
-            }
-        } else {
-            System.out.println("Login não encontrado. Por favor, insira um login válido.");
-        }
-    }
-}
-    
+      
     void tela(int numArray)
     {
         int opcao = 0;
@@ -478,36 +390,13 @@ public class Programa {
                     
                     switch (opc) {
                         case 1:
-                            int x = 0;
-                            while (x < 10 && usuarios[numArray].getPublicacoes()[x] != null) {
-                                System.out.println(usuarios[numArray].getPublicacoes()[x].getPublicacao());
-                                x++;
-                            }
+                            cp.mostrarPublicacoes(usuarios, numArray);
                             perfil(numArray, usuarios);
                             return;
 
                         case 2:
                             String pub;
-                            Publicacoes novaPublicacao = new Publicacoes();
-                            System.out.println("Escreva sua publicação");
-                            scan.nextLine();
-                            pub = scan.nextLine();
-                            novaPublicacao.setPublicacao(pub);
-                            novaPublicacao.setPessoa(usuarios[numArray]);
-                            int y = opPub.buscarPubVazia(usuarios[numArray]);
-                            int z = opPub.timelineVazio(pubTodos);
-                            if (y != -1) {
-                             usuarios[numArray].getPublicacoes()[y] = novaPublicacao;
-                            } else 
-                            {
-                                System.out.println("Não foi possível fazer publicação");
-                            }
-                             if (z != -1) {
-                             pubTodos[z] = novaPublicacao;
-                            } else 
-                            {
-                                System.out.println("Não foi possível publicar na timeline");
-                            }
+                            cp.criarPublicacoes(usuarios, numArray, pubTodos);
                             perfil(numArray, usuarios);
                             return;
 
@@ -516,8 +405,6 @@ public class Programa {
                             return;
                     }
                             
-                    
-                                    
                 case 4:
                     System.out.println("AMIGOS");
                     amigos(numArray);
@@ -544,15 +431,7 @@ public class Programa {
                     return;
                     
                 case 9:
-                    System.out.println("SUAS INFOMAÇÕES:");
-                    System.out.println("Nome:" + usuarios[numArray].getNome());
-                    System.out.println("Login:" + usuarios[numArray].getLogin());
-                    System.out.println("id:" + usuarios[numArray].getId());
-                    if (usuarios[numArray].getSexo().equals("f")) {
-                    System.out.println("Sexo: feminino");
-                    } else {
-                        System.out.println("Sexo: masculino");
-                    }
+                    cp.mostrarPerfil(usuarios, numArray);
                     perfil(numArray, usuarios);
                     return;
                 case 10:
@@ -565,103 +444,28 @@ public class Programa {
                     System.out.println("3- Login");
                     System.out.println("4- Senha");
                     System.out.println("5- Voltar para perfil");
-                    String senha;
+                    
                     z = scan.nextInt();
 
             switch (z) {
                 case 1:
-                    String nome;
-                    System.out.println("Insira novo nome:");
-                    scan.nextLine();
-                    nome = scan.nextLine();
-                    while (nome.length() <= 3) {
-                    System.out.println("Insira um nome com mais de 3 caracteres:");
-                    nome = scan.nextLine();
-                    }
-                    System.out.println("Confirme sua senha");
-                    senha = scan.nextLine();
-                    if (senha.equals(usuarios[numArray].getSenha()))
-                    {
-                        usuarios[numArray].setNome(nome);
-                    }
-                    else {
-                        System.out.println("Senha Incorreta!");
-                    }
-                    
+                    cp.mudarNome(usuarios, numArray);
                     perfil(numArray, usuarios);
 
                     return;
                     
                 case 2:
-                    String sexo;
-                    System.out.println("2- Insira seu sexo, f para feminino e m para masculino:");
-                    scan.nextLine();
-                    sexo = scan.nextLine();
-                    while (!sexo.equals("f") && !sexo.equals("m")) {
-                    System.out.println("Sexo invalido. Insira seu sexo f para femino e m para masculino:");
-                    sexo = scan.nextLine();
-                    }
-                    System.out.println("Confirme sua senha");
-                    senha = scan.nextLine();
-                    if (senha.equals(usuarios[numArray].getSenha()))
-                    {
-                        usuarios[numArray].setSexo(sexo);
-                    }
-                    else {
-                        System.out.println("Senha Incorreta!");
-                    }
-                    
+                    cp.mudarSexo(usuarios, numArray);
                     perfil(numArray, usuarios);
                     return;
                     
                 case 3:
-                    String login;
-                    System.out.println("3- Insira novo login:");
-                    scan.nextLine();
-                    login = scan.nextLine();
-                    boolean loginRepetido = true;
-
-                    while (loginRepetido) {
-                        loginRepetido = false;
-                        for (Pessoa usuario : usuarios) {
-                            if (usuario != null && login.equals(usuario.getLogin())) {
-                                System.out.println("Login já utilizado, crie um novo login:");
-                                login = scan.nextLine();
-                                loginRepetido = true;
-                                break;
-                                     }
-                        }
-                    }
-                    System.out.println("Confirme sua senha");
-                    senha = scan.nextLine();
-                    if (senha.equals(usuarios[numArray].getSenha()))
-                    {
-                        usuarios[numArray].setLogin(login);
-                    }                            
-                    else {
-                        System.out.println("Senha Incorreta!");
-                    }
-                        
-               
-                            
-            
+                    cp.mudarLogin(usuarios, numArray);
                     perfil(numArray, usuarios);
                     return;
                     
                 case 4:
-                    String senhaNova;
-                    System.out.println("4- Insira nova senha:");
-                    scan.nextLine();
-                    senhaNova = scan.nextLine();
-                    System.out.println("Confirme sua senha antiga");
-                    senha = scan.nextLine();
-                    if (senha.equals(usuarios[numArray].getSenha()))
-                    {
-                        usuarios[numArray].setSenha(senhaNova);
-                    }
-                    else {
-                        System.out.println("Senha Incorreta!");
-                    }
+                    cp.mudarSenha(usuarios, numArray);
                     perfil(numArray, usuarios);
                     return;
                     
@@ -673,60 +477,17 @@ public class Programa {
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
                     perfil(numArray, usuarios);
-                    return;
-                
-                    
-    
-    
+                    return;    
     }                      
 
                     }
-            
-
-                   
-                    
-           
-            
                 case 11:
                 System.out.println("EXCLUIR CONTA");
-                int op = 0;
-                String senha;
-                while (true) {
-                System.out.println("Tem certeza que deseja excluir sua conta, aperte 1 para confirmar e 2 para voltar para seu perfil");
-                op = scan.nextInt();
-                switch (op) {
-                            case 1:
-                                scan.nextLine();
-                                System.out.println("Confirme sua senha");
-                                senha = scan.nextLine();
-                                if (senha.equals(usuarios[numArray].getSenha()))
-                                {
-                                    for (Pessoa usuario : usuarios) {
-                                     if (usuario != null && usuarios[numArray].getLogin().equals(usuario.getLogin())) {
-                                        usuarios[numArray].setAvaliacoes(null);
-                                        usuarios[numArray].setDietas(null);
-                                        usuarios[numArray].setLogin(null);
-                                        usuarios[numArray].setNome(null);
-                                        usuarios[numArray].setSenha(null);
-                                        usuarios[numArray].setSexo(null);
-                                        menu();
-                                        return;
-                                    }
-                                }
-                                }
-                                else {
-                                    System.out.println("Senha Incorreta!");
-                    }
-                                return;
-                            case 2:
-                                return;
-                                
-                            default:
-                            System.out.println("Opção inválida. Tente novamente.");
-                            return;
-                }
-
-
+                int i = cp.excluirPerfil(usuarios, numArray);
+                if (i==0) {
+                    perfil(numArray, pessoa);
+                } else {
+                    menu();
                 }
                 case 12:
                     int x = 0;
@@ -776,26 +537,11 @@ public class Programa {
                     return;
 
                 case 2:
-                   String pub;
-                            Publicacoes novaPublicacao = new Publicacoes();
-                            System.out.println("Escreva sua publicação");
-                            scan.nextLine();
-                            pub = scan.nextLine();
-//                            novaPublicacao.setPublicacao(pub);
-//                            System.out.println("pub"+ novaPublicacao.getPublicacao());
-//                            int y = opPub.buscarPubVazia(usuarios[numArray]);
-//                            System.out.println(y);
-//                            if (y != -1) {
-//                             usuarios[numArray].getPublicacoes()[y] = novaPublicacao;
-//                            } else 
-//                            {
-//                                System.out.println("Não foi possível fazer publicação");
-//                            }
-                            perfil(numArray, usuarios);
-                            return;
-                   
+                cp.criarPublicacoes(usuarios, numArray, pubTodos);
+                timeline(numArray, usuarios);
+                        
                 case 3:
-                    perfil(numArray, null);
+                    perfil(numArray, usuarios);
                     return;
                 
                 case 4:
@@ -820,7 +566,7 @@ public class Programa {
         avaliacao = pessoa[numArray].getAvaliacoes()[x-1];
         System.out.println("Seu nome" + usuarios[numArray].getNome());
         System.out.println("Seu nome " + avaliacao.getPessoa().getNome() + "Sua TMB " + avaliacao.getTMB());
-        opAF.registro(avaliacao);
+   
         
     }
     
@@ -829,111 +575,116 @@ public class Programa {
     }
     
     void novaDieta(int numArray) {
-        System.out.println("NOVA DIETA");
-        AvalFis novaAval = new AvalFis();
-        Dieta dieta = new Dieta();
-        Refeicoes[] quantidade = new Refeicoes[6];
-        Preferencias[] pref = new Preferencias[10];
-        int array = numArray;
-        novaAval = opAF.cadAval(usuarios, numArray);
-        int y = 0;
-        while (usuarios[numArray].getAvaliacoes()[y] != null)
-        {
-            y++;
-        }
-        usuarios[numArray].getAvaliacoes()[y] = novaAval;
-        dieta = opD.novaDieta(usuarios, novaAval, array);
-        int x = 0;
-        while (usuarios[numArray].getDietas()[x] != null) {
-            x++;
-        }
-        usuarios[numArray].getDietas()[x] = dieta;
-        quantidade = opR.refSetar(dieta);
-        opR.mostrarRef(quantidade);
-        pref = opP.preferencias(alimentos, usuarios, numArray);        
+        cd.cadDieta(numArray, usuarios, alimentos);
         perfil(numArray, usuarios);
         
         
         
     }
-//    
-//    void chat(int numArray) {
-//        System.out.println("CHAT");
-//        System.out.println("OPCOES");
-//        System.out.println("1- Mandar nova mensagem");
-//        System.out.println("2- Ver lista de mensagens");
-//        System.out.println("Para sair, digite 3");
-//        Pessoa pessoa = new Pessoa();
-//        Scanner scan = new Scanner(System.in);
-//        Chat novoChat = new Chat();
-//        int opc;
-//        String msg;
-//        opc = scan.nextInt();
-//        switch (opc) {
-//            case 1:
-//                System.out.println("Digite login de quem receberá a mensagem");
-//                scan.nextLine();
-//                String login = scan.nextLine();
-//                pessoa = op.buscaPorLogin(login, usuarios);
-//                System.out.println("Digite a mensagem que você quer enviar");
-//                msg = scan.nextLine();
-//                int a = 0;
-//                int b, c;
-//                for (int num = 0; num< usuarios[numArray].getMensagens().length; num++) {
-//                    if (usuarios[numArray].getMensagens()[num].getPessoaDestino().getLogin().equals(login)){
-//                        a = 1;
-//                        break;
-//                    }
-//                    
-//                }
-//                
-//               if (a == 0) {
-//                int y = opC.buscarMsgVazio(pessoa);
-//                if (y> -1) {
-//                    usuarios[pessoa.getId()-1].getMensagens()[y].setPessoaDestino(usuarios[pessoa.getId()-1]);
-//                    usuarios[pessoa.getId()-1].getMensagens()[y].setPessoaOrigem(usuarios[numArray]);
-//                    usuarios[pessoa.getId()-1].getMensagens()[y].getMensagem()[0] = msg;
-//                    c= opC.buscarChatVazio(usuarios[pessoa.getId()-1].getMensagens()[y]);
-//                } else {
-//                   System.out.println("Não foi possivel mandar essa mensagem");
-//                   perfil(numArray, usuarios);
-//                   return;
-//                }
-//                int z = opC.buscarMsgVazio(usuarios[numArray]);
-//                if (z> -1) {
-//                    b = opC.buscarChatVazio(usuarios[numArray].getMensagens()[z]);
-//                    usuarios[numArray].getMensagens()[z].setPessoaDestino(usuarios[pessoa.getId()-1]);
-//                    usuarios[numArray].getMensagens()[z].setPessoaOrigem(usuarios[numArray]);
-//                    usuarios[numArray].getMensagens()[z].getMensagem()[0] = msg;                
-//                } else {
-//                    System.out.println("Não foi possivel mandar essa mensagem");
-//                   perfil(numArray, usuarios);
-//                   return;
-//                }
-//               }
-//               else {
-//                   usuarios[pessoa.getId()-1].getMensagens()[y].setPessoaDestino(usuarios[pessoa.getId()-1]);
-//                   usuarios[pessoa.getId()-1].getMensagens()[y].setPessoaOrigem(usuarios[numArray]);
-//                   usuarios[pessoa.getId()-1].getMensagens()[y].getMensagem()[c] = msg;
-//                   usuarios[numArray].getMensagens()[z].setPessoaDestino(usuarios[pessoa.getId()-1]);
-//                   usuarios[numArray].getMensagens()[z].setPessoaOrigem(usuarios[numArray]);
-//                   usuarios[numArray].getMensagens()[z].getMensagem()[b] = msg;   
-//               }
-//                
-//                
-//                
-//                
-//                
-//                
-//                
-//                
-//            case 2:
-//            case 3:
-//            default:
-//                
-//        }
-//            
-//    }
+    
+    void chat(int numArray) {
+        System.out.println("CHAT");
+        System.out.println("OPCOES");
+        System.out.println("1- Mandar nova mensagem");
+        System.out.println("2- Ver lista de mensagens");
+        System.out.println("Para sair, digite 3");
+        
+        Scanner scan = new Scanner(System.in);
+        int opc;
+        String msg;
+        opc = scan.nextInt();
+        switch (opc) {
+            case 1:
+                System.out.println("Digite login de quem receberá a mensagem");
+                scan.nextLine();
+                Pessoa pessoa = new Pessoa();
+                String login = scan.nextLine();
+                pessoa = op.buscaPorLogin(login, usuarios);
+                System.out.println("Digite a mensagem que você quer enviar");
+                msg = scan.nextLine();
+                int id = pessoa.getId() - 1;
+                int b, c, d, o, y, z = 0;
+                o = opC.lugarOrigem(usuarios[id], usuarios[numArray]);
+                System.out.println(o);
+                d = opC.lugarDestino(usuarios[id], usuarios[numArray]);
+        
+                //se não existir um chat entre duas pessoas
+               
+               if (d == -1) {
+                Chat novoChat = new Chat();
+                Chat chat = new Chat();
+                y = opC.buscarMsgVazio(pessoa);
+                z = opC.buscarMsgVazio(usuarios[numArray]);
+                if (y> -1) {
+                    novoChat.setPessoaDestino(usuarios[numArray]);
+                    novoChat.setPessoaOrigem(usuarios[id]);
+                    novoChat.getMensagem()[0] = msg;
+                    usuarios[id].getMensagens()[y] = chat;
+                } else {
+                   System.out.println("Não foi possivel mandar essa mensagem");
+                   perfil(numArray, usuarios);
+                   return;
+                }
+                
+                if (z> -1) {
+                    
+                    novoChat.setPessoaDestino(usuarios[id]);
+                    novoChat.setPessoaOrigem(usuarios[numArray]);
+                    novoChat.getMensagem()[0] = msg;
+                    usuarios[numArray].getMensagens()[z] = novoChat;               
+                } else {
+                    System.out.println("Não foi possivel mandar essa mensagem");
+                   perfil(numArray, usuarios);
+                   return;
+                }
+               }
+               else {
+                   c= opC.buscarChatVazio(usuarios[id].getMensagens()[d]);
+                   b= opC.buscarChatVazio(usuarios[numArray].getMensagens()[z]);               
+                   usuarios[id].getMensagens()[d].setPessoaDestino(usuarios[numArray]);
+                   usuarios[id].getMensagens()[d].setPessoaOrigem(usuarios[id]);
+                   usuarios[id].getMensagens()[d].getMensagem()[c] = msg;
+                   usuarios[numArray].getMensagens()[o].setPessoaDestino(usuarios[id]);
+                   usuarios[numArray].getMensagens()[o].setPessoaOrigem(usuarios[numArray]);
+                   usuarios[numArray].getMensagens()[o].getMensagem()[b] = msg;
+                   perfil(numArray, usuarios);
+                   return;
+               }
+               perfil(numArray, usuarios);
+               return;
+               
+            case 2:
+                System.out.println("TODAS SUAS MENSAGENS");
+                System.out.println(usuarios[numArray].getNome());
+                for (int num = 0; num < usuarios[numArray].getMensagens().length; num++) {
+                    if (usuarios[numArray].getMensagens()[num] != null) {
+                    System.out.println("Mensagens que você mandou para:" + usuarios[numArray].getMensagens()[num].getPessoaDestino().getLogin());   
+                    }
+                }
+                System.out.println("Digite o login do chat que você quer entrar:");
+                Scanner sc = new Scanner(System.in);
+                String log = sc.nextLine();
+                pessoa = op.buscaPorLogin(log, usuarios);
+                int idD = pessoa.getId() - 1;
+                int n = opC.lugarOrigem(usuarios[idD], usuarios[numArray]);
+                for (int num = 0; num < usuarios[numArray].getMensagens()[n].getMensagem().length; num++) {
+                    if (usuarios[numArray].getMensagens()[n].getMensagem()[num] != null )
+                    System.out.println("Mensagens de" + usuarios[numArray].getMensagens()[n].getPessoaOrigem().getLogin() + ":" + usuarios[numArray].getMensagens()[n].getMensagem()[num]);
+                }
+                perfil(numArray, usuarios);
+                   return;
+                
+                
+            case 3:
+                perfil(numArray, usuarios);
+                return;
+            default:
+                System.out.println("Opcao invalida!");
+                return;
+                
+        }
+            
+    }
 //    
     void amigos (int numArray) {
         int opcao = 0;
@@ -964,7 +715,7 @@ public class Programa {
                         System.out.println("Sexo: masculino");
                     }
                     seguir (amigo.getId(), numArray);
-                    chat(numArray);
+                //    chat(numArray);
                     return;
                     
 
