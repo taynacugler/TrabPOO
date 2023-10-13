@@ -17,13 +17,22 @@ public class Refeicoes {
     private double gordura;
     private double calorias;
     private String nomeRef;
+    private Prato prato;
     //dataCriacao, dataModificacao.
+
+    
 
     public Refeicoes() {
         this.id = ++Refeicoes.cont;
     }
     
-    
+    public Prato getPrato() {
+        return prato;
+    }
+
+    public void setPrato(Prato prato) {
+        this.prato = prato;
+    }
 
     public int getId() {
         return id;

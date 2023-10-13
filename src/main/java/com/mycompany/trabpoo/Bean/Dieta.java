@@ -18,14 +18,33 @@ public class Dieta {
     private int objetivo;
     private double calorias;
     private int numRef;
-    
-    //dataCriacao, dataModificacao.
+    private Preferencias[] pref;
+    private Refeicoes[] ref;
+
+   
 
     public Dieta() {
         this.id = ++Dieta.cont;
+        pref = new Preferencias[10];
+        ref = new Refeicoes[6];
+    }
+     public Preferencias[] getPref() {
+        return pref;
+    }
+
+    //dataCriacao, dataModificacao.
+    public void setPref(Preferencias[] pref) {    
+        this.pref = pref;
+    }
+ public Refeicoes[] getRef() {
+        return ref;
+    }
+
+    public void setRef(Refeicoes[] ref) {
+        this.ref = ref;
     }
     
-
+   
     public int getId() {
         return id;
     }

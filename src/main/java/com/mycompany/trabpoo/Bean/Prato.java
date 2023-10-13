@@ -12,9 +12,9 @@ public class Prato {
     private static int cont;
     private int id;
     private Refeicoes refeição;
-    private AlimRef fonteProt;
-    private AlimRef fonteCarb;
-    private AlimRef fonteGord;
+    private Alimento fonteProt;
+    private Alimento fonteCarb;
+    private Alimento fonteGord;
     private double proteína;
     private double gordura;
     private double carboidratos;
@@ -33,27 +33,27 @@ public class Prato {
         this.refeição = refeição;
     }
 
-    public AlimRef getFonteProt() {
+    public Alimento getFonteProt() {
         return fonteProt;
     }
 
-    public void setFonteProt(AlimRef fonteProt) {
+    public void setFonteProt(Alimento fonteProt) {
         this.fonteProt = fonteProt;
     }
 
-    public AlimRef getFonteCarb() {
+    public Alimento getFonteCarb() {
         return fonteCarb;
     }
 
-    public void setFonteCarb(AlimRef fonteCarb) {
+    public void setFonteCarb(Alimento fonteCarb) {
         this.fonteCarb = fonteCarb;
     }
 
-    public AlimRef getFonteGord() {
+    public Alimento getFonteGord() {
         return fonteGord;
     }
 
-    public void setFonteGord(AlimRef fonteGord) {
+    public void setFonteGord(Alimento fonteGord) {
         this.fonteGord = fonteGord;
     }
 

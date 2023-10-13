@@ -26,7 +26,7 @@ public class ControlDieta {
     AvalFisDAO opAF = new AvalFisDAO();
     DietaDAO opD = new DietaDAO();
     RefeicoesDAO opR = new RefeicoesDAO();
-    PreferenciasDAO opP = new PreferenciasDAO();
+//    PreferenciasDAO opP = new PreferenciasDAO();
     AlimentoDAO opA = new AlimentoDAO();
 
     public void cadDieta(int numArray, Pessoa[] usuarios, Alimento [] alimentos) {
@@ -34,7 +34,7 @@ public class ControlDieta {
         AvalFis novaAval = new AvalFis();
         Dieta dieta = new Dieta();
         Refeicoes[] quantidade = new Refeicoes[6];
-        Preferencias[] pref = new Preferencias[10];
+//        Preferencias[] pref = new Preferencias[10];
         novaAval = cadAval(usuarios, numArray);
         int y = 0;
         while (usuarios[numArray].getAvaliacoes()[y] != null)
@@ -49,8 +49,9 @@ public class ControlDieta {
         }
         usuarios[numArray].getDietas()[x] = dieta;
         quantidade = opR.refSetar(dieta);
+        usuarios[numArray].getDietas()[x].setRef(quantidade);
         opR.mostrarRef(quantidade);
-        pref = opP.preferencias(alimentos, usuarios, numArray);        
+//        pref = opP.preferencias(alimentos, usuarios, numArray);        
         registro(novaAval, usuarios, numArray);
       
     }
@@ -251,4 +252,39 @@ public class ControlDieta {
             System.out.println("Seu IMC é" + aval.getIMC() + "e sua classificação é 'abaixo do peso'. É recomendado uma dieta para ganho de peso");
         }
 }
+      public void gerenciador (Alimento[] alim) {
+         int opc;
+         Scanner scan = new Scanner(System.in);
+         System.out.println("Escolha uma opção:");
+         System.out.println("1- Mostrar todos os alimentos");
+         System.out.println("2- Mostrar fonte de carboidratos");
+         System.out.println("3- Mostrar fonte de proteinas");
+         System.out.println("4- Mostrar fonte de gorduras");
+         opc = scan.nextInt();
+         
+         switch (opc) {
+             case 1:
+                 System.out.println("Mostrando todos os alimentos:");
+                 opA.todosAlim(alim);
+                 return;
+             case 2:
+                 System.out.println("Mostrando todas as fontes de carboidratos:");
+                 opA.fonteCarb (alim);
+                 return;
+             case 3:
+                 System.out.println("Mostrando todas as fontes de proteinas:");
+                 opA.fonteProt(alim);
+                 return;
+             case 4: 
+                 System.out.println("Mostrando todas as fontes de gordura:");
+                 opA.fonteGord(alim);
+                 return;
+             default:
+                 System.out.println("Opcao invalida!");
+                 
+                  
+         }
+         
+         
+     }
 }
