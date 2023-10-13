@@ -335,7 +335,7 @@ public class Programa {
 
                 case 2:
                    System.out.println("TIMELINE");
-                  // timeline(numArray);
+                   timeline(numArray);
                    return;
                    
                 case 3:
@@ -365,7 +365,7 @@ public class Programa {
             System.out.println("9- Ver informações da conta");
             System.out.println("10- Mudar informações da conta");
             System.out.println("11- Excluir conta");
-            System.out.println("12 - ver seguidores");
+            System.out.println("12 - Ver seguidores");
             System.out.println("13- Sair");
 
             opcao = scan.nextInt();
@@ -387,6 +387,7 @@ public class Programa {
                     System.out.println("OPCOES:");
                     System.out.println("1- Suas publicações");
                     System.out.println("2- Criar nova publicações");
+                    System.out.println("3- Voltar para o perfil");
                     opc = scan.nextInt();
                     
                     switch (opc) {
@@ -400,9 +401,13 @@ public class Programa {
                             cp.criarPublicacoes(usuarios, numArray, pubTodos);
                             perfil(numArray, usuarios);
                             return;
+                            
+                        case 3:
+                            perfil(numArray, usuarios);
+                            return;
 
                         default:
-                            System.out.println("Valor inválido");
+                            System.out.println("Valor inválido");   
                             return;
                     }
                             
@@ -423,7 +428,7 @@ public class Programa {
                     
                 case 7:
                     System.out.println("TIMELINE");
-                    timeline(numArray, pessoa);
+                    timeline(numArray);
                     return;
                 case 8:
                     System.out.println("ALIMENTOS");
@@ -436,6 +441,7 @@ public class Programa {
                     perfil(numArray, usuarios);
                     return;
                 case 10:
+                    cp.mostrarPerfil(usuarios, numArray);
                     System.out.println("MUDAR INFORMAÇÕES");
                     int z;
                     while (true) {
@@ -492,10 +498,17 @@ public class Programa {
                 }
                 case 12:
                     int x = 0;
+                    if (usuarios[numArray].getSeguidores()[x] == null) {
+                        System.out.println("Você possui 0 Seguidores!");
+                        perfil(numArray, usuarios);
+                        return;
+                    }
                     while (usuarios[numArray].getSeguidores()[x] != null) {
                         System.out.println("Seguidores:" + usuarios[numArray].getSeguidores()[x].getNome());
                         x++;
                     }
+                    System.out.println("Você possui " + x + " seguidores!");
+                    perfil(numArray, usuarios);
                     return;
                     
                     
@@ -511,7 +524,7 @@ public class Programa {
         }
     }
     
-    void timeline (int numArray, Pessoa[] usuarios) {
+    void timeline (int numArray) {
         int opcao = 0;
         Scanner scan = new Scanner(System.in);
 
@@ -528,6 +541,11 @@ public class Programa {
             switch (opcao) {
                     case 1:
                      int x = 0;
+                     if (pubTodos[x] == null) {
+                         System.out.println("Ainda não há publicações!");
+                         perfil(numArray, usuarios);
+                         return;
+                     }
                      while (pubTodos[x] != null) {
                          System.out.println(pubTodos[x].getPessoa().getNome() + "dise: " + pubTodos[x].getPublicacao());
                          x++;
@@ -539,7 +557,8 @@ public class Programa {
 
                 case 2:
                 cp.criarPublicacoes(usuarios, numArray, pubTodos);
-                timeline(numArray, usuarios);
+                timeline(numArray);
+                return;
                         
                 case 3:
                     perfil(numArray, usuarios);
@@ -567,7 +586,7 @@ public class Programa {
         avaliacao = pessoa[numArray].getAvaliacoes()[x-1];
         System.out.println("Seu nome" + usuarios[numArray].getNome());
         System.out.println("Seu nome " + avaliacao.getPessoa().getNome() + "Sua TMB " + avaliacao.getTMB());
-   
+        perfil (numArray, pessoa);
         
     }
     
@@ -681,6 +700,7 @@ public class Programa {
                 return;
             default:
                 System.out.println("Opcao invalida!");
+                perfil (numArray, usuarios);
                 return;
                 
         }
@@ -696,7 +716,7 @@ public class Programa {
             System.out.println("OPCOES");
             System.out.println("1- Pesquisar um novo perfil");
             System.out.println("2- Ver lista de amigos");
-            System.out.println("Para sair, digite 3");
+            System.out.println("Para voltar para o perfil, digite 3");
 
             opcao = scan.nextInt();
 
@@ -721,10 +741,14 @@ public class Programa {
                     
 
                 case 2:
-//                    System.out.println("Seus seguidores = usuarios[numArray].getSeguidores()");
                     int x = 0;
+                    if (usuarios[numArray].getSeguindo()[x] == null) {
+                        System.out.println("Lista de amigos vazia!");
+                        perfil (numArray, usuarios);
+                        return;
+                    }
                     while (usuarios[numArray].getSeguindo()[x] != null) {
-                    System.out.println("Seguindo =" + usuarios[numArray].getSeguindo()[x].getNome());
+                    System.out.println("Seguindo: " + usuarios[numArray].getSeguindo()[x].getNome());
                     x++;
                     }
                     System.out.println("Fim lista de amigos");
@@ -732,7 +756,7 @@ public class Programa {
                return;
                    
                 case 3:
-                    System.out.println("FIM DO PROGRAMA");
+                    perfil(numArray, usuarios);
                     return;
                     
                 default:

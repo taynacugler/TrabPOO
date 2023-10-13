@@ -97,8 +97,11 @@ public class controlPerfil {
    
    public void mostrarPublicacoes (Pessoa[] usuarios, int numArray) {
        int x = 0;
+       if (usuarios[numArray].getPublicacoes()[x] == null ) {
+           System.out.println("Não há publicações ainda!");
+       }
        while (x < 10 && usuarios[numArray].getPublicacoes()[x] != null) {
-       System.out.println(usuarios[numArray].getPublicacoes()[x].getPublicacao());
+       System.out.println("Você publicou: " + usuarios[numArray].getPublicacoes()[x].getPublicacao());
        x++;
       }
    }
@@ -162,7 +165,7 @@ public class controlPerfil {
         scan.nextLine();
         sexo = scan.nextLine();
         while (!sexo.equals("f") && !sexo.equals("m")) {
-            System.out.println("Sexo invalido. Insira seu sexo f para femino e m para masculino:");
+            System.out.println("Sexo invalido. Insira seu sexo f para feminino e m para masculino:");
             sexo = scan.nextLine();
         }
         System.out.println("Confirme sua senha");

@@ -69,9 +69,9 @@ for (int y=0; y< pessoa.getSeguidores().length; y++){
 }
 public boolean verifSeguindo (Pessoa seguidor, Pessoa seguido) {
      for (int y= 0; y< seguido.getSeguidores().length; y++){
-        System.out.println("teste");
+      //  System.out.println("teste");
         if (seguido.getSeguidores()[y] != null && seguido.getSeguidores()[y].getId() == seguidor.getId()) {
-            
+            return true;
         }
     }
         
