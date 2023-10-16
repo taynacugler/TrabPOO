@@ -4,10 +4,7 @@
  */
 package com.mycompany.trabpoo.Bean;
 
-/**
- *
- * @author taynacardoso
- */
+
 public class TipoDieta {
     private int id;
     private String nome;

@@ -4,10 +4,7 @@
 package com.mycompany.trabpoo;
 
 
-/**
- *
- * @author taynacardoso
- */
+
 public class TrabPOO {
 
     public static void main(String[] args) {

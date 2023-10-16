@@ -7,10 +7,7 @@ import com.mycompany.trabpoo.Bean.Alimento;
 import java.util.Scanner;
 
 
-/**
- *
- * @author taynacardoso
- */
+
 public class AlimentoDAO {
     public void todosAlim (Alimento[] alim) {
     for (int i = 0; i < alim.length; i++) {

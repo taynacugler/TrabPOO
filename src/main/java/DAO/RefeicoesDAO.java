@@ -7,10 +7,7 @@ package DAO;
 import com.mycompany.trabpoo.Bean.Refeicoes;
 import com.mycompany.trabpoo.Bean.Dieta;
 
-/**
- *
- * @author taynacardoso
- */
+
 public class RefeicoesDAO {
     Refeicoes quantRef[] = new Refeicoes [6];
     

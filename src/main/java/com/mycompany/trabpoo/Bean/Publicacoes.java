@@ -4,10 +4,7 @@
  */
 package com.mycompany.trabpoo.Bean;
 
-/**
- *
- * @author taynacardoso
- */
+
 public class Publicacoes {
     int id; 
     Pessoa pessoa;

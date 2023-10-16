@@ -5,10 +5,6 @@
 package com.mycompany.trabpoo.Bean;
 
 
-/**
- *
- * @author taynacardoso
- */
 public class AvalFis {
     private static int cont;
     private int id;
@@ -117,7 +113,7 @@ public class AvalFis {
         return IMC;
     }
 
-    public void setIMC(double IMC, double peso, double altura) {
+    public void setIMC() {
         this.IMC = peso/(altura*altura);
     }
 
@@ -125,7 +121,7 @@ public class AvalFis {
         return TMB;
     }
 
-    public void setTMB(double TMB, double idade, double peso, double altura, double atvFis, Pessoa pessoa) {
+    public void setTMB() {
         if (pessoa.getSexo().equals("f"))
         {
           this.TMB = atvFis * (655 + ( (9.6 * peso) + (1.8 * (altura*100)) - (4.7 * idade)  ));
@@ -140,7 +136,7 @@ public class AvalFis {
         return BF;
     }
 
-    public void setBF(double BF, double altura, double pescoco, double cintura, double abdomem, double quadril, Pessoa pessoa) {
+    public void setBF() {
         if (pessoa.getSexo().equals("f"))
         { 
           double x = 0;
@@ -157,7 +153,7 @@ public class AvalFis {
         return massaGorda;
     }
 
-    public void setMassaGorda(double massaGorda, double BF, double peso) {
+    public void setMassaGorda() {
         this.massaGorda = peso*BF/ 100;
     }
 
@@ -165,7 +161,7 @@ public class AvalFis {
         return massaMagra;
     }
 
-    public void setMassaMagra(double massaMagra, double BF, double peso) {
+    public void setMassaMagra() {
         this.massaMagra = peso*(1-(BF/100));
     }
     

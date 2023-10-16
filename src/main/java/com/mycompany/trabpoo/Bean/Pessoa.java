@@ -6,10 +6,7 @@ package com.mycompany.trabpoo.Bean;
 
 //import java.text.DateFormat;
 
-/**
- *
- * @author taynacardoso
- */
+
 public class Pessoa {
     private String nome;
     private static int cont = 0;

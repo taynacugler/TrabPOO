@@ -12,10 +12,7 @@ import com.mycompany.trabpoo.Bean.TipoDieta;
 //import com.mycompany.trabpoo.Bean.Dieta;
 //import com.mycompany.trabpoo.Bean.Refeicoes;
 //import java.util.Scanner;
-/**
- *
- * @author taynacardoso
- */
+
 public class Teste {   
   
 

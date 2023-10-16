@@ -8,9 +8,6 @@ import com.mycompany.trabpoo.Bean.AvalFis;
 import com.mycompany.trabpoo.Bean.Pessoa;
 import java.util.Scanner;
 
-/**
- *
- * @author taynacardoso
- */
+
 public class AvalFisDAO {
 }

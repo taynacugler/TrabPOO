@@ -5,10 +5,7 @@
 package com.mycompany.trabpoo.Bean;
 import java.util.Scanner;
 
-/**
- *
- * @author taynacardoso
- */
+
 public class Dieta {
     private static int cont;
     private int id;

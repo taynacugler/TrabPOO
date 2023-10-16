@@ -11,10 +11,7 @@ import com.mycompany.trabpoo.Bean.TipoDieta;
 import DAO.TipoDietaDAO;
 import java.util.Scanner;
 
-/**
- *
- * @author taynacardoso
- */
+
 public class DietaDAO {
   
 }

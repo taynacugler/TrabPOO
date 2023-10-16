@@ -7,10 +7,6 @@ package DAO;
 import com.mycompany.trabpoo.Bean.Pessoa;
 import com.mycompany.trabpoo.Bean.Publicacoes;
 
-/**
- *
- * @author taynacardoso
- */
 public class PublicacoesDAO {
     public int buscarPubVazia (Pessoa pessoa) {
         for (int y= 0; y < 10; y++)

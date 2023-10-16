@@ -6,10 +6,7 @@ package DAO;
 import com.mycompany.trabpoo.Bean.Dieta;
 import com.mycompany.trabpoo.Bean.TipoDieta;
 
-/**
- *
- * @author taynacardoso
- */
+
 public class TipoDietaDAO {
     TipoDieta tipo = new TipoDieta();
     

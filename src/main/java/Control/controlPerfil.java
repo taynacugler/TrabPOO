@@ -9,15 +9,12 @@ import com.mycompany.trabpoo.Bean.Pessoa;
 import com.mycompany.trabpoo.Bean.Publicacoes;
 import java.util.Scanner;
 
-/**
- *
- * @author taynacardoso
- */
+
 public class controlPerfil {
     PublicacoesDAO opPub = new PublicacoesDAO();
    public Pessoa cadastros (Pessoa[] usuarios) {
         
-        Pessoa pessoa = null;       
+        Pessoa pessoa = new Pessoa();       
         Scanner scan = new Scanner(System.in);      
         System.out.println("Insira seu nome:"); 
         pessoa.setNome(scan.nextLine());

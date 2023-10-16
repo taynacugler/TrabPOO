@@ -4,10 +4,7 @@
  */
 package com.mycompany.trabpoo.Bean;
 
-/**
- *
- * @author taynacardoso
- */
+
 public class Chat {
     int id;
     private static int cont = 0;

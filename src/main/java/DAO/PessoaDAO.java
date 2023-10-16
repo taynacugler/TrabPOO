@@ -5,10 +5,7 @@
 package DAO;
 
 import com.mycompany.trabpoo.Bean.Pessoa;
-/**
- *
- * @author taynacardoso
- */
+
 public class PessoaDAO {
 public int buscarUsuarioVazio (Pessoa usuarios[]) {
     for (int y= 0; y < usuarios.length; y++)

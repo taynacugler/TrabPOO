@@ -4,10 +4,7 @@
  */
 package com.mycompany.trabpoo.Bean;
 
-/**
- *
- * @author taynacardoso
- */
+
 public class AlimRef {
      private static int cont; 
      private int id;

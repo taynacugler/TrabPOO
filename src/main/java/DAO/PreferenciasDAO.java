@@ -10,10 +10,7 @@ import com.mycompany.trabpoo.Bean.Preferencias;
 import java.util.Scanner;
 
 
-/**
- *
- * @author taynacardoso
- */
+
 public class PreferenciasDAO {
      Preferencias pegarPref (Pessoa pessoa, String tipo, int num, Alimento [] alim)
     {

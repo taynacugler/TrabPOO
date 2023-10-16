@@ -18,10 +18,7 @@ import com.mycompany.trabpoo.Bean.Refeicoes;
 import com.mycompany.trabpoo.Bean.Alimento;
 import com.mycompany.trabpoo.Bean.TipoDieta;
 import java.util.Scanner;
-/**
- *
- * @author taynacardoso
- */
+
 public class ControlDieta {
     AvalFisDAO opAF = new AvalFisDAO();
     DietaDAO opD = new DietaDAO();
@@ -36,13 +33,16 @@ public class ControlDieta {
         Refeicoes[] quantidade = new Refeicoes[6];
 //        Preferencias[] pref = new Preferencias[10];
         novaAval = cadAval(usuarios, numArray);
+        System.out.println("teste" + novaAval.getTMB());
+
         int y = 0;
         while (usuarios[numArray].getAvaliacoes()[y] != null)
         {
             y++;
         }
         usuarios[numArray].getAvaliacoes()[y] = novaAval;
-        dieta = novaDieta(usuarios, novaAval, numArray);
+        System.out.println("teste" + usuarios[numArray].getAvaliacoes()[y].getTMB());
+        dieta = novaDieta(usuarios, usuarios[numArray].getAvaliacoes()[y], numArray);
         int x = 0;
         while (usuarios[numArray].getDietas()[x] != null) {
             x++;
@@ -59,9 +59,7 @@ public class ControlDieta {
     {
         Scanner scan = new Scanner(System.in);
         AvalFis novaAval = new AvalFis();
-        Pessoa pessoa = new Pessoa();
-        pessoa = pessoas[numArray];
-        novaAval.setPessoa(pessoa);
+        novaAval.setPessoa(pessoas[numArray]);
         System.out.println("vamos preencher os dados!");
         System.out.println("Coloque seu peso:");
         novaAval.setPeso(scan.nextDouble());
@@ -85,6 +83,21 @@ public class ControlDieta {
         novaAval.setAtvFis(scan.nextDouble());
         System.out.println("Coloque seu pescoço");
         novaAval.setPescoco(scan.nextDouble());
+        novaAval.setIMC();
+        System.out.println("Seu IMC " + novaAval.getIMC());
+        
+        novaAval.setTMB();
+        System.out.println("sua TMB " + novaAval.getTMB());
+        // ifs e elses para avaliar a gordura ideal
+        novaAval.setBF();
+        System.out.println("sua gordura corporal é igual a " + novaAval.getBF());
+        
+        novaAval.setMassaGorda();
+        System.out.println("Sua massa gorda é " + novaAval.getMassaGorda());
+        
+        novaAval.setMassaMagra();
+        System.out.println("Sua massa magra é " + novaAval.getMassaMagra());
+      //  System.out.println("Control.ControlDieta.cadAval()" + novaAval.getIMC());
         return novaAval;
 }
       public Dieta novaDieta (Pessoa[] pessoa, AvalFis aval, int numArray)
@@ -158,20 +171,7 @@ public class ControlDieta {
     }
       public void registro (AvalFis aval, Pessoa[] usuarios, int numArray) {
 //comparações
-        aval.setIMC(aval.getIMC(), aval.getPeso(), aval.getAltura());
-        System.out.println("Seu IMC " + aval.getIMC());
-        
-        aval.setTMB(aval.getTMB(), aval.getIdade(), aval.getPeso(), aval.getAltura(), aval.getAtvFis(), usuarios[numArray]);
-        System.out.println("sua TMB " + aval.getTMB());
-        // ifs e elses para avaliar a gordura ideal
-        aval.setBF(aval.getBF(), aval.getAltura(), aval.getPescoco(), aval.getCintura(), aval.getAbdomem(), aval.getQuadril(), usuarios[numArray]);
-        System.out.println("sua gordura corporal é igual a " + aval.getBF());
-        
-        aval.setMassaGorda(aval.getMassaGorda(), aval.getBF(), aval.getPeso());
-        System.out.println("Sua massa gorda é " + aval.getMassaGorda());
-        
-        aval.setMassaMagra(aval.getMassaMagra(), aval.getBF(), aval.getPeso());
-        System.out.println("Sua massa magra é " + aval.getMassaMagra());
+       
   //bf
   if (aval.getPessoa().getSexo().equals("f") && aval.getIdade()<30 && aval.getBF()<19)
   {
