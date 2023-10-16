@@ -166,7 +166,7 @@ public class ControlDieta {
             novaDieta = op.atleta(novaDieta);
             
         }
-        System.out.println("Sua dieta vai ter " + novaDieta.getTipo().getCarb() + " de calorias de carboidrato" + novaDieta.getTipo().getProt() + "de calorias de proteina" + novaDieta.getTipo().getGord() + "de calorias de gordura");
+        System.out.println("Sua dieta vai ter " + novaDieta.getTipo().getCarb() + " de calorias de carboidrato. " + novaDieta.getTipo().getProt() + " de calorias de proteina. " + novaDieta.getTipo().getGord() + " de calorias de gordura.");
         return novaDieta;
     }
       public void registro (AvalFis aval, Pessoa[] usuarios, int numArray) {

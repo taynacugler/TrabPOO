@@ -337,6 +337,7 @@ public class Programa {
             switch (opcao) {
                 case 1:
                     System.out.println("PERFIL");
+                    System.out.println("data" + usuarios[numArray].getDataCriacao());
                     perfil(numArray, usuarios);
                     return;
 
@@ -555,7 +556,7 @@ public class Programa {
                          return;
                      }
                      while (pubTodos[x] != null) {
-                         System.out.println(pubTodos[x].getPessoa().getNome() + "dise: " + pubTodos[x].getPublicacao());
+                         System.out.println(pubTodos[x].getPessoa().getNome() + " publicou " + pubTodos[x].getPublicacao());
                          x++;
                      }
 
