@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.trabpoo.Bean;
+import java.time.LocalDateTime;
+
 
 
 public class Refeicoes {
@@ -15,12 +17,30 @@ public class Refeicoes {
     private double calorias;
     private String nomeRef;
     private Prato prato;
-    //dataCriacao, dataModificacao.
+    private LocalDateTime dataCriacao;
+    private LocalDateTime dataModificacao;
 
     
 
     public Refeicoes() {
         this.id = ++Refeicoes.cont;
+        dataCriacao = LocalDateTime.now();
+    }
+
+    public LocalDateTime getDataCriacao() {
+        return dataCriacao;
+    }
+
+    public void setDataCriacao(LocalDateTime dataCriacao) {
+        this.dataCriacao = dataCriacao;
+    }
+
+    public LocalDateTime getDataModificacao() {
+        return dataModificacao;
+    }
+
+    public void setDataModificacao(LocalDateTime dataModificacao) {
+        this.dataModificacao = dataModificacao;
     }
     
     public Prato getPrato() {

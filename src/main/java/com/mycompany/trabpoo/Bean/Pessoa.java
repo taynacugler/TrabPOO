@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.trabpoo.Bean;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 //import java.text.DateFormat;

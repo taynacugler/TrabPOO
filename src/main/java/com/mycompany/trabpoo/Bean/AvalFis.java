@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.mycompany.trabpoo.Bean;
+import java.time.LocalDateTime;
+
 
 
 public class AvalFis {
@@ -24,10 +26,30 @@ public class AvalFis {
     
     private double massaGorda;
     private double massaMagra;
-    //dataCriacao, dataModificacao.
+    private LocalDateTime dataCriacao;
+    private LocalDateTime dataModificacao;
+  
 
     public AvalFis() {
         this.id = ++AvalFis.cont;
+        dataCriacao = LocalDateTime.now();
+
+    }
+
+    public LocalDateTime getDataCriacao() {
+        return dataCriacao;
+    }
+
+    public void setDataCriacao(LocalDateTime dataCriacao) {
+        this.dataCriacao = dataCriacao;
+    }
+
+    public LocalDateTime getDataModificacao() {
+        return dataModificacao;
+    }
+
+    public void setDataModificacao(LocalDateTime dataModificacao) {
+        this.dataModificacao = dataModificacao;
     }
     public int getId() {
         return id;
