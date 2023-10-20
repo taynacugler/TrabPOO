@@ -10,8 +10,7 @@ import java.time.LocalDateTime;
 public class Chat {
     int id;
     private static int cont = 0;
-    Pessoa pessoaOrigem;
-    Pessoa pessoaDestino;
+    Pessoa pessoa;
     String [] mensagem;
     private LocalDateTime dataCriacao;
     private LocalDateTime dataModificacao;
@@ -26,20 +25,13 @@ public class Chat {
         return id;
     }
 
-    public Pessoa getPessoaOrigem() {
-        return pessoaOrigem;
+   
+    public Pessoa getPessoa() {
+        return pessoa;
     }
 
-    public void setPessoaOrigem(Pessoa pessoaOrigem) {
-        this.pessoaOrigem = pessoaOrigem;
-    }
-
-    public Pessoa getPessoaDestino() {
-        return pessoaDestino;
-    }
-
-    public void setPessoaDestino(Pessoa pessoaDestino) {
-        this.pessoaDestino = pessoaDestino;
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
     }
 
     public String[] getMensagem() {

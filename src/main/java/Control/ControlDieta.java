@@ -26,7 +26,7 @@ public class ControlDieta {
 //    PreferenciasDAO opP = new PreferenciasDAO();
     AlimentoDAO opA = new AlimentoDAO();
 
-    public void cadDieta(int numArray, Pessoa[] usuarios, Alimento [] alimentos) {
+    public int cadDieta(int numArray, Pessoa[] usuarios, Alimento [] alimentos) {
         System.out.println("NOVA DIETA");
         AvalFis novaAval = new AvalFis();
         Dieta dieta = new Dieta();
@@ -41,7 +41,6 @@ public class ControlDieta {
             y++;
         }
         usuarios[numArray].getAvaliacoes()[y] = novaAval;
-        System.out.println("teste" + usuarios[numArray].getAvaliacoes()[y].getTMB());
         dieta = novaDieta(usuarios, usuarios[numArray].getAvaliacoes()[y], numArray);
         int x = 0;
         while (usuarios[numArray].getDietas()[x] != null) {
@@ -53,7 +52,8 @@ public class ControlDieta {
         opR.mostrarRef(quantidade);
 //        pref = opP.preferencias(alimentos, usuarios, numArray);        
         registro(novaAval, usuarios, numArray);
-      
+        
+      return x;
     }
       public AvalFis cadAval (Pessoa[] pessoas, int numArray)
     {

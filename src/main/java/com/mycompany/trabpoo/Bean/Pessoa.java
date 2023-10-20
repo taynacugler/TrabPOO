@@ -33,7 +33,7 @@ public class Pessoa {
         publicacoes = new Publicacoes[10];
         seguindo = new Pessoa[10];
         seguidores = new Pessoa[10];
-        mensagens = new Chat[50];
+        mensagens = new Chat[10];
         dataCriacao = LocalDateTime.now();
 
         this.id = ++Pessoa.cont;

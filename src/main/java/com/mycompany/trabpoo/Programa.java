@@ -302,7 +302,7 @@ public class Programa {
                    usuarios[num] = cp.cadastros(usuarios);
 
                    if (num>= 0) {
-                   System.out.println("Parabens, " + usuarios[num].getNome() + "! Seu cadastro foi feito com sucesso!");
+                   System.out.println("Bem vindo, " + usuarios[num].getNome() + "! Seu cadastro foi feito com sucesso!");
                    tela(num);
             
         } else {
@@ -388,7 +388,14 @@ public class Programa {
 
                 case 2:
                    System.out.println("PLANO ALIMENTAR");
-                   planoAlimentar(numArray);
+                   int numDieta = 0;
+                   while (usuarios[numArray].getDietas()[numDieta] != null) {
+                       numDieta++;
+                   }
+                   if (numDieta>0) {
+                   numDieta = numDieta - 1;
+                   }
+                   planoAlimentar(numArray, numDieta);
                    return;
                                    
                 case 3:    
@@ -595,21 +602,43 @@ public class Programa {
         avaliacao = pessoa[numArray].getAvaliacoes()[x-1];
         System.out.println("Seu nome" + usuarios[numArray].getNome());
         System.out.println("Seu nome " + avaliacao.getPessoa().getNome() + "Sua TMB " + avaliacao.getTMB());
-        planoAlimentar(numArray);
+        perfil(numArray, usuarios);
         
     }
     
-    void planoAlimentar(int numArray) {
+    void planoAlimentar(int numArray, int dieta) {
         int opcao;
         Scanner scan = new Scanner(System.in);
         System.out.println("OPCOES");
         System.out.println("1- Mostrar ultimo plano alimentar");
         System.out.println("2- Montar novo plano alimentar");
-        opcao = scan.nextInt();
         System.out.println("3- Voltar para seu perfil");
+        
+        int ref;
+      
+        
+        opcao = scan.nextInt();
         switch (opcao) {
             case 1:
+                int f = 0;
+//                if (dieta<0) {
+//            System.out.println("Não possui nenhuma dieta no registro");
+//            perfil(numArray, usuarios);
+//            return;
+//        }
+                ref = usuarios[numArray].getDietas()[dieta].getNumRef();
+                if (usuarios[numArray].getDietas()[dieta].getRef()[f].getPrato() == null) {
+                    System.out.println("Não foi montaodo plano alimentar");
+                    perfil(numArray, usuarios);
+                } 
+                while (f < ref){
+                                System.out.println(usuarios[numArray].getDietas()[dieta].getRef()[f].getNomeRef());
+                                System.out.println(usuarios[numArray].getDietas()[dieta].getRef()[f].getPrato().getFonteCarb().getPorcao() + "g de " + usuarios[numArray].getDietas()[dieta].getRef()[f].getPrato().getFonteCarb().getNome() + ", " + usuarios[numArray].getDietas()[dieta].getRef()[f].getPrato().getFonteProt().getPorcao() + "g de "+ usuarios[numArray].getDietas()[dieta].getRef()[f].getPrato().getFonteProt().getNome() + " e " + usuarios[numArray].getDietas()[dieta].getRef()[f].getPrato().getFonteGord().getPorcao()+ "g de " + usuarios[numArray].getDietas()[dieta].getRef()[f].getPrato().getFonteGord().getNome());
+                                f++;
+                                        }
+                
                 System.out.println("Plano Alimentar");
+                perfil(numArray, usuarios); 
                 return;
             case 2:
                 int op;
@@ -617,18 +646,17 @@ public class Programa {
                 System.out.println("OPCOES");
                 System.out.println("1- Montar plano alimentar manual.");
                 System.out.println("2- Gerar plano alimentar automatico.");
-                op = sc.nextInt();
                 System.out.println("3- Voltar para seu perfil");
-                int ref;
-                ref = usuarios[numArray].getDietas()[0].getNumRef();
+                 op = sc.nextInt();
                 switch (op) {
                     case 1:
                         System.out.println("manual");
                         Preferencias[] pref = opP.preferencias(alimentos, usuarios, numArray); ;
-                        usuarios[numArray].getDietas()[0].setPref(pref);
+                        usuarios[numArray].getDietas()[dieta].setPref(pref);
                                 int x = 0;
                                 int y = 0;
                                 int m = 0;
+                                ref = usuarios[numArray].getDietas()[dieta].getNumRef();
                                 while (x < ref) {
                                 Prato prato = new Prato();
                                 if (x<3) {
@@ -643,14 +671,14 @@ public class Programa {
                                 m++;
                                 }
                                 
-                                double porCarb = (100*usuarios[numArray].getDietas()[0].getRef()[x].getCalorias())/prato.getFonteCarb().getCal();
-                                double porProt = (100*usuarios[numArray].getDietas()[0].getRef()[x].getCalorias())/prato.getFonteProt().getCal();
-                                double porGord = (100*usuarios[numArray].getDietas()[0].getRef()[x].getCalorias())/prato.getFonteGord().getCal();
+                                double porCarb = (100*usuarios[numArray].getDietas()[dieta].getRef()[x].getCalorias())/prato.getFonteCarb().getCal();
+                                double porProt = (100*usuarios[numArray].getDietas()[dieta].getRef()[x].getCalorias())/prato.getFonteProt().getCal();
+                                double porGord = (100*usuarios[numArray].getDietas()[dieta].getRef()[x].getCalorias())/prato.getFonteGord().getCal();
                                 
                                 prato.getFonteCarb().setPorcao(porCarb);
                                 prato.getFonteProt().setPorcao(porProt);
                                 prato.getFonteGord().setPorcao(porGord);
-                                usuarios[numArray].getDietas()[0].getRef()[x].setPrato(prato);
+                                usuarios[numArray].getDietas()[0].getRef()[dieta].setPrato(prato);
                                 
                                 
                                 x++;
@@ -659,8 +687,8 @@ public class Programa {
                                 System.out.println("PLANO ALIMENTAR");
                                 int p = 0;
                                 while (p < ref){
-                                System.out.println(usuarios[numArray].getDietas()[0].getRef()[p].getNomeRef());
-                                System.out.println(usuarios[numArray].getDietas()[0].getRef()[p].getPrato().getFonteCarb().getPorcao() + "g de " + usuarios[numArray].getDietas()[0].getRef()[p].getPrato().getFonteCarb().getNome() + ", " + usuarios[numArray].getDietas()[0].getRef()[p].getPrato().getFonteProt().getPorcao() + "g de "+ usuarios[numArray].getDietas()[0].getRef()[p].getPrato().getFonteProt().getNome() + " e " + usuarios[numArray].getDietas()[0].getRef()[p].getPrato().getFonteGord().getPorcao()+ "g de " + usuarios[numArray].getDietas()[0].getRef()[p].getPrato().getFonteGord().getNome());
+                                System.out.println(usuarios[numArray].getDietas()[dieta].getRef()[p].getNomeRef());
+                                System.out.println(usuarios[numArray].getDietas()[dieta].getRef()[p].getPrato().getFonteCarb().getPorcao() + "g de " + usuarios[numArray].getDietas()[dieta].getRef()[p].getPrato().getFonteCarb().getNome() + ", " + usuarios[numArray].getDietas()[dieta].getRef()[p].getPrato().getFonteProt().getPorcao() + "g de "+ usuarios[numArray].getDietas()[dieta].getRef()[p].getPrato().getFonteProt().getNome() + " e " + usuarios[numArray].getDietas()[dieta].getRef()[p].getPrato().getFonteGord().getPorcao()+ "g de " + usuarios[numArray].getDietas()[dieta].getRef()[p].getPrato().getFonteGord().getNome());
                                 p++;
                                         }
                                 
@@ -671,6 +699,7 @@ public class Programa {
                     case 2:
                         System.out.println("automatico");
                         int num = 0;
+                        ref = usuarios[numArray].getDietas()[dieta].getNumRef();
                        while (num < ref) {
                                 Prato prato = new Prato();
                                 
@@ -689,15 +718,15 @@ public class Programa {
                                 prato.setFonteGord(alimentos[gord]);
                                 
                                 //calculo da porcao 
-                                double porCarb = (100*usuarios[numArray].getDietas()[0].getRef()[num].getCalorias())/alimentos[carb].getCal();
-                                double porProt = (100*usuarios[numArray].getDietas()[0].getRef()[num].getCalorias())/alimentos[prot].getCal();
-                                double porGord = (100*usuarios[numArray].getDietas()[0].getRef()[num].getCalorias())/alimentos[gord].getCal();
+                                double porCarb = (100*usuarios[numArray].getDietas()[dieta].getRef()[num].getCalorias())/alimentos[carb].getCal();
+                                double porProt = (100*usuarios[numArray].getDietas()[dieta].getRef()[num].getCalorias())/alimentos[prot].getCal();
+                                double porGord = (100*usuarios[numArray].getDietas()[dieta].getRef()[num].getCalorias())/alimentos[gord].getCal();
                                 
                                 prato.getFonteCarb().setPorcao(porCarb);
                                 prato.getFonteProt().setPorcao(porProt);
                                 prato.getFonteGord().setPorcao(porGord);
 
-                                usuarios[numArray].getDietas()[0].getRef()[num].setPrato(prato);
+                                usuarios[numArray].getDietas()[dieta].getRef()[num].setPrato(prato);
                                 
                 
 
@@ -706,8 +735,8 @@ public class Programa {
                                 System.out.println("PLANO ALIMENTAR");
                                 int i = 0;
                                 while (i < ref){
-                                System.out.println(usuarios[numArray].getDietas()[0].getRef()[i].getNomeRef());
-                                System.out.println(usuarios[numArray].getDietas()[0].getRef()[i].getPrato().getFonteCarb().getPorcao() + "g de " + usuarios[numArray].getDietas()[0].getRef()[i].getPrato().getFonteCarb().getNome() + ", " + usuarios[numArray].getDietas()[0].getRef()[i].getPrato().getFonteProt().getPorcao() + "g de "+ usuarios[numArray].getDietas()[0].getRef()[i].getPrato().getFonteProt().getNome() + " e " + usuarios[numArray].getDietas()[0].getRef()[i].getPrato().getFonteGord().getPorcao()+ "g de " + usuarios[numArray].getDietas()[0].getRef()[i].getPrato().getFonteGord().getNome());
+                                System.out.println(usuarios[numArray].getDietas()[dieta].getRef()[i].getNomeRef());
+                                System.out.println(usuarios[numArray].getDietas()[dieta].getRef()[i].getPrato().getFonteCarb().getPorcao() + "g de " + usuarios[numArray].getDietas()[dieta].getRef()[i].getPrato().getFonteCarb().getNome() + ", " + usuarios[numArray].getDietas()[dieta].getRef()[i].getPrato().getFonteProt().getPorcao() + "g de "+ usuarios[numArray].getDietas()[dieta].getRef()[i].getPrato().getFonteProt().getNome() + " e " + usuarios[numArray].getDietas()[dieta].getRef()[i].getPrato().getFonteGord().getPorcao()+ "g de " + usuarios[numArray].getDietas()[dieta].getRef()[i].getPrato().getFonteGord().getNome());
                                 i++;
                                         }
                                 perfil (numArray, usuarios);
@@ -717,7 +746,7 @@ public class Programa {
                         return;
                     default:
                         System.out.println("Opção invalida");
-                        planoAlimentar(numArray);
+                        planoAlimentar(numArray, dieta);
 
                 }
 
@@ -727,16 +756,16 @@ public class Programa {
                 return;
             default:
                 System.out.println("Opção invalida");
-                planoAlimentar(numArray);
+                planoAlimentar(numArray, dieta);
 
         }
 
     }
     
     void novaDieta(int numArray) {
+        int dieta = cd.cadDieta(numArray, usuarios, alimentos);
         
-        cd.cadDieta(numArray, usuarios, alimentos);
-        planoAlimentar(numArray);
+        planoAlimentar(numArray, dieta);
         
         
         
@@ -756,41 +785,43 @@ public class Programa {
         opc = scan.nextInt();
         switch (opc) {
             case 1:
-                System.out.println("Digite login de quem receberá a mensagem");
+                System.out.println("Digite login de quem receberá a mensagem: ");
                 scan.nextLine();
                 Pessoa pessoa = new Pessoa();
                 String login = scan.nextLine();
                 pessoa = op.buscaPorLogin(login, usuarios);
-                System.out.println("Digite a mensagem que você quer enviar");
+                System.out.println("Digite a mensagem que você quer enviar: ");
                 msg = scan.nextLine();
-                int id = pessoa.getId() - 1;
-                int b, c, d, o, y, z = 0;
+                int id = pessoa.getId() - 1; 
+                int b = 0;
+                int c = 0;
+                int d = 0;
+                int o = 0;
+                int y = 0;
+                int z = 0;
                 o = opC.lugarOrigem(usuarios[id], usuarios[numArray]);
-                System.out.println(o);
                 d = opC.lugarDestino(usuarios[id], usuarios[numArray]);
-        
+               
+
                 //se não existir um chat entre duas pessoas
                
                if (d == -1) {
                 Chat novoChat = new Chat();
-                Chat chat = new Chat();
                 y = opC.buscarMsgVazio(pessoa);
                 z = opC.buscarMsgVazio(usuarios[numArray]);
                 if (y> -1) {
-                    novoChat.setPessoaDestino(usuarios[numArray]);
-                    novoChat.setPessoaOrigem(usuarios[id]);
+                    novoChat.setPessoa(usuarios[numArray]);
                     novoChat.getMensagem()[0] = msg;
-                    usuarios[id].getMensagens()[y] = chat;
+                    usuarios[id].getMensagens()[y] = novoChat;
                 } else {
-                   System.out.println("Não foi possivel mandar essa mensagem");
+                   System.out.println("Não foi possivel mandar essa mensagem!");
                    perfil(numArray, usuarios);
                    return;
                 }
                 
                 if (z> -1) {
                     
-                    novoChat.setPessoaDestino(usuarios[id]);
-                    novoChat.setPessoaOrigem(usuarios[numArray]);
+                    novoChat.setPessoa(usuarios[id]);
                     novoChat.getMensagem()[0] = msg;
                     usuarios[numArray].getMensagens()[z] = novoChat;               
                 } else {
@@ -799,14 +830,15 @@ public class Programa {
                    return;
                 }
                }
+               //parei aqui
                else {
                    c= opC.buscarChatVazio(usuarios[id].getMensagens()[d]);
-                   b= opC.buscarChatVazio(usuarios[numArray].getMensagens()[z]);               
-                   usuarios[id].getMensagens()[d].setPessoaDestino(usuarios[numArray]);
-                   usuarios[id].getMensagens()[d].setPessoaOrigem(usuarios[id]);
+                   b= opC.buscarChatVazio(usuarios[numArray].getMensagens()[o]);     
+                   
+                   
+                   usuarios[id].getMensagens()[d].setPessoa(usuarios[numArray]);
                    usuarios[id].getMensagens()[d].getMensagem()[c] = msg;
-                   usuarios[numArray].getMensagens()[o].setPessoaDestino(usuarios[id]);
-                   usuarios[numArray].getMensagens()[o].setPessoaOrigem(usuarios[numArray]);
+                   usuarios[numArray].getMensagens()[o].setPessoa(usuarios[id]);
                    usuarios[numArray].getMensagens()[o].getMensagem()[b] = msg;
                    perfil(numArray, usuarios);
                    return;
@@ -816,12 +848,12 @@ public class Programa {
                
             case 2:
                 System.out.println("TODAS SUAS MENSAGENS");
-                System.out.println(usuarios[numArray].getNome());
                 for (int num = 0; num < usuarios[numArray].getMensagens().length; num++) {
                     if (usuarios[numArray].getMensagens()[num] != null) {
-                    System.out.println("Mensagens que você mandou para:" + usuarios[numArray].getMensagens()[num].getPessoaDestino().getLogin());   
+                    System.out.println("Mensagens que você mandou para: " + usuarios[numArray].getMensagens()[num].getPessoa().getLogin());
                     }
                 }
+                
                 System.out.println("Digite o login do chat que você quer entrar:");
                 Scanner sc = new Scanner(System.in);
                 String log = sc.nextLine();
@@ -830,7 +862,7 @@ public class Programa {
                 int n = opC.lugarOrigem(usuarios[idD], usuarios[numArray]);
                 for (int num = 0; num < usuarios[numArray].getMensagens()[n].getMensagem().length; num++) {
                     if (usuarios[numArray].getMensagens()[n].getMensagem()[num] != null )
-                    System.out.println("Mensagens de" + usuarios[numArray].getMensagens()[n].getPessoaOrigem().getLogin() + ":" + usuarios[numArray].getMensagens()[n].getMensagem()[num]);
+                    System.out.println("Mensagens de" + usuarios[numArray].getMensagens()[n].getPessoa().getLogin() + ":" + usuarios[numArray].getMensagens()[n].getMensagem()[num]);
                 }
                 perfil(numArray, usuarios);
                    return;
