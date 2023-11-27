@@ -11,4 +11,12 @@
         <maven.compiler.target>11</maven.compiler.target>
         <exec.mainClass>com.mycompany.trabpoo.TrabPOO</exec.mainClass>
     </properties>
+        <dependencies>
+        <dependency>
+            <groupId>org.mariadb.jdbc</groupId>
+            <artifactId>mariadb-java-client</artifactId>
+            <version>3.3.0</version> 
+        </dependency>
+    </dependencies>
+    
 </project>

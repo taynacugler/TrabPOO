@@ -879,7 +879,8 @@ public class Programa {
         }
             
     }
-//    
+//    1
+    
     void amigos (int numArray) {
         int opcao = 0;
         Scanner scan = new Scanner(System.in); 
