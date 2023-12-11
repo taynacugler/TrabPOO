@@ -4,11 +4,13 @@
  */
 package com.mycompany.trabpoo.Bean;
 import java.time.LocalDateTime;
+import DAO.PessoaDAO;
 
 //import java.text.DateFormat;
 
 
 public class Pessoa {
+    PessoaDAO pd = new PessoaDAO();
     private String nome;
     private static int cont = 0;
     private int id;
@@ -23,7 +25,6 @@ public class Pessoa {
     private Chat[] mensagens;
     private LocalDateTime dataCriacao;
     private LocalDateTime dataModificacao;
-
    // DateFormat dataCriacao;
    // DateFormat dataModificacao;
 
@@ -35,8 +36,6 @@ public class Pessoa {
         seguidores = new Pessoa[10];
         mensagens = new Chat[10];
         dataCriacao = LocalDateTime.now();
-
-        this.id = ++Pessoa.cont;
     }
 
     public LocalDateTime getDataModificacao() {
@@ -97,6 +96,10 @@ public class Pessoa {
     public void setNome(String nome) {
         this.nome = nome;
     }
+     public void setId(int id) {
+        this.id = id;
+    }
+
 
     public int getId() {
         return id;

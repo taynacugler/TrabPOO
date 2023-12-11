@@ -1,3 +1,5 @@
 DAO/AlimentoDAO.class
+com/mycompany/trabpoo/Bean/Seguir.class
 DAO/PublicacoesDAO.class
+DAO/SeguirDAO.class
 com/mycompany/trabpoo/DBConnection.class

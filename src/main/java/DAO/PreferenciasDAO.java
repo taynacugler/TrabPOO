@@ -8,98 +8,60 @@ import com.mycompany.trabpoo.Bean.Alimento;
 import com.mycompany.trabpoo.Bean.Pessoa;
 import com.mycompany.trabpoo.Bean.Preferencias;
 import java.util.Scanner;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 
 
 
 public class PreferenciasDAO {
-     Preferencias pegarPref (Pessoa pessoa, String tipo, int num, Alimento [] alim)
-    {
-        Preferencias pref = new Preferencias();
-       // pref.setTipo(tipo);
-        
-       // pref.setAlimento(scan.nextInt(num));
-       for (Alimento tempAlim : alim)
-       {
-           if (tempAlim.getId() == num)
-           {
-               pref.setAlimento(tempAlim);
-           }
-       }
-           
-        
-        return pref;
-    }
-    public Preferencias[] preferencias (Alimento [] alimentos, Pessoa [] pessoas, int numArray) {
-        Preferencias preferencia [] = new Preferencias [10];
-        for (int i = 0; i < 10; i++) {
-        preferencia[i] = new Preferencias();
-    }
-       //carboidratos
-        for (int i = 0; i < alimentos.length; i++) {
-             int num = i + 1;
-             if (alimentos[i].getTipoUsuario().equals("1")) {
-            System.out.println("" + num + ": " + alimentos[i].getNome());
-             }
+
+    public void inserirPreferencia(int pessoaId, int tipo, int alimentoId, Connection conexao) throws SQLException {
+        String query = "INSERT INTO Preferencias (pessoa_id, tipo, alimento_id) VALUES (?, ?, ?)";
+
+        try (PreparedStatement stmt = conexao.prepareStatement(query)) {
+            stmt.setInt(1, pessoaId);
+            stmt.setInt(2, tipo);
+            stmt.setInt(3, alimentoId);
+
+            stmt.executeUpdate();
+
+            System.out.println("Preferência cadastrada com sucesso.");
+        } catch (SQLException e) {
+            throw new SQLException("Não foi possível cadatrar preferencia" + e.getMessage());
         }
-        for (int x = 0; x < 3; x++)
-        {
-           
-            int alimento = 0;
-            while (alimento<1 || alimento>7) {
-              System.out.println("Escolha 3 fontes de carboidratos para sua dieta");
-              Scanner scan = new Scanner(System.in);
-             alimento = scan.nextInt();
+    }
+    public boolean verificarPref(int pessoaId, Connection conexao) throws SQLException {
+        String query = "SELECT COUNT(*) AS total FROM Preferencias WHERE pessoa_id = ?";
+        
+        try (PreparedStatement stmt = conexao.prepareStatement(query)) {
+            stmt.setInt(1, pessoaId);
+
+            try (ResultSet resultSet = stmt.executeQuery()) {
+                if (resultSet.next()) {
+                    int total = resultSet.getInt("total");
+                    return total > 0;
+                }
             }
-             preferencia[x] = pegarPref(pessoas[numArray], "1", alimento, alimentos);
-             
+        } catch (SQLException e) {
+            throw new SQLException("Não foi possível verificar preferencia dentro do banco." + e.getMessage());
         }
-        //proteinas
-             for (int i = 0; i < alimentos.length; i++) {
-             int num = i + 1;
-             if (alimentos[i].getTipoUsuario().equals("2")) {
-            System.out.println("" + num + ": " + alimentos[i].getNome());
-             }
-        }
-        for (int x = 0; x < 3; x++)
-        {
-            
-            int alimento = 0;
-             while (alimento<8 || alimento>13) {
-             System.out.println("Escolha 3 fontes de proteinas para sua dieta");
-             Scanner scan = new Scanner(System.in);
-             alimento = scan.nextInt();
-             }
-             preferencia[x+3] = pegarPref(pessoas[numArray], "2", alimento, alimentos);
-             
-        } 
-        for (int i = 0; i < alimentos.length; i++) {
-             int num = i + 1;
-             if (alimentos[i].getTipoUsuario().equals("3")) {
-            System.out.println("" + num + ": " + alimentos[i].getNome());
-             }
-        }
-        for (int x = 0; x < 3; x++)
-        {
-            
-            int alimento = 0;
-            
-            while (alimento<14 || alimento>19) 
-            {
-             System.out.println("Escolha 3 fontes de gordura para sua dieta");
-             Scanner scan = new Scanner(System.in);
-             alimento = scan.nextInt();
-            }
-             preferencia[x+6] = pegarPref(pessoas[numArray], "3", alimento, alimentos);
-             
-        } 
-        for (Preferencias pref : preferencia) {
-             if (pref != null && pref.getAlimento() != null) {
-        System.out.println(pref.getAlimento().getNome());
+
+        return false; 
     }
+    public void excluirPreferencias(int pessoaId, Connection conexao) throws SQLException {
+        String query = "DELETE FROM Preferencias WHERE pessoa_id = ?";
+
+        try (PreparedStatement stmt = conexao.prepareStatement(query)) {
+            stmt.setInt(1, pessoaId);
+
+            int linhasAfetadas = stmt.executeUpdate();
+            
+        } catch (SQLException e) {
+            throw new SQLException("Não foi possível excluir preferencias. " + e.getMessage());
         }
-        return preferencia;
-    } 
-        
-        // fim pegar preferencias
+    }
+    
     
 }

@@ -12,40 +12,38 @@ import java.sql.SQLException;
  *
  * @author taynacardoso
  */
-public class DBConnection {
+public class DBConnection implements AutoCloseable {
     private static final String JDBC_URL = "jdbc:mariadb://localhost:3306/banco_poo";
     private static final String USERNAME = "taynacardoso";
     private static final String PASSWORD = "senha";
 
     private Connection connection;
-    
-    public void DBconnection() {
+
+    public DBConnection() {
         try {
-            // Load the MariaDB JDBC driver
             Class.forName("org.mariadb.jdbc.Driver");
 
-            // Establish the connection
             connection = DriverManager.getConnection(JDBC_URL, USERNAME, PASSWORD);
 
-            System.out.println("Connected to the database!");
+            System.out.println("O banco de dados foi conectado com sucesso!");
         } catch (ClassNotFoundException | SQLException e) {
-            e.printStackTrace();
-            // Handle the exception as needed
+            throw new RuntimeException("Erro ao conectar ao banco de dados", e);
         }
     }
 
-    // Add methods for your database operations here
+    public Connection getConnection() {
+        return connection;
+    }
 
-    public void closeConnection() {
+    @Override
+    public void close() {
         try {
             if (connection != null && !connection.isClosed()) {
                 connection.close();
-                System.out.println("Connection closed.");
+                System.out.println("A conexão do banco foi fechada!");
             }
         } catch (SQLException e) {
-            e.printStackTrace();
-            // Handle the exception as needed
+            throw new RuntimeException("Erro ao fechar a conexão do banco de dados", e);
         }
     }
-
 }

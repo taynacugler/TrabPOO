@@ -10,12 +10,40 @@ import java.time.LocalDateTime;
 public class Dieta {
     private static int cont;
     private int id;
-    private Pessoa pessoa;
-    private AvalFis aval;
-    private TipoDieta tipo;
+    private int pessoa_id;
+    private int aval_id;
+    private int tipo;   
     private int objetivo;
     private double calorias;
+    private double calCarb;
+    private double calProt;
+    private double calGord;
+    
     private int numRef;
+
+    public double getCalCarb() {
+        return calCarb;
+    }
+
+    public void setCalCarb(double calCarb) {
+        this.calCarb = calCarb;
+    }
+
+    public double getCalProt() {
+        return calProt;
+    }
+
+    public void setCalProt(double calProt) {
+        this.calProt = calProt;
+    }
+
+    public double getCalGord() {
+        return calGord;
+    }
+
+    public void setCalGord(double calGord) {
+        this.calGord = calGord;
+    }
     private Preferencias[] pref;
     private Refeicoes[] ref;
     private LocalDateTime dataCriacao;
@@ -64,29 +92,31 @@ public class Dieta {
     public int getId() {
         return id;
     }
-    public Pessoa getPessoa() {
-        return pessoa;
+
+    public int getPessoa_id() {
+        return pessoa_id;
     }
 
-    public void setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
+    public void setPessoa_id(int pessoa_id) {
+        this.pessoa_id = pessoa_id;
     }
 
-    public AvalFis getAval() {
-        return aval;
+    public int getAval_id() {
+        return aval_id;
     }
 
-    public void setAval(AvalFis aval) {
-        this.aval = aval;
+    public void setAval_id(int aval_id) {
+        this.aval_id = aval_id;
     }
 
-    public TipoDieta getTipo() {
+    public int getTipo() {
         return tipo;
     }
 
-    public void setTipo(TipoDieta tipo) {
+    public void setTipo(int tipo) {
         this.tipo = tipo;
     }
+   
 
     public int getObjetivo() {
         return objetivo;
@@ -111,5 +141,7 @@ public class Dieta {
     public void setNumRef(int numRef) {
         this.numRef = numRef;
     }
+
+   
     
 }

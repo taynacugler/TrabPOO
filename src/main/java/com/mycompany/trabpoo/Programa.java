@@ -4,6 +4,7 @@
  */
 package com.mycompany.trabpoo;
 
+import DAO.PratoDAO;
 import Control.ControlDieta;
 import DAO.PessoaDAO;
 import DAO.AvalFisDAO;
@@ -23,8 +24,15 @@ import DAO.RefeicoesDAO;
 import DAO.AlimentoDAO;
 import DAO.PublicacoesDAO;
 import Control.controlPerfil;
+import java.sql.SQLException;
 import java.util.Scanner;
 import java.util.Random;
+import com.mycompany.trabpoo.Bean.Seguir;
+import DAO.SeguirDAO;
+import com.mycompany.trabpoo.Bean.TipoDieta;
+import java.util.List;
+import DAO.PratoDAO;
+
 
 
 /**
@@ -44,236 +52,14 @@ public class Programa {
     PublicacoesDAO opPub = new PublicacoesDAO();
     ChatDAO opC = new ChatDAO();
     controlPerfil cp = new controlPerfil();
-    ControlDieta cd = new ControlDieta();   
+    ControlDieta cd = new ControlDieta(); 
+    SeguirDAO sd = new SeguirDAO();
+    PratoDAO pd = new PratoDAO();
+    String loginTeste = "tayna";
     
     
-    Pessoa[] setarPessoas (Pessoa usuarios[])
-    {
-        Pessoa p1 = new Pessoa();
-        p1.setNome("Tayna"); 
-        p1.setSexo("f");
-        p1.setLogin("tayna");
-        p1.setSenha("1234");
-        usuarios [0] = p1;
-        
-        Pessoa p2 = new Pessoa();
-        p2.setNome("Silvio");
-        p2.setSexo("m");
-        p2.setLogin("silvio");
-        p2.setSenha("5678");
-        usuarios [1] = p2;
-        
-        Pessoa p3 = new Pessoa();
-        p3.setNome("Malu");
-        p3.setSexo("f");
-        p3.setLogin("Malu");
-        p3.setSenha("1256");
-        usuarios [2] = p3;
-        return usuarios;
-        
-        
-    }
     
-    Alimento[] setarAlimen (Alimento alimentos[]) {
-        Alimento arroz = new Alimento();
-        arroz.setNome("arroz");
-        arroz.setCarb(28.1);
-        arroz.setProt(2.5);
-        arroz.setGord(0.2);
-        arroz.setPorcao(100);
-        arroz.setTipoUsuario("1");
-        arroz.setCal(arroz.getCal(), arroz.getCarb(), arroz.getProt(), arroz.getGord());
-        alimentos [0] = arroz;
-        
-        Alimento macarrao = new Alimento();
-        macarrao.setNome("macarrão");
-        macarrao.setCarb(77.9);
-        macarrao.setProt(10);
-        macarrao.setGord(1.3);
-        macarrao.setPorcao(100);
-        macarrao.setTipoUsuario("1");
-        macarrao.setCal(macarrao.getCal(), macarrao.getCarb(), macarrao.getProt(), macarrao.getGord());
-        alimentos [1] = macarrao;
-        
-        
-        Alimento pao = new Alimento();
-        pao.setNome("pão francês");
-        pao.setCarb(58.6);
-        pao.setProt(80);
-        pao.setGord(3);
-        pao.setPorcao(100);
-        pao.setTipoUsuario("1");
-        pao.setCal(pao.getCal(), pao.getCarb(), pao.getProt(), pao.getGord());
-        alimentos [2] = pao;
-       
-        Alimento batataDoce = new Alimento();
-        batataDoce.setNome("batata doce");
-        batataDoce.setCarb(18.4);
-        batataDoce.setProt(0.6);
-        batataDoce.setGord(0.1);
-        batataDoce.setPorcao(100);
-        batataDoce.setTipoUsuario("1");
-        batataDoce.setCal(batataDoce.getCal(), batataDoce.getCarb(), batataDoce.getProt(), batataDoce.getGord());
-        alimentos [3] = batataDoce;
 
-        
-        Alimento batataInglesa = new Alimento();
-        batataInglesa.setNome("batata inglesa");
-        batataInglesa.setCarb(11.9);
-        batataInglesa.setProt(1.2);
-        batataInglesa.setGord(0);
-        batataInglesa.setPorcao(100);
-        batataInglesa.setTipoUsuario("1");
-        batataInglesa.setCal(batataInglesa.getCal(), batataInglesa.getCarb(), batataInglesa.getProt(), batataInglesa.getGord());
-        alimentos [4] = batataInglesa;
-        
-        Alimento tapioca = new Alimento();
-        tapioca.setNome("tapioca");
-        tapioca.setCarb(22);
-        tapioca.setProt(2);
-        tapioca.setGord(3.9);
-        tapioca.setPorcao(100);
-        tapioca.setTipoUsuario("1");
-        tapioca.setCal(tapioca.getCal(), tapioca.getCarb(), tapioca.getProt(),tapioca.getGord());
-        alimentos [5] = tapioca;
-        
-        Alimento banana = new Alimento();
-        banana.setNome("banana");
-        banana.setCarb(23);
-        banana.setProt(1.1);
-        banana.setGord(0.3);
-        banana.setPorcao(100);
-        banana.setTipoUsuario("1");
-        banana.setCal(banana.getCal(), banana.getCarb(), banana.getProt(),banana.getGord());
-        alimentos [6] = banana;
-        System.out.println("com.mycompany.trabpoo.Programa.setarAlimen()");
-        
-        //Alimentos fonte de proteina
-        
-        Alimento peitoFrango = new Alimento();
-        peitoFrango.setNome("peito de frango");
-        peitoFrango.setCarb(0);
-        peitoFrango.setProt(32);
-        peitoFrango.setGord(14);
-        peitoFrango.setPorcao(100);
-        peitoFrango.setTipoUsuario("2");
-        peitoFrango.setCal(peitoFrango.getCal(), peitoFrango.getCarb(), peitoFrango.getProt(),peitoFrango.getGord());
-        alimentos [7] = peitoFrango;
-        
-        Alimento patinho = new Alimento();
-        patinho.setNome("patinho");
-        patinho.setCarb(0);
-        patinho.setProt(35.9);
-        patinho.setGord(7.3);
-        patinho.setPorcao(100);
-        patinho.setTipoUsuario("2");
-        patinho.setCal(patinho.getCal(), patinho.getCarb(), patinho.getProt(),patinho.getGord());
-        alimentos [8] = patinho ;
-        
-        Alimento tilapia = new Alimento();
-        tilapia.setNome("tilápia");
-        tilapia.setCarb(0);
-        tilapia.setProt(23);
-        tilapia.setGord(2);
-        tilapia.setPorcao(100);
-        tilapia.setTipoUsuario("2");
-        tilapia.setCal(tilapia.getCal(), tilapia.getCarb(), tilapia.getProt(),tilapia.getGord());
-        alimentos [9] = tilapia;
-        
-        Alimento soja = new Alimento();
-        soja.setNome("proteína de soja");
-        soja.setCarb(8);
-        soja.setProt(23);
-        soja.setGord(1);
-        soja.setPorcao(100);
-        soja.setTipoUsuario("2");
-        soja.setCal(soja.getCal(), soja.getCarb(), soja.getProt(),soja.getGord());
-        alimentos [10] = soja;
-        
-        Alimento ovoCozido = new Alimento();
-        ovoCozido.setNome("ovo cozido");
-        ovoCozido.setCarb(1.1);
-        ovoCozido.setProt(13);
-        ovoCozido.setGord(11);
-        ovoCozido.setPorcao(100);
-        ovoCozido.setTipoUsuario("2");
-        ovoCozido.setCal(ovoCozido.getCal(), ovoCozido.getCarb(), ovoCozido.getProt(),ovoCozido.getGord());
-        alimentos [11] = ovoCozido;
-        
-        Alimento atum = new Alimento();
-        atum.setNome("Atum");
-        atum.setCarb(0);
-        atum.setProt(23);
-        atum.setGord(1);
-        atum.setPorcao(100);
-        atum.setTipoUsuario("2");
-        atum.setCal(atum.getCal(), atum.getCarb(), atum.getProt(),atum.getGord());
-        alimentos [12] = atum;
-        
-        //Alimentos fonte de gordura
-        Alimento abacate = new Alimento();
-        abacate.setNome("abacate");
-        abacate.setCarb(6);
-        abacate.setProt(1.2);
-        abacate.setGord(8.4);
-        abacate.setPorcao(100);
-        abacate.setTipoUsuario("3");
-        abacate.setCal(abacate.getCal(), abacate.getCarb(),abacate.getProt(),abacate.getGord());
-        alimentos [13] = abacate;
-        
-        Alimento pastaAmendoim = new Alimento();
-        pastaAmendoim.setNome("pasta de amendoim");
-        pastaAmendoim.setCarb(20);
-        pastaAmendoim.setProt(25);
-        pastaAmendoim.setGord(50);
-        pastaAmendoim.setPorcao(100);
-        pastaAmendoim.setTipoUsuario("3");
-        pastaAmendoim.setCal(pastaAmendoim.getCal(), pastaAmendoim.getCarb(), pastaAmendoim.getProt(),pastaAmendoim.getGord());
-        alimentos [14] = pastaAmendoim;
-        
-        Alimento azeite = new Alimento();
-        azeite.setNome("azeite");
-        azeite.setCarb(0);
-        azeite.setProt(0);
-        azeite.setGord(100);
-        azeite.setPorcao(100);
-        azeite.setTipoUsuario("3");
-        azeite.setCal(azeite.getCal(), azeite.getCarb(), azeite.getProt(),azeite.getGord());
-        alimentos [15] = azeite;
-        
-        Alimento manteiga = new Alimento();
-        manteiga.setNome("manteiga");
-        manteiga.setCarb(0.1);
-        manteiga.setProt(0.4);
-        manteiga.setGord(82.4);
-        manteiga.setPorcao(100);
-        manteiga.setTipoUsuario("3");
-        manteiga.setCal(manteiga.getCal(), manteiga.getCarb(), manteiga.getProt(),manteiga.getGord());
-        alimentos [16] = manteiga;
-        
-        Alimento nozes = new Alimento();
-        nozes.setNome("nozes");
-        nozes.setCarb(18.4);
-        nozes.setProt(14);
-        nozes.setGord(59);
-        nozes.setPorcao(100);
-        nozes.setTipoUsuario("3");
-        nozes.setCal(nozes.getCal(), nozes.getCarb(), nozes.getProt(),nozes.getGord());
-        alimentos [17] = nozes;
-        
-        Alimento castanhas = new Alimento();
-        castanhas.setNome("castanhas");
-        castanhas.setCarb(29.1);
-        castanhas.setProt(18.5);
-        castanhas.setGord(46.3);
-        castanhas.setPorcao(100);
-        castanhas.setTipoUsuario("3");
-        castanhas.setCal(castanhas.getCal(), castanhas.getCarb(), castanhas.getProt(),castanhas.getGord());
-        alimentos [18] = castanhas;
-        
-        
-        return alimentos;
-    }
     
     void menu () {
         int opcao = 0;
@@ -290,25 +76,30 @@ public class Programa {
             switch (opcao) {
                 case 1:
                     System.out.println("LOGIN");
-                    int array = cp.login(usuarios);
-                    if (array != -1) {
-                        tela(array);
+                    String login = cp.fazerLogin();
+                    PessoaDAO pessoaDAO = new PessoaDAO();
+                    int id = 0;
+                    try (DBConnection dbConnection = new DBConnection()) {
+                     id = pessoaDAO.getID(login, dbConnection.getConnection());
+                     
+                    } catch (SQLException e) {
+                         System.err.println("Erro ao fazer login: " + e.getMessage());
+                    }
+                    
+                    if (id != 0) {
+                        tela(id);
+                    } else {
+                        System.out.println("Login inexistente");
                     }
                     return;
 
                 case 2:
                    System.out.println("CADASTRO");
-                   int num = op.buscarUsuarioVazio(usuarios);
-                   usuarios[num] = cp.cadastros(usuarios);
+                   
+                    cp.cadastros();
+                    menu();
 
-                   if (num>= 0) {
-                   System.out.println("Bem vindo, " + usuarios[num].getNome() + "! Seu cadastro foi feito com sucesso!");
-                   tela(num);
-            
-        } else {
-            System.out.println("Não foi possível fazer um novo cadastro!");
-            menu();
-        }
+     
                    return;
                    
                 case 3:
@@ -321,7 +112,7 @@ public class Programa {
         }
     }
       
-    void tela(int numArray)
+    void tela(int id)
     {
         int opcao = 0;
         Scanner scan = new Scanner(System.in);
@@ -337,13 +128,12 @@ public class Programa {
             switch (opcao) {
                 case 1:
                     System.out.println("PERFIL");
-                    System.out.println("data" + usuarios[numArray].getDataCriacao());
-                    perfil(numArray, usuarios);
+                    perfil(id);
                     return;
 
                 case 2:
                    System.out.println("TIMELINE");
-                   timeline(numArray);
+                   timeline(id);
                    return;
                    
                 case 3:
@@ -357,45 +147,37 @@ public class Programa {
         }
     }
     
-    void perfil (int numArray, Pessoa[] pessoa) {
+    void perfil (int id) {
         int opcao = 0;
         Scanner scan = new Scanner(System.in);
-
-        while (true) {
+        int numArray = 0;
+           while (true) {
             System.out.println("OPCOES");
-            System.out.println("1- Ultima Avaliação Física");
-            System.out.println("2- Ver Plano Alimentar");
-            System.out.println("3- Minhas Publicações");
-            System.out.println("4- Ver outros perfis");
-            System.out.println("5- Fazer nova dieta");
-            System.out.println("6- Chat");
-            System.out.println("7- Timeline");
-            System.out.println("8-Mostrar Alimentos");
-            System.out.println("9- Ver informações da conta");
-            System.out.println("10- Mudar informações da conta");
-            System.out.println("11- Excluir conta");
-            System.out.println("12 - Ver seguidores");
-            System.out.println("13- Sair");
+            System.out.println("1- Ultima Avaliação Física");//
+            System.out.println("2- Ver Plano Alimentar");//
+            System.out.println("3- Minhas Publicações");//
+            System.out.println("4- Ver outros perfis");//
+            System.out.println("5- Fazer nova dieta");//
+            System.out.println("6- Chat");//
+            System.out.println("7- Timeline");//
+            System.out.println("8-Mostrar Alimentos");//
+            System.out.println("9- Ver informações da conta");//
+            System.out.println("10- Mudar informações da conta");//
+            System.out.println("11- Excluir conta");//
+            System.out.println("12 - Ver seguidores");//
+            System.out.println("13- Sair");//
 
             opcao = scan.nextInt();
 
             switch (opcao) {
                 case 1:
                     System.out.println("ULTIMA AVALIAÇÃO FÍSICA");
-                    avalFisica(numArray, usuarios);
-                    
+                    avalFisica(id);
                     return;
 
                 case 2:
                    System.out.println("PLANO ALIMENTAR");
-                   int numDieta = 0;
-                   while (usuarios[numArray].getDietas()[numDieta] != null) {
-                       numDieta++;
-                   }
-                   if (numDieta>0) {
-                   numDieta = numDieta - 1;
-                   }
-                   planoAlimentar(numArray, numDieta);
+                  mostrarPA(id);
                    return;
                                    
                 case 3:    
@@ -408,18 +190,24 @@ public class Programa {
                     
                     switch (opc) {
                         case 1:
-                            cp.mostrarPublicacoes(usuarios, numArray);
-                            perfil(numArray, usuarios);
+                            
+            try (DBConnection dbConnection = new DBConnection()) {
+             opPub.mostrarPubPessoa(id, dbConnection.getConnection());
+             
+         } catch (SQLException e) {
+             System.err.println("Erro ao pegar publicacao" + e.getMessage());
+         }
+                  perfil(id);
+
                             return;
 
                         case 2:
-                            String pub;
-                            cp.criarPublicacoes(usuarios, numArray, pubTodos);
-                            perfil(numArray, usuarios);
+                            cp.criarPublicacoes(id);
+                            perfil(id);
                             return;
                             
                         case 3:
-                            perfil(numArray, usuarios);
+                            perfil(id);
                             return;
 
                         default:
@@ -429,17 +217,18 @@ public class Programa {
                             
                 case 4:
                     System.out.println("AMIGOS");
-                    amigos(numArray);
+                  amigos(id);
                     return;
                 
                 case 5:
                     System.out.println("NOVA DIETA");
-                    novaDieta(numArray);
+                    novaDieta(id);
                     return;
                 
                 case 6:
                     System.out.println("CHAT ");
-                    chat(numArray);
+                    chat(id);
+                    perfil(id);
                     return;
                     
                 case 7:
@@ -448,83 +237,32 @@ public class Programa {
                     return;
                 case 8:
                     System.out.println("ALIMENTOS");
-                    cd.gerenciador(alimentos);
-                    perfil(numArray, usuarios);
+                    cd.gerenciador();
+                    perfil(id);
                     return;
                     
                 case 9:
-                    cp.mostrarPerfil(usuarios, numArray);
-                    perfil(numArray, usuarios);
+             cp.mostrarPerfil(id);
+                    perfil(id);
                     return;
                 case 10:
-                    cp.mostrarPerfil(usuarios, numArray);
-                    System.out.println("MUDAR INFORMAÇÕES");
-                    int z;
-                    while (true) {
-                    System.out.println("Deseja mudar alguma informação da sua conta?");
-                    System.out.println("1- Nome");
-                    System.out.println("2- Sexo");
-                    System.out.println("3- Login");
-                    System.out.println("4- Senha");
-                    System.out.println("5- Voltar para perfil");
-                    
-                    z = scan.nextInt();
+                    cp.mostrarPerfil(id);
+                    cp.mudarInformacoes(id);
+                     perfil(id);
+                    return;
 
-            switch (z) {
-                case 1:
-                    cp.mudarNome(usuarios, numArray);
-                    perfil(numArray, usuarios);
-
-                    return;
                     
-                case 2:
-                    cp.mudarSexo(usuarios, numArray);
-                    perfil(numArray, usuarios);
-                    return;
-                    
-                case 3:
-                    cp.mudarLogin(usuarios, numArray);
-                    perfil(numArray, usuarios);
-                    return;
-                    
-                case 4:
-                    cp.mudarSenha(usuarios, numArray);
-                    perfil(numArray, usuarios);
-                    return;
-                    
-                case 5:
-                    System.out.println("5- Voltar pro perfil");
-                    perfil(numArray, usuarios);
-                    return;
-                            
-                default:
-                    System.out.println("Opção inválida. Tente novamente.");
-                    perfil(numArray, usuarios);
-                    return;    
-    }                      
-
-                    }
                 case 11:
                 System.out.println("EXCLUIR CONTA");
-                int i = cp.excluirPerfil(usuarios, numArray);
-                if (i==0) {
-                    perfil(numArray, pessoa);
+                int i = cp.excluir(id);
+                if (i == 1) {
+                    perfil(id);
                 } else {
                     menu();
                 }
                 case 12:
-                    int x = 0;
-                    if (usuarios[numArray].getSeguidores()[x] == null) {
-                        System.out.println("Você possui 0 Seguidores!");
-                        perfil(numArray, usuarios);
-                        return;
-                    }
-                    while (usuarios[numArray].getSeguidores()[x] != null) {
-                        System.out.println("Seguidores:" + usuarios[numArray].getSeguidores()[x].getNome());
-                        x++;
-                    }
-                    System.out.println("Você possui " + x + " seguidores!");
-                    perfil(numArray, usuarios);
+                  seguidores(id);
+                    perfil(id);
                     return;
                     
                     
@@ -540,7 +278,7 @@ public class Programa {
         }
     }
     
-    void timeline (int numArray) {
+    void timeline (int id) {
         int opcao = 0;
         Scanner scan = new Scanner(System.in);
 
@@ -556,28 +294,23 @@ public class Programa {
 
             switch (opcao) {
                     case 1:
-                     int x = 0;
-                     if (pubTodos[x] == null) {
-                         System.out.println("Ainda não há publicações!");
-                         perfil(numArray, usuarios);
-                         return;
-                     }
-                     while (pubTodos[x] != null) {
-                         System.out.println(pubTodos[x].getPessoa().getNome() + " publicou " + pubTodos[x].getPublicacao());
-                         x++;
-                     }
-
-                    perfil(numArray, usuarios);
+         try (DBConnection dbConnection = new DBConnection()) {
+             opPub.mostrarPublicacoes(dbConnection.getConnection());
+             
+         } catch (SQLException e) {
+             System.err.println("Erro ao fazer publicacao" + e.getMessage());
+         }
+                  perfil(id);
 
                     return;
 
                 case 2:
-                cp.criarPublicacoes(usuarios, numArray, pubTodos);
-                timeline(numArray);
+                cp.criarPublicacoes(id);
+                timeline(id);
                 return;
                         
                 case 3:
-                    perfil(numArray, usuarios);
+                    perfil(id);
                     return;
                 
                 case 4:
@@ -588,191 +321,275 @@ public class Programa {
             }
         }
     }
-    
-    void avalFisica (int numArray, Pessoa[] pessoa) {
+        void avalFisica(int id) {
         AvalFis avaliacao = new AvalFis();
-        int x = 0;
-        while (pessoa[numArray].getAvaliacoes()[x] != null){
-            x++;
+        DBConnection dbConnection = new DBConnection();
+        boolean avalExiste = false;
+        try {
+            avalExiste = opAF.buscaIDPessoa(id, dbConnection.getConnection());
+        } catch (SQLException e) {
+            System.err.println("Não é possivel saber se há uma avaliação ou não:" + e.getMessage());
         }
-        if (x==0) {
+        
+        if (avalExiste == true) {
+            try {
+            avaliacao = opAF.getAval(id, dbConnection.getConnection());
+                System.out.println("IMC: " + avaliacao.getIMC());
+                System.out.println("TMB: " + avaliacao.getTMB());
+                System.out.println("Body Fat: " + avaliacao.getBF());
+                System.out.println("Massa Gorda: " + avaliacao.getMassaGorda());
+                System.out.println("Massa Magra: " + avaliacao.getMassaMagra());
+                
+                
+        } catch (SQLException e) {
+            System.err.println("Não é possivel saber se há uma avaliação ou não:" + e.getMessage());
+        }   
+        }
+        else {
             System.out.println("Você não tem avaliação fisica no histórico, preencha suas informações");
-            novaDieta(numArray);
+            novaDieta(id);
         }
-        avaliacao = pessoa[numArray].getAvaliacoes()[x-1];
-        System.out.println("Seu nome" + usuarios[numArray].getNome());
-        System.out.println("Seu nome " + avaliacao.getPessoa().getNome() + "Sua TMB " + avaliacao.getTMB());
-        perfil(numArray, usuarios);
+        perfil(id);
         
     }
     
-    void planoAlimentar(int numArray, int dieta) {
-        int opcao;
-        Scanner scan = new Scanner(System.in);
-        System.out.println("OPCOES");
-        System.out.println("1- Mostrar ultimo plano alimentar");
-        System.out.println("2- Montar novo plano alimentar");
-        System.out.println("3- Voltar para seu perfil");
         
-        int ref;
-      
-        
-        opcao = scan.nextInt();
-        switch (opcao) {
-            case 1:
-                int f = 0;
-//                if (dieta<0) {
-//            System.out.println("Não possui nenhuma dieta no registro");
-//            perfil(numArray, usuarios);
-//            return;
-//        }
-                ref = usuarios[numArray].getDietas()[dieta].getNumRef();
-                if (usuarios[numArray].getDietas()[dieta].getRef()[f].getPrato() == null) {
-                    System.out.println("Não foi montaodo plano alimentar");
-                    perfil(numArray, usuarios);
-                } 
-                while (f < ref){
-                                System.out.println(usuarios[numArray].getDietas()[dieta].getRef()[f].getNomeRef());
-                                System.out.println(usuarios[numArray].getDietas()[dieta].getRef()[f].getPrato().getFonteCarb().getPorcao() + "g de " + usuarios[numArray].getDietas()[dieta].getRef()[f].getPrato().getFonteCarb().getNome() + ", " + usuarios[numArray].getDietas()[dieta].getRef()[f].getPrato().getFonteProt().getPorcao() + "g de "+ usuarios[numArray].getDietas()[dieta].getRef()[f].getPrato().getFonteProt().getNome() + " e " + usuarios[numArray].getDietas()[dieta].getRef()[f].getPrato().getFonteGord().getPorcao()+ "g de " + usuarios[numArray].getDietas()[dieta].getRef()[f].getPrato().getFonteGord().getNome());
-                                f++;
-                                        }
+   
+    void mostrarPA (int id) {
+    
+        System.out.println(" Mostrar ultimo plano alimentar");
+             
+       
                 
-                System.out.println("Plano Alimentar");
-                perfil(numArray, usuarios); 
-                return;
-            case 2:
-                int op;
+                int idDieta = 0;
+                
+
+     try (DBConnection dbConnection = new DBConnection()) {
+             idDieta = opD.getUltimaDieta(id, dbConnection.getConnection());
+             if (idDieta == 0) {
+                 novaDieta(id);
+             } else {
+             List<Prato> pratos = pd.getPratos(dbConnection.getConnection(), idDieta);
+             int x = 0;
+            for (Prato prato : pratos) {
+                x++;
+                String fonteCarb = opA.getNome(prato.getFonteCarb(), dbConnection.getConnection());
+                String fonteProt = opA.getNome(prato.getFonteProt(), dbConnection.getConnection());
+                String fonteGord = opA.getNome(prato.getFonteGord(), dbConnection.getConnection());
+                   System.out.println(x + "° Refeição");
+                   System.out.println("Fonte de Proteína: " + fonteProt + " " + prato.getPorcaoProt() + " gramas");
+                   System.out.println("Fonte de Carboidrato: " + fonteCarb + " " + prato.getPorcaoCarb() + " gramas");
+                   System.out.println("Fonte de Gordura: " + fonteGord + " " + prato.getPorcaoGord() + " gramas");
+          
+               }
+             
+             } 
+             
+         } catch (SQLException e) {
+             System.err.println("Erro ao procurar planos alimentares" + e.getMessage());
+         }
+    
+//               
+//                
+                perfil(id); 
+                
+                
+                
+            
+
+    }
+    
+    
+    void novaDieta(int id) {
+        int dieta = cd.cadDieta(id, usuarios, alimentos);
+        
+        int op;
                 Scanner sc = new Scanner(System.in);
-                System.out.println("OPCOES");
+                System.out.println("OPCOES PARA O PLANO ALIMENTAR");
                 System.out.println("1- Montar plano alimentar manual.");
                 System.out.println("2- Gerar plano alimentar automatico.");
-                System.out.println("3- Voltar para seu perfil");
+                
                  op = sc.nextInt();
                 switch (op) {
                     case 1:
-                        System.out.println("manual");
-                        Preferencias[] pref = opP.preferencias(alimentos, usuarios, numArray); ;
-                        usuarios[numArray].getDietas()[dieta].setPref(pref);
-                                int x = 0;
-                                int y = 0;
-                                int m = 0;
-                                ref = usuarios[numArray].getDietas()[dieta].getNumRef();
-                                while (x < ref) {
-                                Prato prato = new Prato();
-                                if (x<3) {
-                                prato.setFonteCarb(pref[y].getAlimento());
-                                prato.setFonteProt(pref[y+3].getAlimento());
-                                prato.setFonteGord(pref[y+6].getAlimento());
-                                
-                                } else if (x>3) {
-                                prato.setFonteCarb(pref[m].getAlimento());
-                                prato.setFonteProt(pref[m+3].getAlimento());
-                                prato.setFonteGord(pref[m+6].getAlimento()); 
-                                m++;
-                                }
-                                
-                                double porCarb = (100*usuarios[numArray].getDietas()[dieta].getRef()[x].getCalorias())/prato.getFonteCarb().getCal();
-                                double porProt = (100*usuarios[numArray].getDietas()[dieta].getRef()[x].getCalorias())/prato.getFonteProt().getCal();
-                                double porGord = (100*usuarios[numArray].getDietas()[dieta].getRef()[x].getCalorias())/prato.getFonteGord().getCal();
-                                
-                                prato.getFonteCarb().setPorcao(porCarb);
-                                prato.getFonteProt().setPorcao(porProt);
-                                prato.getFonteGord().setPorcao(porGord);
-                                usuarios[numArray].getDietas()[0].getRef()[dieta].setPrato(prato);
-                                
-                                
-                                x++;
-                                y++;
-                                }
-                                System.out.println("PLANO ALIMENTAR");
-                                int p = 0;
-                                while (p < ref){
-                                System.out.println(usuarios[numArray].getDietas()[dieta].getRef()[p].getNomeRef());
-                                System.out.println(usuarios[numArray].getDietas()[dieta].getRef()[p].getPrato().getFonteCarb().getPorcao() + "g de " + usuarios[numArray].getDietas()[dieta].getRef()[p].getPrato().getFonteCarb().getNome() + ", " + usuarios[numArray].getDietas()[dieta].getRef()[p].getPrato().getFonteProt().getPorcao() + "g de "+ usuarios[numArray].getDietas()[dieta].getRef()[p].getPrato().getFonteProt().getNome() + " e " + usuarios[numArray].getDietas()[dieta].getRef()[p].getPrato().getFonteGord().getPorcao()+ "g de " + usuarios[numArray].getDietas()[dieta].getRef()[p].getPrato().getFonteGord().getNome());
-                                p++;
-                                        }
-                                
-                                
-//     
-                        perfil (numArray, usuarios);        
+                        planoManual(id, dieta);
+                        mostrarPA(id);        
                         return;
                     case 2:
                         System.out.println("automatico");
-                        int num = 0;
-                        ref = usuarios[numArray].getDietas()[dieta].getNumRef();
-                       while (num < ref) {
-                                Prato prato = new Prato();
-                                
+                       planoRandom(id, dieta);
+                       mostrarPA(id);
+                       return;
 
-                                Random carbo = new Random();
-                                int carb = carbo.nextInt(7); 
-
-                                Random proto = new Random();
-                                int prot = proto.nextInt(6) + 7;
-
-                                Random gordu = new Random();
-                                int gord = gordu.nextInt(6) + 13;
-
-                                prato.setFonteCarb(alimentos[carb]);
-                                prato.setFonteProt(alimentos[prot]);
-                                prato.setFonteGord(alimentos[gord]);
-                                
-                                //calculo da porcao 
-                                double porCarb = (100*usuarios[numArray].getDietas()[dieta].getRef()[num].getCalorias())/alimentos[carb].getCal();
-                                double porProt = (100*usuarios[numArray].getDietas()[dieta].getRef()[num].getCalorias())/alimentos[prot].getCal();
-                                double porGord = (100*usuarios[numArray].getDietas()[dieta].getRef()[num].getCalorias())/alimentos[gord].getCal();
-                                
-                                prato.getFonteCarb().setPorcao(porCarb);
-                                prato.getFonteProt().setPorcao(porProt);
-                                prato.getFonteGord().setPorcao(porGord);
-
-                                usuarios[numArray].getDietas()[dieta].getRef()[num].setPrato(prato);
-                                
-                
-
-                                num++;
-                            }
-                                System.out.println("PLANO ALIMENTAR");
-                                int i = 0;
-                                while (i < ref){
-                                System.out.println(usuarios[numArray].getDietas()[dieta].getRef()[i].getNomeRef());
-                                System.out.println(usuarios[numArray].getDietas()[dieta].getRef()[i].getPrato().getFonteCarb().getPorcao() + "g de " + usuarios[numArray].getDietas()[dieta].getRef()[i].getPrato().getFonteCarb().getNome() + ", " + usuarios[numArray].getDietas()[dieta].getRef()[i].getPrato().getFonteProt().getPorcao() + "g de "+ usuarios[numArray].getDietas()[dieta].getRef()[i].getPrato().getFonteProt().getNome() + " e " + usuarios[numArray].getDietas()[dieta].getRef()[i].getPrato().getFonteGord().getPorcao()+ "g de " + usuarios[numArray].getDietas()[dieta].getRef()[i].getPrato().getFonteGord().getNome());
-                                i++;
-                                        }
-                                perfil (numArray, usuarios);
-                                return;
-                    case 3:
-                        perfil(numArray, usuarios);
-                        return;
                     default:
                         System.out.println("Opção invalida");
-                        planoAlimentar(numArray, dieta);
+                       
 
                 }
-
-                return;
-            case 3:
-                perfil(numArray, usuarios);
-                return;
-            default:
-                System.out.println("Opção invalida");
-                planoAlimentar(numArray, dieta);
-
-        }
-
-    }
-    
-    void novaDieta(int numArray) {
-        int dieta = cd.cadDieta(numArray, usuarios, alimentos);
-        
-        planoAlimentar(numArray, dieta);
-        
+        mostrarPA(id);
         
         
         
     }
     
-    void chat(int numArray) {
+    int[] preferencias (int id, int idDieta) {
+        int alim [] = new int [3];
+        try (DBConnection dbConnection = new DBConnection()) {          
+            int carb = 0; 
+            opA.mostrarAlimentosCarb(dbConnection.getConnection());
+            while (carb<1 || carb>6) {
+              System.out.println("Escolha uma fonte de carboidratos para sua refeição, 1 a 6");
+              Scanner scan = new Scanner(System.in);
+             carb = scan.nextInt();
+            }
+             opP.inserirPreferencia(id, 1, carb, dbConnection.getConnection());
+             opA.mostrarAlimentosProt(dbConnection.getConnection());
+            int prot = 0;
+            while (prot<7 || prot>11) {
+              System.out.println("Escolha uma fonte de proteina para seu prato, 7 a 11");
+              Scanner scan = new Scanner(System.in);
+             prot = scan.nextInt();
+            }
+             opP.inserirPreferencia(id, 2, prot, dbConnection.getConnection());
+             int gord = 0;
+             opA.mostrarAlimentosGord(dbConnection.getConnection());
+             
+            while (gord<12 || prot>17) {
+              System.out.println("Escolha suas fontes de gordura para seu prato, 12 a 17");
+              Scanner scan = new Scanner(System.in);
+             gord = scan.nextInt();
+            }
+             opP.inserirPreferencia(id, 3, gord, dbConnection.getConnection());
+             alim [0] = carb;
+             alim [1] = prot;
+             alim [2] = gord;
+             
+             
+         } catch (SQLException e) {
+             System.err.println("Erro ao pegar preferencias" + e.getMessage());
+         }
+     return alim;
+    }
+    void planoManual (int id, int idDieta) {
+     System.out.println("manual");
+                  
+                    int quantRef = 0;
+                  
+      try (DBConnection dbConnection = new DBConnection()) {
+             
+             quantRef = opD.getQuantRef(idDieta, dbConnection.getConnection());
+             Dieta dieta = opD.getDietbyID(idDieta, dbConnection.getConnection());
+             
+             
+              for (int x = 0; x < quantRef; x++) {
+                  int alim[] = preferencias(id, idDieta);
+                  // o metodo de pegar alimentos de forma randomica só vai mudar isso aqui (posso mudar esse metodo para if else ok
+                  double caloriasDiv = dieta.getCalorias()/quantRef;
+                  Prato prato = new Prato();
+                  prato.setFonteCarb(alim[0]);
+                  prato.setFonteProt(alim[1]);
+                  prato.setFonteGord(alim[2]);
+                  int tipoId = dieta.getTipo();
+                  TipoDieta tipo = cd.getTipo(tipoId, dieta);
+                  double carbTipo = tipo.getCarb()*caloriasDiv;
+                  double protTipo = tipo.getProt()*caloriasDiv;
+                  double gordTipo = tipo.getGord()*caloriasDiv;
+                  double porcaoCarb = (carbTipo*100/opA.getCalorias(alim[0], dbConnection.getConnection()));
+                  double porcaoProt = (protTipo*100/opA.getCalorias(alim[1], dbConnection.getConnection()));
+                  double porcaoGord = (gordTipo*100/opA.getCalorias(alim[2], dbConnection.getConnection()));
+                  prato.setPorcaoCarb(porcaoCarb);
+                  prato.setPorcaoProt(porcaoProt);
+                  prato.setPorcaoGord(porcaoGord);
+                  prato.setDieta_id(idDieta);
+                  
+            //setar esse prato 
+            
+            pd.inserirPrato(dbConnection.getConnection(), prato);
+              
+}
+         } catch (SQLException e) {
+             System.err.println("Erro ao fazer plano alimentar" + e.getMessage());
+         }
+      
+        
+    }
+    
+    void planoRandom (int id, int idDieta) {
+      int quantRef = 0;
+                       
+      try (DBConnection dbConnection = new DBConnection()) {
+             
+             
+             quantRef = opD.getQuantRef(idDieta, dbConnection.getConnection());
+            
+             Dieta dieta = opD.getDietbyID(idDieta, dbConnection.getConnection());
+             
+             
+              for (int x = 0; x < quantRef; x++) {
+                Random carbo = new Random();
+                int carb = carbo.nextInt(6) + 1; 
+
+                Random proto = new Random();
+                int prot = proto.nextInt(5) + 7; 
+
+                Random gordu = new Random();
+                int gord = gordu.nextInt(6) + 12;
+                
+                  // o metodo de pegar alimentos de forma randomica só vai mudar isso aqui (posso mudar esse metodo para if else ok
+                  double caloriasDiv = dieta.getCalorias()/quantRef;
+                  Prato prato = new Prato();
+                  prato.setFonteCarb(carb);
+                  prato.setFonteProt(prot);
+                  prato.setFonteGord(gord);
+                  int tipoId = dieta.getTipo();
+                  TipoDieta tipo = cd.getTipo(tipoId, dieta);
+                  double carbTipo = tipo.getCarb()*caloriasDiv;
+                  double protTipo = tipo.getProt()*caloriasDiv;
+                  double gordTipo = tipo.getGord()*caloriasDiv;
+                  
+                double porcaoCarb = 0;
+                double porcaoProt = 0;
+                double porcaoGord = 0;
+
+                double caloriasCarb = opA.getCalorias(carb, dbConnection.getConnection());
+                double caloriasProt = opA.getCalorias(prot, dbConnection.getConnection());
+                double caloriasGord = opA.getCalorias(gord, dbConnection.getConnection());
+
+                if (caloriasCarb != 0) {
+                    porcaoCarb = carbTipo * 100 / caloriasCarb;
+                }
+
+                if (caloriasProt != 0) {
+                    porcaoProt = protTipo * 100 / caloriasProt;
+                }
+
+                if (caloriasGord != 0) {
+                    porcaoGord = gordTipo * 100 / caloriasGord;
+                }
+                  prato.setPorcaoProt(porcaoProt);
+                  prato.setPorcaoGord(porcaoGord);
+                  prato.setPorcaoCarb(porcaoCarb);
+                  prato.setDieta_id(idDieta);
+                  
+            //setar esse prato 
+            
+            pd.inserirPrato(dbConnection.getConnection(), prato);
+            
+            //Cada prato vai ter um id porém a idDIeta vai ser a mesma e ai eu consigo pegar os pratos desse id dieta 
+    
+              }     
+                  
+
+             
+         } catch (SQLException e) {
+             System.err.println("Erro ao fazer plano alimentar" + e.getMessage());
+         }
+     
+      
+    }
+ 
+    
+    void chat(int id)  {
         System.out.println("CHAT");
         System.out.println("OPCOES");
         System.out.println("1- Mandar nova mensagem");
@@ -787,104 +604,94 @@ public class Programa {
             case 1:
                 System.out.println("Digite login de quem receberá a mensagem: ");
                 scan.nextLine();
-                Pessoa pessoa = new Pessoa();
                 String login = scan.nextLine();
-                pessoa = op.buscaPorLogin(login, usuarios);
+                int idAmg = 0;
                 System.out.println("Digite a mensagem que você quer enviar: ");
                 msg = scan.nextLine();
-                int id = pessoa.getId() - 1; 
-                int b = 0;
-                int c = 0;
-                int d = 0;
-                int o = 0;
-                int y = 0;
-                int z = 0;
-                o = opC.lugarOrigem(usuarios[id], usuarios[numArray]);
-                d = opC.lugarDestino(usuarios[id], usuarios[numArray]);
-               
-
-                //se não existir um chat entre duas pessoas
-               
-               if (d == -1) {
-                Chat novoChat = new Chat();
-                y = opC.buscarMsgVazio(pessoa);
-                z = opC.buscarMsgVazio(usuarios[numArray]);
-                if (y> -1) {
-                    novoChat.setPessoa(usuarios[numArray]);
-                    novoChat.getMensagem()[0] = msg;
-                    usuarios[id].getMensagens()[y] = novoChat;
-                } else {
-                   System.out.println("Não foi possivel mandar essa mensagem!");
-                   perfil(numArray, usuarios);
-                   return;
-                }
-                
-                if (z> -1) {
+                try (DBConnection dbConnection = new DBConnection()) {
+                      idAmg = op.getID(login, dbConnection.getConnection());
+                      opC.inserirMensagem(dbConnection.getConnection(), id, idAmg, msg);
                     
-                    novoChat.setPessoa(usuarios[id]);
-                    novoChat.getMensagem()[0] = msg;
-                    usuarios[numArray].getMensagens()[z] = novoChat;               
-                } else {
-                    System.out.println("Não foi possivel mandar essa mensagem");
-                   perfil(numArray, usuarios);
-                   return;
-                }
-               }
-               //parei aqui
-               else {
-                   c= opC.buscarChatVazio(usuarios[id].getMensagens()[d]);
-                   b= opC.buscarChatVazio(usuarios[numArray].getMensagens()[o]);     
-                   
-                   
-                   usuarios[id].getMensagens()[d].setPessoa(usuarios[numArray]);
-                   usuarios[id].getMensagens()[d].getMensagem()[c] = msg;
-                   usuarios[numArray].getMensagens()[o].setPessoa(usuarios[id]);
-                   usuarios[numArray].getMensagens()[o].getMensagem()[b] = msg;
-                   perfil(numArray, usuarios);
-                   return;
-               }
-               perfil(numArray, usuarios);
+                    } catch (SQLException e) {
+                         System.err.println("Erro ao mandar mensagem: " + e.getMessage());
+                    }
+               
+               perfil(id);
                return;
                
             case 2:
-                System.out.println("TODAS SUAS MENSAGENS");
-                for (int num = 0; num < usuarios[numArray].getMensagens().length; num++) {
-                    if (usuarios[numArray].getMensagens()[num] != null) {
-                    System.out.println("Mensagens que você mandou para: " + usuarios[numArray].getMensagens()[num].getPessoa().getLogin());
-                    }
+                System.out.println("1- Mensagens recebidas");
+                System.out.println("2- Mensagens enviadas");
+                scan.nextLine();
+                int opcao = scan.nextInt();
+                String idStr = null;
+                switch (opcao) {
+                    case 1:
+                        try (DBConnection dbConnection = new DBConnection()) { 
+                          List<Chat> mensagensRecebidas = opC.obterMensagensRecebidas(dbConnection.getConnection(), id);
+                          
+                          for (Chat mensagem : mensagensRecebidas) {
+                           try (DBConnection c = new DBConnection()) { 
+                               
+                              Pessoa pessoa = new Pessoa();
+                              pessoa = op.buscaPorID(mensagem.getIdRemetente(), c.getConnection());
+                              System.out.println("Mensagem: " + mensagem.getMensagem());
+                              System.out.println("Enviado por " + pessoa.getNome());
+                                System.out.println("---");
+                           }
+                           catch (SQLException e) {
+                                System.err.println("Erro ao procurar mensagem: " + e.getMessage());
+                           }
+                          }
+                                    
+                } catch (SQLException e) {
+                    System.err.println("Erro ao procurar mensagem: " + e.getMessage());
                 }
+                        perfil(id);
                 
-                System.out.println("Digite o login do chat que você quer entrar:");
-                Scanner sc = new Scanner(System.in);
-                String log = sc.nextLine();
-                pessoa = op.buscaPorLogin(log, usuarios);
-                int idD = pessoa.getId() - 1;
-                int n = opC.lugarOrigem(usuarios[idD], usuarios[numArray]);
-                for (int num = 0; num < usuarios[numArray].getMensagens()[n].getMensagem().length; num++) {
-                    if (usuarios[numArray].getMensagens()[n].getMensagem()[num] != null )
-                    System.out.println("Mensagens de" + usuarios[numArray].getMensagens()[n].getPessoa().getLogin() + ":" + usuarios[numArray].getMensagens()[n].getMensagem()[num]);
-                }
-                perfil(numArray, usuarios);
                    return;
+                    case 2:
+                        try (DBConnection dbConnection = new DBConnection()) { 
+                          List<Chat> mensagensRecebidas = opC.obterMensagensDoRemetente(dbConnection.getConnection(), id);
+                          
+                          for (Chat mensagem : mensagensRecebidas) {
+                           try (DBConnection c = new DBConnection()) { 
+                               
+                              Pessoa pessoa = new Pessoa();
+                              pessoa = op.buscaPorID(mensagem.getIdRecebidas(), c.getConnection());
+                              System.out.println("Mensagem: " + mensagem.getMensagem());
+                              System.out.println("Enviado por você");
+                                System.out.println("---");
+                           }
+                           catch (SQLException e) {
+                               System.err.println("Erro ao procurar mensagem: " + e.getMessage());
+                           }
+                          }
+                                    
+                } catch (SQLException e) {
+                    System.err.println("Erro ao procurar mensagem: " + e.getMessage());
+                }
+                       perfil(id);
+                        return;
                 
                 
             case 3:
-                perfil(numArray, usuarios);
+                perfil(id);
                 return;
             default:
                 System.out.println("Opcao invalida!");
-                perfil (numArray, usuarios);
-                return;
-                
+                perfil (id);
+                                
         }
             
     }
-//    1
-    
-    void amigos (int numArray) {
+    }
+   
+    void amigos (int id) {
         int opcao = 0;
         Scanner scan = new Scanner(System.in); 
-        Pessoa amigo = new Pessoa();
+        
+        
 
         while (true) {
             System.out.println("OPCOES");
@@ -900,37 +707,43 @@ public class Programa {
                     System.out.println("Digite o login que voce quer achar");
                     scan.nextLine();
                     String login = scan.nextLine();
-                    amigo = op.buscaPorLogin(login, usuarios);
-                    System.out.println("Nome:" + amigo.getNome());
-                    System.out.println("Login:" + amigo.getLogin());
-                    System.out.println("id:" + amigo.getId());
-                    if (amigo.getSexo().equals("f")) {
-                    System.out.println("Sexo: feminino");
-                    } else {
-                        System.out.println("Sexo: masculino");
+                    int idAmigo = 0;
+                    try (DBConnection dbConnection = new DBConnection()) {
+                     idAmigo = op.getID(login, dbConnection.getConnection());
+                     cp.mostrarPerfil(idAmigo);
+                     
+                    } catch (SQLException e) {
+                         System.err.println("Erro ao achar perfil: " + e.getMessage());
                     }
-                    seguir (amigo.getId(), numArray);
-                //    chat(numArray);
+                    seguir(id, idAmigo);
+                    
+                 perfil(id);
                     return;
                     
 
                 case 2:
-                    int x = 0;
-                    if (usuarios[numArray].getSeguindo()[x] == null) {
-                        System.out.println("Lista de amigos vazia!");
-                        perfil (numArray, usuarios);
-                        return;
+                    int seguindo = 0;
+                    try (DBConnection dbConnection = new DBConnection()) {
+                        seguindo = sd.contarSeguindo(id, dbConnection.getConnection());
+                        System.out.println("Você segue: " + seguindo + " pessoas.");
+                        List<String> nomeSeguindo = sd.obterNomesSeguindo(id, dbConnection.getConnection());
+
+            if (!nomeSeguindo.isEmpty()) {
+                System.out.println("Pessoas que você está seguindo:");
+                for (String nome : nomeSeguindo) {
+                    System.out.println(nome);
+                }
+            }
+                    } catch (Exception e) { 
+                        System.err.println("Erro ao interagir com o banco de dados: " + e.getMessage());
+                        e.printStackTrace();
                     }
-                    while (usuarios[numArray].getSeguindo()[x] != null) {
-                    System.out.println("Seguindo: " + usuarios[numArray].getSeguindo()[x].getNome());
-                    x++;
-                    }
-                    System.out.println("Fim lista de amigos");
-                    perfil(numArray, usuarios);
-               return;
+                     perfil(id);
                    
+               return;
+//                   
                 case 3:
-                    perfil(numArray, usuarios);
+                    perfil(id);
                     return;
                     
                 default:
@@ -938,64 +751,78 @@ public class Programa {
             }
         }
         
-        
-        
+//        
+//        
     }
-    void seguir (int numAmigo, int numPerfil) {
+    
+    void seguir (int id, int idSeguido) {
         Scanner sc = new Scanner(System.in);
-        numAmigo = numAmigo - 1;
         System.out.println("OPÇÕES");
         System.out.println("1- Seguir perfil");
         System.out.println("2- Parar de seguir perfil");
         System.out.println("3- Voltar para seu perfil");
         int opc = sc.nextInt();
-        boolean verif;
+        boolean verif = false;
         switch (opc) {
                 case 1:
-                verif = op.verifSeguindo(usuarios[numPerfil], usuarios[numAmigo]);
-                if (verif) {
-                    System.out.println("Você já segue esse perfil!");
-                    tela(numPerfil);
+                    try (DBConnection dbConnection = new DBConnection()) {
+                        verif = sd.verifSeguindo(id, idSeguido, dbConnection.getConnection());
+                        if (verif) {
+                            System.out.println("Você já segue essa conta!");
+                            perfil(id);
+                        } else {
+                            sd.inserirSeguir(id, idSeguido, dbConnection.getConnection());
+                        }
+                    } catch (Exception e) { 
+                        System.err.println("Erro ao interagir com o banco de dados: " + e.getMessage());
+                        e.printStackTrace();
+                    }
                     return;
-                    
-                } else {
-                   int x = op.buscarSeguindo(usuarios[numPerfil]);
-                   usuarios[numPerfil].getSeguindo()[x] = usuarios[numAmigo];
-                   int z = op.buscarSeguidores(usuarios[numAmigo]);
-                   usuarios[numAmigo].getSeguidores()[z] = usuarios[numPerfil];
-                    amigos(numPerfil);
-                    return;
-                    
-                }
+  
                                     
                 case 2:
-                verif = op.verifSeguindo(usuarios[numPerfil], usuarios[numAmigo]);
-                if (!verif) {
-                   int y = op.buscarSeguindo(usuarios[numPerfil]);
-                   usuarios[numPerfil].getSeguindo()[y] = null;
-                   int a = op.buscarSeguidores(usuarios[numAmigo]);
-                   usuarios[numAmigo].getSeguidores()[a] = null;
-                   amigos(numPerfil);
+                        try (DBConnection dbConnection = new DBConnection()) {
+                        verif = sd.verifSeguindo(id, idSeguido, dbConnection.getConnection());
+                        if (verif == false) {
+                            System.out.println("Você não segue essa conta");
+                            perfil(id);
+                        } else {
+                            sd.pararSeguir(id, idSeguido, dbConnection.getConnection());
+                        }
+                    } catch (Exception e) { // ou Throwable se preferir capturar qualquer exceção
+                        System.err.println("Erro ao interagir com o banco de dados: " + e.getMessage());
+                        e.printStackTrace();
+                    }
                     return;
-                            
-                    
-                } else {
-                 System.out.println("Você não segue esse perfil!");
-                  tela(numPerfil);
-                  return;   
-                }
                                   
                 case 3:
-                     perfil(numPerfil, usuarios);
+                     perfil(id);
                     return;
                     
                 default:
                     System.out.println("Opção inválida. Tente novamente.");
             }
-           }    
+    }
+    public void seguidores (int id) {
+        int seguidores = 0;
+                    try (DBConnection dbConnection = new DBConnection()) {
+                        seguidores = sd.contarSeguidores(id, dbConnection.getConnection());
+                        System.out.println("Você é seguido por:  " + seguidores + " pessoas.");
+                        List<String> nomeSeguidores = sd.obterNomesSeguidores(id, dbConnection.getConnection());
+
+            if (!nomeSeguidores.isEmpty()) {
+                System.out.println("Pessoas estão seguindo você: ");
+                for (String nome : nomeSeguidores) {
+                    System.out.println(nome);
+                }
+            }
+                    } catch (Exception e) { 
+                        System.err.println("Erro ao interagir com o banco de dados: " + e.getMessage());
+                        e.printStackTrace();
+                    }
+    }
+           
     public Programa() {
-        setarPessoas(usuarios);
-        setarAlimen(alimentos);
         menu();
     }
     

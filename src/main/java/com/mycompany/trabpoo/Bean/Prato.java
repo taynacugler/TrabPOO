@@ -10,15 +10,41 @@ import java.time.LocalDateTime;
 public class Prato {
     private static int cont;
     private int id;
-    private Refeicoes refeição;
-    private Alimento fonteProt;
-    private Alimento fonteCarb;
-    private Alimento fonteGord;
-    private double proteína;
-    private double gordura;
-    private double carboidratos;
+    private int dieta_id;
+    private int fonteProt;
+    private int fonteCarb;
+    private int fonteGord;
+    private double porcaoProt;
+    private double porcaoGord;
+    private double porcaoCarb;
     private LocalDateTime dataCriacao;
     private LocalDateTime dataModificacao;
+
+    public double getPorcaoProt() {
+        return porcaoProt;
+    }
+
+    public void setPorcaoProt(double porcaoProt) {
+        this.porcaoProt = porcaoProt;
+    }
+
+    public double getPorcaoGord() {
+        return porcaoGord;
+    }
+
+    public void setPorcaoGord(double porcaoGord) {
+        this.porcaoGord = porcaoGord;
+    }
+
+    public double getPorcaoCarb() {
+        return porcaoCarb;
+    }
+
+    public void setPorcaoCarb(double porcaoCarb) {
+        this.porcaoCarb = porcaoCarb;
+    }
+    
+    
 
     public Prato() {
         this.id = ++Prato.cont;
@@ -43,63 +69,41 @@ public class Prato {
     public int getId() {
         return id;
     }
-    public Refeicoes getRefeição() {
-        return refeição;
+
+    public int getDieta_id() {
+        return dieta_id;
     }
 
-    public void setRefeição(Refeicoes refeição) {
-        this.refeição = refeição;
+    public void setDieta_id(int dieta_id) {
+        this.dieta_id = dieta_id;
     }
 
-    public Alimento getFonteProt() {
+  
+    public int getFonteProt() {
         return fonteProt;
     }
 
-    public void setFonteProt(Alimento fonteProt) {
+    public void setFonteProt(int fonteProt) {
         this.fonteProt = fonteProt;
     }
 
-    public Alimento getFonteCarb() {
+    public int getFonteCarb() {
         return fonteCarb;
     }
 
-    public void setFonteCarb(Alimento fonteCarb) {
+    public void setFonteCarb(int fonteCarb) {
         this.fonteCarb = fonteCarb;
     }
 
-    public Alimento getFonteGord() {
+    public int getFonteGord() {
         return fonteGord;
     }
 
-    public void setFonteGord(Alimento fonteGord) {
+    public void setFonteGord(int fonteGord) {
         this.fonteGord = fonteGord;
     }
 
-    public double getProteína() {
-        return proteína;
-    }
-
-    public void setProteína(double protProt, double protCarb, double protGord) {
-        this.proteína = protProt + protCarb + protGord;
-    }
-
-    public double getGordura() {
-        return gordura;
-    }
-
-    public void setGordura(double gordProt, double gordCarb, double gordGord) {
-        this.gordura = gordProt + gordCarb + gordGord;
-    }
-
-    public double getCarboidratos() {
-        return carboidratos;
-    }
-
-    public void setCarboidratos(double carbProt, double carbCarb, double carbGord) {
-        this.carboidratos = carbProt + carbCarb + carbGord;
-    }
-    
-
+   
     
    
 }

@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 public class Publicacoes {
     int id; 
     private static int cont;
-    Pessoa pessoa;
+    int pessoa_id;
     String publicacao; 
     private LocalDateTime dataCriacao;
     private LocalDateTime dataModificacao;
@@ -46,14 +46,15 @@ public class Publicacoes {
         this.id = id;
     }
 
-    public Pessoa getPessoa() {
-        return pessoa;
+    public int getPessoa_id() {
+        return pessoa_id;
     }
 
-    public void setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
+    public void setPessoa_id(int pessoa_id) {
+        this.pessoa_id = pessoa_id;
     }
 
+   
     public String getPublicacao() {
         return publicacao;
     }

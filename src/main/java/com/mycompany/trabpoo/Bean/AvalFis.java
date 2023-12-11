@@ -11,6 +11,7 @@ public class AvalFis {
     private static int cont;
     private int id;
     private Pessoa pessoa;
+    private int pessoa_id;
     private double peso;
     private double altura;
     private double idade;
@@ -28,6 +29,14 @@ public class AvalFis {
     private double massaMagra;
     private LocalDateTime dataCriacao;
     private LocalDateTime dataModificacao;
+
+    public int getPessoa_id() {
+        return pessoa_id;
+    }
+
+    public void setPessoa_id(int pessoa_id) {
+        this.pessoa_id = pessoa_id;
+    }
   
 
     public AvalFis() {
@@ -143,13 +152,13 @@ public class AvalFis {
         return TMB;
     }
 
-    public void setTMB() {
-        if (pessoa.getSexo().equals("f"))
+    public void setTMB(String sexo) {
+        if (sexo.equals("f"))
         {
           this.TMB = atvFis * (655 + ( (9.6 * peso) + (1.8 * (altura*100)) - (4.7 * idade)  ));
             
         }
-        else if (pessoa.getSexo().equals("m")) {
+        else if (sexo.equals("m")) {
           this.TMB = atvFis * (66 + ( (13.7 * peso) + (5 * (altura*100)) - (6.8 * idade)  ));
         }
     }
@@ -158,15 +167,15 @@ public class AvalFis {
         return BF;
     }
 
-    public void setBF() {
-        if (pessoa.getSexo().equals("f"))
+    public void setBF(String sexo) {
+        if (sexo.equals("f"))
         { 
           double x = 0;
           x = cintura + quadril - pescoco;
          this.BF =(163.205*Math.log10(x)) - (97.684 *Math.log10(altura*100))- 78.387;
             
         }
-        else if (pessoa.getSexo().equals("m")) {
+        else if (sexo.equals("m")) {
           this.BF = (86.010*Math.log10 (abdomem-pescoco))-(70.041*Math.log10(altura*100)) + 36.76;
         }
     }
@@ -186,6 +195,22 @@ public class AvalFis {
     public void setMassaMagra() {
         this.massaMagra = peso*(1-(BF/100));
     }
+    public void setIMC_calculado(double IMC) {
+        this.IMC = IMC;
+    }
+     public void setTMB_calculado(double TMB) {
+        this.TMB = TMB;
+    }
+      public void setBF_calculado(double BF) {
+        this.BF = BF;
+    }
+       public void setMassaGorda_calculado(double massaGorda) {
+        this.massaGorda = massaGorda;
+    }
+       public void setMassaMagra_calculado(double massaMagra) {
+        this.massaMagra = massaMagra;
+    }
+    
     
    
     

@@ -10,14 +10,14 @@ import java.time.LocalDateTime;
 public class Chat {
     int id;
     private static int cont = 0;
-    Pessoa pessoa;
-    String [] mensagem;
+    int idRemetente;
+    int idRecebidas;
+    String mensagem;
     private LocalDateTime dataCriacao;
     private LocalDateTime dataModificacao;
 
     public Chat() {
         this.id = ++Chat.cont;
-        mensagem = new String[30];
         dataCriacao = LocalDateTime.now();
     }
     
@@ -25,20 +25,30 @@ public class Chat {
         return id;
     }
 
+    public int getIdRemetente() {
+        return idRemetente;
+    }
+
+    public void setIdRemetente(int idRemetente) {
+        this.idRemetente = idRemetente;
+    }
+
+    public int getIdRecebidas() {
+        return idRecebidas;
+    }
+
+    public void setIdRecebidas(int idRecebidas) {
+        this.idRecebidas = idRecebidas;
+    }
+
    
-    public Pessoa getPessoa() {
-        return pessoa;
-    }
 
-    public void setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
-    }
 
-    public String[] getMensagem() {
+    public String getMensagem() {
         return mensagem;
     }
 
-    public void setMensagem(String[] mensagem) {
+    public void setMensagem(String mensagem) {
         this.mensagem = mensagem;
     }
     

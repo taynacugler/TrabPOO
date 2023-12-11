@@ -8,10 +8,9 @@ import java.sql.Connection;
 public class TrabPOO {
 
     public static void main(String[] args) {
-        //Programa prog = new Programa();
-         DBConnection dbConnection = new DBConnection();
+        Programa prog = new Programa();
 
-         dbConnection.DBconnection();
-         dbConnection.closeConnection();
+    
+         
     }
 }
